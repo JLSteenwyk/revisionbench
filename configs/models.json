@@ -1,0 +1,22 @@
+{
+  "qwen": {
+    "upstream": "Qwen/Qwen3.5-35B-A3B",
+    "upstream_revision": "59d61f3ce65a6d9863b86d2e96597125219dc754",
+    "repository": "unsloth/Qwen3.5-35B-A3B-GGUF",
+    "revision": "bc014a17be43adabd7066b7a86075ff935c6a4e2",
+    "filename": "Qwen3.5-35B-A3B-Q4_K_M.gguf",
+    "precision": "Q4_K_M mixed quantization; third-party conversion",
+    "license": "Apache-2.0",
+    "eligibility": "pending runtime and competence validation"
+  },
+  "ministral": {
+    "upstream": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
+    "upstream_revision": "3cea74c1ebaf5ce5f5a2553de470e2ceab825142",
+    "repository": "mistralai/Ministral-3-14B-Instruct-2512-GGUF",
+    "revision": "74fac473c43357d7fb2671713608183cc72496d0",
+    "filename": "Ministral-3-14B-Instruct-2512-BF16.gguf",
+    "precision": "BF16, official GGUF conversion",
+    "license": "Apache-2.0",
+    "eligibility": "pending runtime and competence validation"
+  }
+}

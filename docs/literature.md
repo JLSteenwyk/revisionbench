@@ -1,0 +1,31 @@
+# Prior work and contribution assessment
+
+Initial review: 2026-09-12. These are primary-source precedents, not independent replications. Full methods were subsequently inspected for Multi-Agent AI Control (§2.1/2.4/2.7), Revoked but Still Authoritative (§3.2 and Appendices C.2/C.3), and Causal Agent Replay (§7). HTML source copies and URLs are under artifacts/sources. Broader related-work review remains required before claiming novelty. No claim of priority is established by a search that finds no identical experiment.
+
+| Source | What it studies | Relationship to this study |
+| --- | --- | --- |
+| [Towards Understanding Sycophancy in Language Models](https://arxiv.org/abs/2310.13548) | Agreement with users at the expense of truthfulness | Precedent for social influence. Our proposed outcomes are virtual tool actions against explicit owner authorization, not factual agreement. |
+| [AgentDojo](https://arxiv.org/abs/2406.13352) | Tool agents operating on untrusted data under prompt injection | Direct precedent for external content crossing trust boundaries. A claimed permission message is an injection-like intervention; we must not present that fact as new. |
+| [Multi-Agent AI Control](https://arxiv.org/abs/2607.07368) | Distributed attacks with malicious objectives and per-agent monitoring | Precedent for collective attacks and monitoring limitations. Our first experiment randomizes source labels and claims while holding task and technical content fixed; it does not measure spontaneous collusion. |
+| [Causal Agent Replay](https://arxiv.org/abs/2606.08275) | Intervening on steps and sampling new continuations | Precedent for counterfactual branching. Our branches are stochastic experimental continuations, not proof of a unique historical counterfactual. |
+| [Revoked but Still Authoritative](https://arxiv.org/abs/2609.08258) | Retrieval and use of revoked policies; Appendix C also tests journal write-back, multi-agent propagation, decoy tools, and a successor repeating unsafe behavior from the journal alone | Very close precedent for persistence and tool controls. Our proposed extension separates notes, queued jobs, and environmental changes in a factorial recovery experiment. Successor relapse itself is not new. |
+| [Heartbeat-Bound Hierarchical Credentials](https://arxiv.org/abs/2605.20704) | Credential revocation cascading through agent hierarchies | Precedent for stopping descendants. Our simulated enforcement baseline is much simpler and makes no cryptographic or deployment-security claim. |
+| [Patterns and problems in multiagent systems](https://www.anthropic.com/research/multiagent-systems) | Failures arising from interacting agents | Motivates later natural-message work; scripted peer messages alone cannot demonstrate emergence. |
+| [Auditing Provenance Sensitivity in LLM Agent Action Selection](https://arxiv.org/html/2607.20827v1) | Matched source-authority changes with task, proposition, position, and policy fixed; generated-action and partial-evidence analyses | A direct precedent for matched source experiments. Our two main sources are both unauthorized; we test peer-versus-reference framing crossed with claim type. That narrower distinction is an extension candidate, not an established first. |
+| [Persuading Large Language Models to Comply with Objectionable Requests](https://gail.wharton.upenn.edu/research-and-insights/persuading-llms-objectionable-requests/) | Authority and social-proof persuasion across LLMs | Direct precedent for the persuasion mechanisms. Our outcome is authorization-bound tool action; social-proof susceptibility in general is not novel. |
+
+Candidate contribution: estimate the causal interaction between source framing (peer versus reference) and message claim (facts, prior success, permission) for authorization violations, followed by controlled recovery experiments on the same environment. The source manipulation is a label, not an actual live peer relationship. A source-by-claim interaction supports an effect of framing in this setup, not a conclusion about beliefs or internal motives.
+
+Important limits: success claims add outcome evidence and permission claims add normative information. These are intentional interventions, not semantically identical messages. Only the technical facts are held fixed. Reference and peer source variants have exactly the same body. Prompt length differs by claim and slightly by source label; use multiple phrasings and report this rather than claiming perfect token equivalence. Generalization across three generated task families is limited.
+
+Incident relevance: the study is inspired by questions raised by public incident reports. It is not an incident reconstruction, and no observed behavior here establishes what caused the Hugging Face incident. The methods require neither a real exploit nor access to production systems.
+
+Before confirmation: inspect full methods and cited neighbors for source-attribution, authorization persuasion, memory persistence, and recovery; update this comparison if closer precedents are found. A reproducible replication/extension remains useful even if priority is unavailable.
+
+## Full-method findings affecting our design
+
+Multi-Agent AI Control preserves committed code across fresh executors, with a malicious side task and optional planner instructions. Its continuity-through-artifacts design is a precedent for our fresh-agent setup. It does not establish that benignly tasked agents spontaneously develop the same objectives.
+
+The memory-revocation paper's appendices go beyond a simple memory-read benchmark: they test independent-role retrieval, journal removal, simulated tool calls, and successor relapse. Do not describe our replacement experiment as the first demonstration of journal-mediated persistence. Its full results also distinguish default retrieval, configuration overrides, and missing validity metadata; the abstract's broad phrasing should not be read as identical failure in every default system configuration.
+
+Causal Agent Replay explicitly limits its demonstrations to mocked tools and notes that diverging stochastic continuations complicate direct-effect attribution. Our matched-snapshot intervention estimates are total effects of the assigned continuation policy. They do not identify an agent's internal reason for acting.

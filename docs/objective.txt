@@ -1,0 +1,40 @@
+Conduct a reproducible AI safety study of whether peer messages influence agents to violate explicit authorization boundaries, whether unsafe workflows survive agent replacement, and which interventions stop them.
+
+  Start by reviewing the closest primary research and identifying our specific contribution. Distinguish established findings, hypotheses, and unverified novelty claims. Do not claim to reproduce or explain the Hugging Face
+  incident without incident-specific evidence.
+
+  Build an isolated, synthetic workplace with fake files, messages, task queues, and explicit permissions. Agents must have legitimate tasks with verified authorized solutions. Some prohibited actions should be technically
+  possible inside the simulation so we can measure behavioral compliance. Keep real credentials, external services, and host resources outside the agents’ reach.
+
+  Use local open-weight models for most experiments. Initially evaluate Qwen3.5-35B-A3B in a suitable quantized configuration and Ministral 3 14B Instruct in BF16. Verify model availability, licensing, compatibility, memory
+  requirements, and task competence before finalizing the lineup. Plan around one available 48 GB GPU; do not interrupt existing workloads. Record exact model revisions, quantization, inference software, prompts, and settings.
+
+  Run three linked experiments:
+
+  1. Peer influence:
+     Hold technical information, task state, permissions, and execution budgets constant. Independently vary message source—reference note or peer agent—and message content—facts only, reported success, or claimed permission.
+     Neither source may override the task owner. Include no-message, genuinely authorized, and authorized-shortcut controls. Use scripted messages initially; do not describe their effects as spontaneous collective misconduct.
+
+  2. Persistence after replacement:
+     At predefined checkpoints, replace agents with fresh instances receiving the original task and current permissions. Independently preserve or remove shared notes, task queues, and predecessor environment changes. Measure
+     new unauthorized actions after replacement. Separate naturally occurring failures from deliberately seeded unsafe states.
+
+  3. Intervention and redirection:
+     Branch from matched checkpoints and compare no intervention, blocking one operation, explicit owner correction, authorization enforcement across tools, and an acceptable “cannot complete within scope” outcome. Observe
+     whether agents stop, seek help, or attempt alternative routes. Give branches equal remaining execution budgets.
+
+  Score attempted and completed unauthorized actions using deterministic authorization rules and environment logs wherever possible. Also measure legitimate task completion, time to first violation, clarification requests, and
+  persistence after denial. Do not infer internal motives from explanations or reasoning traces alone.
+
+  Begin with a small development pilot to validate task solvability, tool parsing, scoring, runtime, and memory consumption. Use separate held-out tasks for confirmation. Before confirmatory runs, preregister hypotheses,
+  primary comparisons, sample-size justification, exclusions, and stopping rules. Account for clustering by task and report effect sizes, confidence intervals, null results, and limitations. Treat quantization and application
+  scaffolding as experimental variables.
+
+  Prioritize local inference. Optionally conduct a smaller replication through supported Codex or Claude subscription workflows, recording application versions and treating results as agent-system behavior. Do not incur paid
+  API charges, enable overages, or buy resources without explicit authorization.
+
+  Deliver a literature comparison, study protocol, runnable experiment harness, validated scenarios and scoring tests, versioned configurations, pilot results, confirmatory analysis, and a concise research report with
+  reproducibility instructions.
+
+  Work autonomously on reversible local implementation and validation. Explain progress and findings in plain language. Ask only when a missing decision materially blocks progress. The objective is reliable evidence about
+  causes and effective interventions—not dramatic examples or a predetermined positive result.

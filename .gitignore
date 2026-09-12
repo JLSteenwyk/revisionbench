@@ -1,0 +1,7 @@
+.venv/
+vendor/
+models/
+__pycache__/
+*.pyc
+results/*/episodes/
+artifacts/sources/*.pdf
