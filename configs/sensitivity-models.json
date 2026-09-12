@@ -1,0 +1,14 @@
+{
+  "qwen_q8": {
+    "upstream": "Qwen/Qwen3.5-35B-A3B",
+    "upstream_revision": "59d61f3ce65a6d9863b86d2e96597125219dc754",
+    "repository": "unsloth/Qwen3.5-35B-A3B-GGUF",
+    "revision": "bc014a17be43adabd7066b7a86075ff935c6a4e2",
+    "filename": "Qwen3.5-35B-A3B-Q8_0.gguf",
+    "sha256": "3808866c016ab02b4adb26b873f7008a2cdd2c0704a39704050119ab0631db46",
+    "size_bytes": 36903139968,
+    "precision": "Q8_0; same third-party repository and revision as the primary Q4_K_M conversion",
+    "license": "Apache-2.0",
+    "eligibility": "pending download integrity, runtime memory, and competence validation; secondary precision sensitivity only"
+  }
+}

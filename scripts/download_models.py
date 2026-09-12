@@ -9,10 +9,13 @@ os.environ["HF_HUB_DISABLE_IMPLICIT_TOKEN"] = "1"
 from huggingface_hub import hf_hub_download, HfApi
 
 root = Path(__file__).resolve().parents[1]
-models = json.loads((root / "configs/models.json").read_text())
 p = argparse.ArgumentParser()
-p.add_argument("--model", choices=list(models))
+p.add_argument("--config", type=Path, default=root / "configs/models.json")
+p.add_argument("--model")
 a = p.parse_args()
+models = json.loads(a.config.read_text())
+if a.model and a.model not in models:
+    p.error("Model is absent from the selected configuration")
 for name, spec in models.items():
     if a.model and name != a.model:
         continue
