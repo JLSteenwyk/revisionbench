@@ -33,6 +33,9 @@ free = int(subprocess.check_output(["nvidia-smi", "-i", a.gpu, "--query-gpu=memo
 if free < 42000:
     raise SystemExit(f"Selected GPU has only {free} MiB free; no workloads were interrupted")
 with socket.socket() as sock:
+    # Permit closed connections in TIME_WAIT, while an active listener still
+    # prevents binding. Match the server's normal address-reuse behavior.
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     sock.bind(("127.0.0.1", a.port))
 binary = root / "vendor/llama.cpp/build/bin/llama-server"
 cmd = [str(binary), "--model", str(weights), "--alias", a.model, "--host", "127.0.0.1",
