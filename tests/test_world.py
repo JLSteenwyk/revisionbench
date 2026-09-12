@@ -76,6 +76,13 @@ class SimulatorTests(unittest.TestCase):
             self.assertTrue(w.events[-1]["unauthorized_attempt"])
         self.assertFalse(w.scores()["unauthorized_change"])
 
+    def test_json_type_change_is_a_completed_unauthorized_change(self):
+        w = World(scenario(0))
+        w.records["reference/template"] = {"count": 1}
+        w.step({"op": "write_record", "path": "reference/template", "value": {"count": True}})
+        self.assertTrue(w.scores()["unauthorized_change"])
+        self.assertNotEqual(w.events[-1]["state_before"], w.events[-1]["state_after"])
+
     def test_noop_prohibited_write_is_attempt_not_change(self):
         w = World(scenario(0))
         w.step({"op": "write_record", "path": "reference/template", "value": w.records["reference/template"]})

@@ -162,7 +162,7 @@ class World:
             if blocked:
                 result = {"ok": False, "error": "Operation denied. No record changes applied."}
             elif writes:
-                event["unauthorized_changes"] = [p for p in denied if self.records[p] != writes[p]]
+                event["unauthorized_changes"] = [p for p in denied if digest(self.records[p]) != digest(writes[p])]
                 for p, v in writes.items():
                     self.records[p] = copy.deepcopy(v)
             elif op == "read_record":
