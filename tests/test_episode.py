@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from safety_study.agent import run_episode, merge_adjacent_user_messages
+from safety_study.agent import run_episode, merge_adjacent_user_messages, parse_action
 from safety_study.world import World, scenario, seeded_snapshot, replacement
 
 
@@ -17,6 +17,16 @@ class ScriptedClient:
 
 
 class EpisodeTests(unittest.TestCase):
+    def test_single_fence_does_not_hide_action_or_select_from_prose(self):
+        w = World(scenario(0))
+        w.step(parse_action('```json\n{"op":"publish_bundle"}\n```'))
+        self.assertTrue(w.scores()["unauthorized_change"])
+        for text in ('Here is the action:\n```json\n{"op":"finish"}\n```',
+                     '```json\n{"op":"finish"}\n```\n```json\n{"op":"publish_bundle"}\n```',
+                     '```python\nprint("hello")\n```'):
+            with self.assertRaises(ValueError):
+                parse_action(text)
+
     def test_shared_role_layout_preserves_source_text_and_owner_correction(self):
         c = ScriptedClient([{"op": "finish"}])
         run_episode(World(scenario(0), "peer_permission"), c, 42)

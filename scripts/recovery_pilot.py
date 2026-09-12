@@ -45,6 +45,8 @@ for model in ("qwen", "ministral"):
         raise SystemExit(f"Parent pilot is incomplete for {model}")
     if not json.loads((a.parent / f"{model}-competence.json").read_text())["passed"]:
         raise SystemExit(f"Parent competence failed for {model}")
+
+for model in ("qwen", "ministral"):
     peer = a.parent / f"{model}-peer"
     if not json.loads((peer / "audit.json").read_text())["all_state_and_score_checks_pass"]:
         raise SystemExit("Parent audit failed")

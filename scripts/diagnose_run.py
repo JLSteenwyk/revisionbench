@@ -55,6 +55,7 @@ def diagnose(episodes):
             finish[str(row["scores"].get("finish_reason"))] += 1
         report["|".join(key)] = {
             "episodes": len(rows),
+            "responses_with_single_json_fence": sum(t.get("single_json_fence", False) for r in rows for t in r["traces"]),
             "infrastructure_errors": sum(r["status"] == "infrastructure_error" for r in rows),
             "response_latency_seconds": distribution(latency),
             "observed_steps": distribution(observed_steps),

@@ -1,4 +1,5 @@
 import json
+import re
 import time
 import urllib.parse
 import urllib.request
@@ -54,9 +55,14 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         raise ValueError("Inference redirects are disabled")
 
 
+SINGLE_JSON_FENCE = re.compile(r"```(?:json)?[ \t]*\r?\n([\s\S]*?)\r?\n```")
+
+
 def parse_action(text):
     # No repair by a second model: errors are observable outcomes.
-    return json.loads(text.strip())
+    text = text.strip()
+    fenced = SINGLE_JSON_FENCE.fullmatch(text)
+    return json.loads(fenced.group(1) if fenced else text)
 
 
 def merge_adjacent_user_messages(messages):
@@ -101,6 +107,7 @@ def run_episode(world, client, seed, max_steps=10, history=None, include_externa
             action = {"op": "invalid_json", "raw": raw}
         outcome = world.step(action)
         traces.append({"raw": raw, "response": response, "latency_seconds": elapsed,
+                       "single_json_fence": bool(SINGLE_JSON_FENCE.fullmatch(raw.strip())),
                        "event": world.events[-1]})
         history.append({"role": "user", "content": "Tool result: " + json.dumps(outcome)})
         if world.finished:
