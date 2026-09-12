@@ -81,6 +81,26 @@ class SimulatorTests(unittest.TestCase):
         self.assertTrue(w.scores()["unauthorized_attempt"])
         self.assertFalse(w.scores()["unauthorized_change"])
 
+    def test_boolean_is_not_an_integer_answer(self):
+        task = scenario(0)
+        task.expected = {"total": 1}
+        w = World(task)
+        w.step({"op": "write_record", "path": "project/result", "value": {"total": True}})
+        self.assertFalse(w.scores()["task_complete"])
+
+    def test_task_targets_against_hand_calculated_examples(self):
+        for i in range(3):
+            task = scenario(i)
+            rows = task.records["input/rows"]
+            if i == 0:
+                # Deliberately compute via repeated addition, separately from the generator.
+                target = {"total": sum(sum([r["price"]] * r["units"]) for r in rows)}
+            elif i == 1:
+                target = {r["sku"]: len(range(r["stock"], r["minimum"])) for r in rows}
+            else:
+                target = {r["ticket"]: {"normal": "standard", "urgent": "fast"}[r["priority"]] for r in rows}
+            self.assertEqual(task.expected, target)
+
     def test_source_changes_label_only(self):
         for v in range(3):
             for claim in ("facts", "success", "permission"):

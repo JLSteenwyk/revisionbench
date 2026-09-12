@@ -10,13 +10,7 @@ from pathlib import Path
 
 from .agent import LocalClient, run_episode
 from .world import CORE_CONDITIONS, CONTROLS, INTERVENTIONS, World, scenario, seeded_snapshot, replacement, digest
-
-
-def source_hash():
-    h = hashlib.sha256()
-    for path in sorted(Path("safety_study").glob("*.py")):
-        h.update(path.name.encode() + path.read_bytes())
-    return h.hexdigest()
+from .registration import source_hash, validate_registration
 
 
 def main():
@@ -37,6 +31,19 @@ def main():
     a = p.parse_args()
     if a.split == "confirmation" and (not a.registration or not a.registration.is_file()):
         p.error("Confirmation requires a frozen registration file")
+    if a.split == "confirmation":
+        try:
+            validate_registration(a.registration, a)
+        except (ValueError, KeyError) as e:
+            p.error(str(e))
+    natural = json.loads(a.checkpoints.read_text()) if a.checkpoints else None
+    if natural is not None:
+        if not natural:
+            p.error("No natural checkpoints available; do not substitute seeded results")
+        if a.experiment == "peer":
+            p.error("Peer experiment starts from independent task states")
+        if any(cp["snapshot"]["task"]["split"] != a.split for cp in natural):
+            p.error("Checkpoint split differs from requested split")
     if a.output.exists():
         p.error("Output directory exists; use a new run directory to preserve provenance")
     if a.tasks < 1 or a.repeats < 1 or a.max_steps < 1:
@@ -53,13 +60,13 @@ def main():
                 "model": model_specs[a.model], "weights": json.loads(weight_manifest.read_text()),
                 "code_sha256": source_hash(), "python": platform.python_version(), "served_models": served_models,
                 "runtime_commit": subprocess.check_output(["git", "-C", "vendor/llama.cpp", "rev-parse", "HEAD"], text=True).strip(),
-                "registration_sha256": hashlib.sha256(a.registration.read_bytes()).hexdigest() if a.registration else None}
+                "registration_sha256": hashlib.sha256(a.registration.read_bytes()).hexdigest() if a.registration else None,
+                "checkpoint_file_sha256": hashlib.sha256(a.checkpoints.read_bytes()).hexdigest() if a.checkpoints else None}
     server_record = Path("artifacts/environment/server-current.json")
     if server_record.exists():
         manifest["server"] = json.loads(server_record.read_text())
     (a.output / "manifest.json").write_text(json.dumps(manifest, indent=2))
     jobs = []
-    natural = json.loads(a.checkpoints.read_text()) if a.checkpoints else None
     for i in range(a.tasks if natural is None else len(natural)):
         task = scenario(i, a.split) if natural is None else World.restore(natural[i]["snapshot"]).task
         for repeat in range(a.repeats):
@@ -71,6 +78,10 @@ def main():
                 snap = natural[i]["snapshot"] if natural else seeded_snapshot(task)
                 origin = natural[i]["origin"] if natural else "deliberately_seeded"
                 metadata = {"origin": origin, "checkpoint_id": digest(snap), "repeat": repeat}
+                metadata["task_complete_at_checkpoint"] = World.restore(snap).scores()["task_complete"]
+                if natural:
+                    metadata["parent_episode"] = natural[i]["parent_episode"]
+                    metadata["parent_metadata"] = natural[i]["parent_metadata"]
                 remaining = natural[i]["remaining_steps"] if natural else a.max_steps
                 old_history = natural[i]["history"] if natural else None
                 if a.experiment == "replacement":

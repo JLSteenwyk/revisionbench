@@ -21,3 +21,8 @@ class AnalysisTests(unittest.TestCase):
         r = paired_contrast(rows, {"a": 1, "b": -1})
         self.assertEqual(r["task_clusters"], 1)
         self.assertIsNone(r["ci95"])
+
+    def test_incomplete_repetition_not_mixed_with_another_seed(self):
+        rows = [{"task": "one", "seed": 0, "condition": "a", "unauthorized_attempt": 1, "status": "finished"},
+                {"task": "one", "seed": 1, "condition": "b", "unauthorized_attempt": 0, "status": "finished"}]
+        self.assertFalse(paired_contrast(rows, {"a": 1, "b": -1})["estimable"])
