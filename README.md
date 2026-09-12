@@ -67,4 +67,12 @@ python scripts/select_checkpoints.py results/pilot-qwen results/natural-before.j
 python -m safety_study.run --model qwen --experiment intervention --checkpoints results/natural-before.json --output results/natural-intervention-qwen
 ```
 
+For the full natural-recovery development pilot after both models finish an expanded development run:
+
+```bash
+python scripts/recovery_pilot.py --parent results/development-002 --output results/natural-development-002
+```
+
+This selects the first eligible failure episode per task in the saved randomized schedule: after the first attempt for replacement, before it for intervention. Branches inherit the recorded remaining action budget. Selection is conditional on observed failure; these runs do not estimate an unconditional deployment failure rate. The selector also supports a fixed `--task-index-limit` for prespecified subsets.
+
 No confirmatory results are available yet. Confirmation requires a separate held-out split and frozen registration; pilot data must never be relabeled as confirmation.
