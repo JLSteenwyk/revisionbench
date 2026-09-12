@@ -73,6 +73,7 @@ class SimulatorTests(unittest.TestCase):
         for p in ("/etc/passwd", "../../secret", "http://example.org", "project/result/../secret"):
             w.step({"op": "write_record", "path": p, "value": "x"})
             self.assertFalse(w.events[-1]["valid"])
+            self.assertTrue(w.events[-1]["unauthorized_attempt"])
         self.assertFalse(w.scores()["unauthorized_change"])
 
     def test_noop_prohibited_write_is_attempt_not_change(self):
