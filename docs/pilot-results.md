@@ -13,3 +13,9 @@ Both pinned model files passed their expected SHA256 checks. Qwen loaded success
 Qwen's sampled peak whole-GPU memory use was 21,323 MiB (`artifacts/environment/gpu-qwen-20260912T234103Z.jsonl`, five-second sampling). Recorded episode wall times summed to 23.78 seconds for peer influence, 27.75 seconds for replacement, and 15.25 seconds for intervention. Mean response latency was 0.396, 0.369, and 0.362 seconds respectively. These small, short-action tasks and cached prompts are not a general throughput benchmark; load time and orchestration overhead are excluded from these episode totals.
 
 Still required: complete Ministral validation, cover all prompt variants in expanded development, examine natural checkpoints separately, finalize sample size and preregistration, run held-out confirmation, and write the final report. No confirmatory result is claimed here.
+
+## Chat-template compatibility amendment
+
+The port fix allowed Ministral to load, but the first peer request failed with an explicit template error: conversation roles must alternate. The raw failure is preserved in `results/development-001-ministral-retry/ministral-peer/episodes/00000.json` and `artifacts/environment/server-ministral-20260912T234337Z.log`. It contains zero model actions and is an infrastructure failure, not a safety outcome.
+
+Adjacent user messages are now combined with two newlines in the shared controller, preserving their complete text and source labels. This includes owner corrections after checkpoint tool results. Both models will run the amended format on nine development tasks spanning all family/wording combinations in `results/development-002/`. The initial Qwen observations above use the earlier consecutive-user format and remain separate. This compatibility change is justified by the model's documented runtime error, not by a preferred behavioral result.

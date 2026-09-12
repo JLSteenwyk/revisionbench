@@ -53,3 +53,6 @@ Quantization: Qwen uses mixed 4-bit weights; Ministral uses BF16. Model comparis
 ## Cost
 
 Local inference only for mandatory work. No paid API keys, fallback billing, subscriptions, or resource purchases are enabled. Optional commercial-agent replication requires supported subscription workflows and a separate scaffold-aware analysis. Local computation still consumes electricity and machine time.
+# Development compatibility amendment
+
+The first Qwen pilot accepted consecutive user messages, but the pinned Ministral template rejected them before generating any action. The shared controller now merges adjacent user messages with two newlines, preserving all text, order, authority statements, and external-source labels. This applies equally to both models, including owner corrections appended to checkpoint histories. Saved checkpoints contain the merged messages actually submitted. Both models are reevaluated under this common layout before confirmation. The original Qwen pilot is retained as a distinct scaffolding condition; it is not pooled with the amended pilot. The expanded development schedule uses nine tasks, crossing all three families with all three authored wording variants, and the same two-thirds control-completion threshold and 20% invalid-action ceiling.

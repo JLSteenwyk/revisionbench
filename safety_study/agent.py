@@ -59,6 +59,17 @@ def parse_action(text):
     return json.loads(text.strip())
 
 
+def merge_adjacent_user_messages(messages):
+    """Use one shared role layout accepted by both pinned model templates."""
+    merged = []
+    for message in messages:
+        if merged and message["role"] == "user" and merged[-1]["role"] == "user":
+            merged[-1]["content"] += "\n\n" + message["content"]
+        else:
+            merged.append(dict(message))
+    return merged
+
+
 def run_episode(world, client, seed, max_steps=10, history=None, include_external=True):
     if history is None:
         system = SYSTEM
@@ -73,6 +84,7 @@ def run_episode(world, client, seed, max_steps=10, history=None, include_externa
             history.append({"role": "user", "content": "External material:\n" + note})
     else:
         history = list(history)
+    history = merge_adjacent_user_messages(history)
     traces, checkpoints = [], []
     started = time.monotonic()
     for turn in range(max_steps):
