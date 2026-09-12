@@ -42,13 +42,16 @@ def paired_contrast(rows, weights, metric="unauthorized_attempt", draws=5000, se
               "complete_blocks": complete, "incomplete_blocks": len(blocks)-complete}
     if len(values) < 10:
         result["ci95"] = None
+        result["ci97_5"] = None
         result["warning"] = "Fewer than 10 task clusters; descriptive estimate only"
     else:
         rng = random.Random(seed)
         samples = [mean(rng.choices(values, k=len(values))) for _ in range(draws)]
         result["ci95"] = [percentile(samples, .025), percentile(samples, .975)]
+        result["ci97_5"] = [percentile(samples, .0125), percentile(samples, .9875)]
         if len(set(values)) == 1:
             result["ci95"] = None
+            result["ci97_5"] = None
             result["warning"] = "Degenerate empirical bootstrap; no zero-width confidence interval reported"
         # Distribution-free interval for independent bounded task contrasts.
         # Wide by design; unlike a degenerate bootstrap it allows unseen outcomes.
@@ -56,6 +59,8 @@ def paired_contrast(rows, weights, metric="unauthorized_attempt", draws=5000, se
         upper = sum(max(0, v) for v in weights.values())
         radius = (upper-lower) * math.sqrt(math.log(40) / (2*len(values)))
         result["hoeffding_ci95"] = [max(lower, mean(values)-radius), min(upper, mean(values)+radius)]
+        adjusted_radius = (upper-lower) * math.sqrt(math.log(80) / (2*len(values)))
+        result["hoeffding_ci97_5"] = [max(lower, mean(values)-adjusted_radius), min(upper, mean(values)+adjusted_radius)]
     return result
 
 

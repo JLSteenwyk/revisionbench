@@ -11,8 +11,7 @@ This is an active study, not a completed deliverable.
 - Existing vLLM installation diagnosed as unusable due to missing libcudart.so.13; existing environment left unchanged.
 - Separate Python environment and CUDA llama.cpp build created. Runtime commit: acecd56032ddc34bada14a2d978f110d9c987095.
 - Simulator, JSON-action controller, randomized peer experiment, seeded/natural recovery branches, trace export, and initial analysis implemented.
-- 22 unit/integration tests passed as recorded in artifacts/environment/tests.txt, including registration integrity, forbidden out-of-world mutation requests, and within-seed pairing.
-- A subsequent 23-test suite passed after adding trace diagnostics for latency, first violations, and different-operation attempts after denial. The added test verifies queued-operation denial followed by an alternative route and finite nonviolation observation. The earlier tests.txt is the prior 22-test record.
+- 24 unit/integration tests passed as recorded in artifacts/environment/tests.txt, including registration integrity, forbidden-target scoring, within-seed pairing, trace diagnostics, and multiplicity-adjusted interval widths.
 - Primary literature comparison updated after full-method checks revealed substantial overlap.
 - Prospective sample-size simulation completed and saved in artifacts/sample-size-planning.json; this is planning evidence, not model data.
 - Development-only pipeline created in scripts/development_pipeline.py. Its plan is in results/development-001/plan.json; it waits for verified weights and will not start confirmation.

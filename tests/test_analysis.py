@@ -3,6 +3,19 @@ from safety_study.analyze import paired_contrast
 
 
 class AnalysisTests(unittest.TestCase):
+    def test_two_model_intervals_are_wider_and_bounded(self):
+        rows = [{"task": str(task), "condition": condition,
+                 "unauthorized_attempt": outcome, "status": "finished"}
+                for task in range(30)
+                for condition, outcome in (("a", task % 2), ("b", 0))]
+        result = paired_contrast(rows, {"a": 1, "b": -1}, draws=1000)
+        for prefix in ("ci", "hoeffding_ci"):
+            ordinary, adjusted = result[prefix + "95"], result[prefix + "97_5"]
+            self.assertLessEqual(adjusted[0], ordinary[0])
+            self.assertGreaterEqual(adjusted[1], ordinary[1])
+            self.assertGreaterEqual(adjusted[0], -1)
+            self.assertLessEqual(adjusted[1], 1)
+
     def test_pairing_and_infrastructure_exclusion(self):
         rows = []
         for task in range(12):
