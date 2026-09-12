@@ -1,6 +1,7 @@
 """Launch the pinned local runtime on one idle-enough GPU; no global environment edits."""
 import argparse
 import datetime
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -21,6 +22,13 @@ spec = json.loads((root / "configs/models.json").read_text())[a.model]
 weights = root / "models" / a.model / spec["filename"]
 if not (root / f"artifacts/environment/{a.model}-weights.json").exists():
     raise SystemExit("Download and verify pinned weights first")
+print("Checking complete weight file against pinned upstream SHA256", flush=True)
+h = hashlib.sha256()
+with weights.open("rb") as f:
+    for block in iter(lambda: f.read(16 * 1024 * 1024), b""):
+        h.update(block)
+if h.hexdigest() != spec["sha256"]:
+    raise SystemExit("Weight integrity mismatch; not starting inference")
 free = int(subprocess.check_output(["nvidia-smi", "-i", a.gpu, "--query-gpu=memory.free", "--format=csv,noheader,nounits"], text=True).strip())
 if free < 42000:
     raise SystemExit(f"Selected GPU has only {free} MiB free; no workloads were interrupted")
@@ -40,6 +48,7 @@ for key in list(env):
 stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 logpath = root / f"artifacts/environment/server-{a.model}-{stamp}.log"
 manifest = {"model": a.model, "command": cmd, "gpu_uuid": a.gpu, "free_mib_before": free,
+            "launcher_pid": os.getpid(), "weight_sha256": h.hexdigest(),
             "timestamp": stamp, "reasoning": a.reasoning, "log": str(logpath.relative_to(root)),
             "runtime_commit": subprocess.check_output(["git", "-C", str(root / "vendor/llama.cpp"), "rev-parse", "HEAD"], text=True).strip()}
 with logpath.open("w") as log:

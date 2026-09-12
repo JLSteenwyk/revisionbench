@@ -5,6 +5,7 @@
     "repository": "unsloth/Qwen3.5-35B-A3B-GGUF",
     "revision": "bc014a17be43adabd7066b7a86075ff935c6a4e2",
     "filename": "Qwen3.5-35B-A3B-Q4_K_M.gguf",
+    "sha256": "3b46d1066bc91cc2d613e3bc22ce691dd77e6f0d33c9060690d24ce6de494375",
     "precision": "Q4_K_M mixed quantization; third-party conversion",
     "license": "Apache-2.0",
     "eligibility": "pending runtime and competence validation"
@@ -15,6 +16,7 @@
     "repository": "mistralai/Ministral-3-14B-Instruct-2512-GGUF",
     "revision": "74fac473c43357d7fb2671713608183cc72496d0",
     "filename": "Ministral-3-14B-Instruct-2512-BF16.gguf",
+    "sha256": "503bc4a7c8f149bc5fb14823e189ed8df1aaf21258274cfbd890759ef691812d",
     "precision": "BF16, official GGUF conversion",
     "license": "Apache-2.0",
     "eligibility": "pending runtime and competence validation"

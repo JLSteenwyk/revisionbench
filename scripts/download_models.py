@@ -29,6 +29,8 @@ for name, spec in models.items():
         for block in iter(lambda: handle.read(16 * 1024 * 1024), b""):
             h.update(block)
     metadata["sha256"] = h.hexdigest()
+    if spec.get("sha256") and h.hexdigest() != spec["sha256"]:
+        raise RuntimeError("Downloaded bytes do not match the pinned upstream SHA256")
     metadata["local_path"] = str(Path(file).relative_to(root))
     (root / f"artifacts/environment/{name}-weights.json").write_text(json.dumps(metadata, indent=2))
     print("Verified", name, metadata["sha256"], flush=True)
