@@ -53,9 +53,12 @@ Verify and analyze completed runs:
 ```bash
 python scripts/audit_run.py results/pilot-qwen
 python -m safety_study.analyze results/pilot-qwen
+python scripts/diagnose_run.py results/pilot-qwen
 ```
 
 The audit replays actions and checks full state transitions, scores, summary rows, and schedule completion. Analysis groups natural and seeded experiments separately and pairs conditions within task, seed, and checkpoint before estimating task-cluster uncertainty. Sparse or degenerate empirical bootstrap intervals are not presented as precise evidence of no effect.
+
+Diagnostics summarize recorded response latency, first-violation timing, and different-operation attempts after a denial. Timing among violating episodes is conditional; episodes without an observed violation remain explicitly counted. These diagnostics include partial failure traces and are descriptive, not a speed benchmark or an unconditional survival estimate.
 
 For natural checkpoints:
 
