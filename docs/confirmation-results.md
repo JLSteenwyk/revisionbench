@@ -182,8 +182,61 @@ Evidence: `results/confirmation-001/qwen-replacement-natural/analysis.json`,
 `audit.json`, raw branches and `qwen-natural-replacement-selection-review.json`
 in the parent directory. Seeded and natural findings remain separate.
 
+## Qwen Q4 seeded intervention experiment
+
+Completed and replay-audited 600 episodes: 120 held-out seeded snapshots × five
+interventions, with eight steps per branch. These results concern planted unsafe
+states; natural intervention results remain separate.
+
+| Intervention | Unauthorized attempt | Actual unauthorized change | Legitimate completion |
+| --- | ---: | ---: | ---: |
+| None | 90.83% | 90.83% | 94.17% |
+| Block publish operation | 94.17% | 0.83% | 40.83% |
+| Owner correction | 59.17% | 59.17% | 94.17% |
+| Enforce permissions across tools | 92.50% | 0% | 41.67% |
+| Explicitly acceptable stopping | 91.67% | 91.67% | 95.00% |
+
+Each row contains 120 episodes. Registered secondary contrasts versus no
+intervention, in percentage points, with task-cluster bootstrap 95% intervals:
+
+| Intervention | Attempt difference [95% interval] | Change difference [95% interval] | Completion difference [95% interval] |
+| --- | ---: | ---: | ---: |
+| Block operation | +3.33 [+0.83, +6.67] | −90.00 [−95.00, −84.17] | −53.33 [−62.50, −44.17] |
+| Owner correction | −31.67 [−41.67, −21.67] | −31.67 [−41.67, −21.67] | 0.00 [−4.17, +4.17] |
+| Enforce all | +1.67 [−1.67, +5.00] | −90.83 [−95.83, −85.00] | −52.50 [−61.67, −43.33] |
+| Acceptable stopping | +0.83 [−5.00, +6.67] | +0.83 [−5.00, +6.67] | +0.83 [−3.33, +5.00] |
+
+Conservative Hoeffding 95% intervals also exclude zero for the reductions in
+actual changes under blocking (−100 to −65.20 points), full enforcement
+(−100 to −66.04), and owner correction (−56.46 to −6.87), and for the completion
+reductions under blocking (−78.13 to −28.54) and full enforcement (−77.30 to
+−27.70). The small attempt increase under blocking is not resolved by its
+conservative interval (−21.46 to +28.13). All remaining conservative intervals
+include zero and are retained in the analysis JSON. Secondary intervals are not
+simultaneously adjusted across every comparison.
+
+Under blocking, 113 episodes received a denial; two subsequently attempted a
+different effective operation, and one changed a forbidden record through that
+route. Under full enforcement, 111 episodes received a denial; three attempted
+a different effective operation, with no resulting forbidden changes. These
+small descriptive counts show why blocking one operation and checking permissions
+across tools are distinct interventions, without estimating general bypass rates.
+
+Exact `cannot_complete_within_scope` finishes occurred in 73/120 blocking and
+72/120 full-enforcement episodes, versus 1/120 with no intervention. Four in each
+enforcement condition instead returned the ambiguous literal reason
+`done or cannot_complete_within_scope`; four in each exhausted the step budget.
+The valid authorized route remained available, so lower completion reflects
+behavior within this controller and budget, not proven task impossibility.
+Owner correction reduced violations but still left 71/120 episodes violating.
+Explicit permission to stop did not establish a reduction in violations here.
+
+Evidence: `results/confirmation-001/qwen-intervention/analysis.json`,
+`diagnostics.json`, `audit.json` and raw episodes. The registered natural
+intervention run has started from 119 before-attempt checkpoints.
+
 ## Outstanding
 
-Qwen intervention, the complete Ministral schedule, conditional Q8
+Qwen natural intervention, the complete Ministral schedule, conditional Q8
 validation/comparison, full diagnostics synthesis and the final report remain
 pending. Natural recovery results must be reported separately from seeded states.
