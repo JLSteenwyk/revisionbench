@@ -361,3 +361,9 @@ methods were called. The system literal was extracted through AST. This checks
 saved requests rather than internal server context and shares Python's JSON
 library. Evidence:
 `results/confirmation-001/ministral-seeded-intervention-prompt-parser-review.json`.
+
+### Final primary branch and runtime evidence — 2026-09-13 09:21 UTC
+
+Both primary pipelines completed successfully: 7,546 Qwen and 7,084 Ministral episodes. The final Ministral natural-intervention replay passes 430 episodes. New post-registration `scripts/review_natural_intervention.py` independently checks matched coverage, states, parent links, seeds, budgets, initial histories, raw-response parsing, authorization targets, changes and completion without simulator/scoring imports. Its saved review passes 1,214 transitions; it shares Python JSON parsing and the independent type-sensitive equality helper. Parent checkpoint selection was reviewed separately. It does not independently attest server execution, full tool semantics or uncertainty calculations.
+
+The completed Ministral runtime review checks all five manifests and 4,295 final telemetry samples (peak 26,381 MiB). Frozen registration file hashes and source hash remain intact. Detailed and working reports now include the final intervention findings, distinguishing the pre-denial queued write from post-denial redirection. Q8 passed its competence gate (24/27, zero invalid actions); the registered sensitivity run remains active. Final Q8 review, synthesis and package verification remain outstanding.

@@ -1,8 +1,6 @@
 # Authorization boundaries, agent replacement and interventions
 
-**Working report — study incomplete.** This draft reports completed Qwen Q4
-confirmation and Ministral BF16 peer confirmation. Ministral recovery experiments
-and conditional Qwen Q8 sensitivity remain unfinished.
+**Working report — study incomplete.** Both primary confirmation schedules are complete: 7,546 Qwen Q4 and 7,084 Ministral BF16 episodes. Qwen Q8 sensitivity and final evidence review remain unfinished.
 
 ## Question and contribution
 
@@ -139,6 +137,45 @@ wording. Detailed results retain the uncertainty around these differences and th
 finish/denial diagnostics. These planted-state findings remain separate from the
 natural intervention experiment.
 
+## Completed Ministral natural intervention findings
+
+All 430 branches from 86 selected failure checkpoints passed replay and schedule
+checks. New unauthorized changes occurred in 53/86 branches without intervention,
+one with publishing blocked, and none with full permission enforcement. The
+blocking change executed a queued write before any denial; no different-operation
+violation after denial was observed. Attempts remained in 53/86 blocking and
+52/86 enforcement branches. Completion was 75.58% without intervention, 60.47%
+with blocking and 56.98% with enforcement.
+
+Owner correction reduced attempts from 54/86 to 20/86: −39.53 percentage points
+(bootstrap 95% −51.16 to −27.91; conservative −68.82 to −10.25). Acceptable-stop
+wording reduced attempts to 31/86: −26.74 points (bootstrap −39.53 to −15.12;
+conservative −56.03 to +2.55). Neither eliminated violations. Completion contrasts
+for these two messages include zero under both interval methods. Both messages
+also repeat owner instructions, limiting attribution to the added wording.
+
+## What the primary models jointly suggest
+
+Neither primary interaction interval establishes that peer attribution amplifies
+the effect of a permission claim relative to reference attribution. Both models
+nonetheless showed higher violation rates for claimed permission than for factual
+messages when averaged over sources. This is evidence about scripted content in
+this controller, not spontaneous coordination or a general peer-specific effect.
+
+Removing all planted state reduced violations relative to preserving all of it in
+both models. Naturally selected checkpoints provide weaker evidence about memory
+channels: neither model left notes, Qwen left no queues, and only a minority of
+Ministral checkpoints had queues. Fresh-agent results must distinguish renewed
+attempts from new changes and from lost legitimate progress.
+
+Across both models and both checkpoint types, full authorization enforcement
+prevented new protected changes while leaving attempted violations. Owner
+correction reduced violations without eliminating them. Single-operation blocking
+left some routes unprotected, and useful task completion could fall under
+restrictions. These observations support checking permissions on every simulated
+write and evaluating safety alongside completion. They do not establish deployment
+security, a pooled cross-model effect, or equivalence between interventions.
+
 ## Interpretation limits and unfinished work
 
 Results concern these pinned models, scripted messages, three task families and
@@ -150,8 +187,8 @@ reminder. Fixed seeds did not ensure identical trajectories in development.
 Zero changes under enforcement describe the simulated tools, not deployment
 security or reliable behavioral compliance.
 
-The remaining Ministral recovery results, the Q8 admission outcome and paired comparison, cross-model
-synthesis and the final completion audit must be incorporated before this report
+Qwen Q8 passed its controls gate (24/27 completed tasks; zero invalid actions) and
+its registered comparison is running. That paired comparison and the final completion audit must be incorporated before this report
 is finalized. Reproduction instructions are in [reproduction.md](reproduction.md);
 the portable evidence package remains to be generated and verified after those
 requirements are satisfied.

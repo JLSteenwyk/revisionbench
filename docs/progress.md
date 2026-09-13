@@ -111,3 +111,7 @@ checks remain separate; natural intervention inference continues.
 Seeded intervention prompt/parser review now passes all 600 initial histories
 and 2,213 response/action mappings, including exact intervention wording. Eight
 decoding failures remain included. Natural intervention inference is still running.
+
+### Primary inference complete; Q8 running
+
+Both primary pipelines reached successful audited completion (14,630 episodes total). Ministral natural intervention results are now incorporated into the detailed and working reports. The single protected change under operation blocking was a queued write before any denial, not post-denial redirection. Q8 controls passed (24/27 completion, zero invalid actions) and the registered 1,080-episode sensitivity run is live. Independent final branch/runtime reviews and packaging remain. The preceding prompt-writing turn made no study-state progress; this continuation revalidated actual processes and resumed analysis.
