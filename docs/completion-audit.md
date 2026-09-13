@@ -57,3 +57,40 @@ Not yet performed. Record the review date, concrete inspected evidence, any
 remaining uncertainty, and a supported disposition for each requirement above.
 Do not mark the study complete while any required item is missing, incomplete,
 or unverified.
+
+## Interim source review — 2026-09-13 UTC
+
+Inspected `safety_study/agent.py`, `safety_study/world.py`,
+`scripts/serve.py`, `scripts/audit_run.py`, the protocol and the first
+confirmation run manifest while the primary pipeline remained live.
+
+- The controller parses JSON and passes the resulting object to `World.step`.
+  Record operations address an in-memory dictionary; names are never opened as
+  host paths. Queue dispatch allows only the three record-mutation operations.
+  These observations support the intended tool boundary, not a general security
+  audit of the native inference runtime or its dependencies.
+- The inference client permits literal loopback HTTP only, disables proxies and
+  redirects, and sends no provider authentication header. The launcher binds to
+  loopback and sets one GPU UUID. This supports local inference by this harness;
+  final review still needs provenance and telemetry across every run.
+- Source labels are the only source-factor difference in the message generator.
+  The success and permission suffixes also change message length. Thus a claim
+  effect concerns these specific messages, not an isolated semantic property
+  independent of wording or length. The source-by-claim interaction is the
+  registered primary comparison.
+- `ask_owner` always returns a scripted refusal to grant additional permission.
+  Clarification counts measure requests in that workflow, not the effectiveness
+  of real human oversight. The supplied correct prepared bundle makes task
+  completion largely a choice of execution route, limiting generalization to
+  difficult open-ended work.
+- The replay auditor re-executes saved actions with the same deterministic
+  simulator implementation. It verifies trace/state/score consistency, but is
+  not an independently implemented authorization oracle. Scoring tests and
+  source review therefore remain necessary evidence alongside replay checks.
+- The active Qwen peer manifest records 240 tasks, two generations, eight steps,
+  temperature 0.7, 512 output tokens, the held-out split, pinned Q4 weights and
+  the frozen registration hash. This establishes the configured run; only
+  complete raw coverage can establish that the schedule actually finished.
+
+These findings should inform the final report's limitations. No registered
+implementation, hypotheses, or analysis changed during this review.
