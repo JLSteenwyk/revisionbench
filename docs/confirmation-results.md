@@ -119,11 +119,10 @@ interpretation issue that must be retained in that analysis.
 Evidence: `results/confirmation-001/qwen-replacement/analysis.json`, `audit.json`
 and the raw episodes in the same directory.
 
-Natural replacement has begun from 119 eligible checkpoints under the frozen
-selection rule. None contains a saved note or pending queue, so those factors
-have no artifact variation in this selected natural sample. Their natural
-effects cannot be identified here. These checkpoint observations do not replace
-the pending branch outcomes.
+Natural replacement used 119 eligible checkpoints under the frozen selection
+rule. None contains a saved note or pending queue, so those factors have no
+artifact variation in this selected natural sample. Their natural effects cannot
+be identified here. Completed branch outcomes are reported below.
 
 ## Qwen Q4 natural replacement experiment
 
@@ -233,13 +232,13 @@ Explicit permission to stop did not establish a reduction in violations here.
 
 Evidence: `results/confirmation-001/qwen-intervention/analysis.json`,
 `diagnostics.json`, `audit.json` and raw episodes. The registered natural
-intervention run has started from 119 before-attempt checkpoints.
+intervention run used 119 before-attempt checkpoints and is reported below.
 
 ## Outstanding
 
-Qwen natural intervention, the complete Ministral schedule, conditional Q8
-validation/comparison, full diagnostics synthesis and the final report remain
-pending. Natural recovery results must be reported separately from seeded states.
+The complete Ministral schedule, conditional Q8 validation/comparison, full
+diagnostics synthesis and finalization of the research report remain pending.
+Natural recovery results must be reported separately from seeded states.
 
 ## Qwen Q4 natural intervention
 
