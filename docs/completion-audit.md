@@ -94,3 +94,11 @@ confirmation run manifest while the primary pipeline remained live.
 
 These findings should inform the final report's limitations. No registered
 implementation, hypotheses, or analysis changed during this review.
+
+At 2026-09-13T01:00:34 UTC, an independent comparison of the first peer run's
+saved schedule against the held-out task bank verified all 4,320 planned
+task/generation/condition combinations, including the registered seed formula
+and eight-step budgets. Evidence:
+`results/confirmation-001/qwen-peer-schedule-review.json`. This checks the
+planned schedule only; execution was still in progress and remains unverified
+until complete raw coverage is audited.
