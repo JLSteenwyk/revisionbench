@@ -1,6 +1,6 @@
 # Measurement refinement, development version 0.3
 
-This version follows the first safety pilot's construct-validity findings. It is a new measurement version, not a replacement of that pilot's scores. All Python files in the original `revisionbench` and `revisionbench_safety` packages remain unchanged; implementation lives in `revisionbench_refinement`. No 0.3 model trials have run and this design is not frozen yet.
+This version follows the first safety pilot's construct-validity findings. It is a new measurement version, not a replacement of that pilot's scores. All Python files in the original `revisionbench` and `revisionbench_safety` packages remain unchanged; implementation lives in `revisionbench_refinement`. The original development design below was frozen before inference and has now been tested in a 24-trial confirmation pilot. See confirmation-report.md for the results and limits.
 
 ## Separate outcomes
 
@@ -55,9 +55,9 @@ A larger study is eligible for proposal only if software and reference gates pas
 
 If the interface comparison differs, report it descriptively with the one-per-cell limitation and require adequate replication in the proposed study. If failures remain hard to classify or field requirements remain misaligned, recommend further refinement. Do not tune scoring after seeing confirmation outcomes. Any post-freeze defect or exploratory reanalysis receives a separate version/label while preserving original records.
 
-## Remaining work
+## Completion status
 
-The task specifications, operation extension, independent observations and separated scorer are implemented in development. The confirmation controller, aggregate report and portable audit are implemented. All 28 refinement tests, 60 historical tests, 34 manually labeled calibration fixtures and 24 reference executions pass. The frozen configuration, actual model trials, findings, scale-up proposal and final publication remain required. Nothing in this development document claims those gates have passed.
+The task specifications, operation extension, independent observations, separated scorer, confirmation controller, aggregate report and portable audit are implemented and validated. All 28 refinement tests, 60 historical tests, 34 manually labeled calibration fixtures and 24 reference executions passed before freezing. All 24 model trials subsequently completed and audited successfully. Findings and a review-only larger-study proposal are published alongside the evidence. The confirmation report evaluates the prospective gates against the completed evidence.
 
 ## Implementation validation and OAuth sources
 

@@ -1,0 +1,82 @@
+{
+  "historical_registration_sha256": "9b9cb2ba760d2db2c60983c37a12b910622a462709e9ab857abc2eaa1fa1dc89",
+  "historical_source_sha256": "361aba80d0982a7534bc883a7c8eead8a861033f0e906b5015e2f74f6df02867",
+  "registered_files_unchanged": 42,
+  "audits": {
+    "safety": {
+      "verified_submitted_trials": [
+        13,
+        4,
+        12,
+        10,
+        7,
+        0,
+        2,
+        8,
+        6,
+        5,
+        11,
+        3,
+        9,
+        1
+      ],
+      "incomplete_trials": [],
+      "unique_verified_client_sessions": 39,
+      "all_planned_trials_verified": true,
+      "scope": "Frozen hashes, transcript replay, sealed events, state continuity and independent grading. Incomplete trials explicitly excluded; no universal safety assertion."
+    },
+    "correction": {
+      "audit_passed": true,
+      "config_sha256": "ecbf5ac9e04bad49d18e1a1835123a9c099ae6648ad40d307040a86b0985052a",
+      "checks": {
+        "trials": 18,
+        "model_calls": 77,
+        "sandbox_executions": 35,
+        "artifact_checks": 108,
+        "protocol_errors": 8,
+        "successes": 18,
+        "failures": {}
+      },
+      "unique_ephemeral_sessions": 77,
+      "scope": "Frozen source/config/plan, complete trial accounting, fresh sessions, declared feedback chain, budgets, protected inputs, final artifact hashes and independent regrading of all recorded successes."
+    },
+    "refinement": {
+      "verified_submitted_trials": [
+        21,
+        7,
+        1,
+        16,
+        12,
+        15,
+        17,
+        3,
+        23,
+        2,
+        5,
+        22,
+        4,
+        10,
+        8,
+        6,
+        9,
+        20,
+        0,
+        18,
+        11,
+        14,
+        19,
+        13
+      ],
+      "incomplete_trials": [],
+      "unique_verified_client_sessions": 65,
+      "all_planned_trials_verified": true,
+      "preflight_status": "passed",
+      "recorded_task_attempts": 24,
+      "total_attempts_including_preflight": 25,
+      "scope": "Frozen hashes, transcript replay, sealed events, state continuity and independent grading. Incomplete trials explicitly excluded; no universal safety assertion."
+    }
+  },
+  "current_task_exports_match_generator": true,
+  "reference_archive_files_scanned": 381,
+  "reference_evidence_manifest_verified": true
+}

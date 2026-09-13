@@ -1,0 +1,85 @@
+{
+  "status": "deliverables_verified_publication_pending",
+  "objective_groups": [
+    {
+      "requirement": "preserve_existing_evidence",
+      "complete": true,
+      "evidence": [
+        "evidence/preservation-and-final-audit.json",
+        "confirmation-report.md"
+      ]
+    },
+    {
+      "requirement": "separate_measurements",
+      "complete": true,
+      "evidence": [
+        "design.md",
+        "../../../revisionbench_refinement/scoring.py",
+        "report-protocol-v03.txt"
+      ]
+    },
+    {
+      "requirement": "investigate_csv_interface",
+      "complete": true,
+      "evidence": [
+        "confirmation-report.md",
+        "evidence/preflight-validation-002/reference-records.tar.gz"
+      ]
+    },
+    {
+      "requirement": "broaden_tasks_and_record_exposure",
+      "complete": true,
+      "evidence": [
+        "development-tasks-v03.json",
+        "reserved-author-visible-v03.json",
+        "exposure-record.json"
+      ]
+    },
+    {
+      "requirement": "validate_and_freeze",
+      "complete": true,
+      "evidence": [
+        "evidence/preflight-validation-002/manifest.json",
+        "evidence/confirmation-oauth-001/config.json"
+      ]
+    },
+    {
+      "requirement": "bounded_oauth_confirmation",
+      "complete": true,
+      "evidence": [
+        "evidence/confirmation-oauth-001/audit.json",
+        "evidence/confirmation-oauth-001/pilot-records.tar.gz"
+      ]
+    },
+    {
+      "requirement": "scale_decision_and_review_only_proposal",
+      "complete": true,
+      "evidence": [
+        "confirmation-report.md",
+        "scale-up-proposal.md",
+        "scale-up-plan.json"
+      ]
+    },
+    {
+      "requirement": "deliver_reproducible_records_and_continuation",
+      "complete": true,
+      "evidence": [
+        "evidence/confirmation-oauth-001/archive-verification.json",
+        "CONTINUATION.md"
+      ]
+    }
+  ],
+  "confirmation_task_trials": 24,
+  "total_attempts_including_preflight": 25,
+  "core_successes": 23,
+  "historical_results_preserved": true,
+  "larger_study_launched": false,
+  "remaining_required_work": [
+    "Commit, push and verify publication of final evidence and proposal."
+  ],
+  "publication": {
+    "implementation_freeze_commit": "d3fe421",
+    "final_deliverables_commit": null,
+    "remote_verified": false
+  }
+}

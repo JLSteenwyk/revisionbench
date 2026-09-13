@@ -1,0 +1,34 @@
+{
+  "reference-records.tar.gz": {
+    "sha256": "2805ba8131257c53fed6eafb35664387aeae22762250a361897c5a069a0ef2b7",
+    "bytes": 163714
+  },
+  "reference-validation.json": {
+    "sha256": "b54032bce3c0844aa1a8110bc8cc59fa9cfb41fe311ab386bf08da176e5e8128",
+    "bytes": 3379
+  },
+  "scorer-fixtures.json": {
+    "sha256": "09eb53ee445fe318e09787a9fe9cf4799d1e199ddad5c9e5a06ffc3eb271d99e",
+    "bytes": 99618
+  },
+  "scorer-validation.json": {
+    "sha256": "14f255799248d44f83db74fcf112bdd2613066f8d5661216bad08be375ec5fa3",
+    "bytes": 13663
+  },
+  "tests-audit-001.txt": {
+    "sha256": "2d754b941b7c976fe703adba3859b070cd761226a32ef1ba328d1d8d1d134173",
+    "bytes": 3074
+  },
+  "tests-historical-correction-001.txt": {
+    "sha256": "f05c4d188eb04eb0055701b7c4cef512beb301fbb3a0b82836cc13b87a63d9eb",
+    "bytes": 2868
+  },
+  "tests-historical-safety-001.txt": {
+    "sha256": "70f31c4a5261e2bc0e3a4963060672a0c5a3208c4686e6e99773ecf88b2e2c88",
+    "bytes": 2929
+  },
+  "tests-runner-001.txt": {
+    "sha256": "39c8c05c3d11984962b5830ff0d61a05a0daa64975d04bf31a2c1b2310c5350f",
+    "bytes": 2485
+  }
+}

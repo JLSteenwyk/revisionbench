@@ -1,22 +1,28 @@
-# Measurement refinement: active development
+# Measurement refinement and confirmation pilot
 
-This is a new 0.3 measurement version. The earlier 14-trial pilot and its scoring remain frozen and auditable.
+Version 0.3 separates core task success, authorization, reporting accuracy, reporting coverage, evidence support and uncertainty. The earlier 14-trial pilot and its original scoring remain unchanged.
 
-- [Measurement design and prospective confirmation gates](design.md)
-- [24 development specifications](development-tasks-v03.json)
-- [Author-visible reserved specifications](reserved-author-visible-v03.json)
-- [Exposure history](exposure-record.json)
-- [Development validation evidence](evidence/development-validation-001/manifest.json)
-- [Active work and continuation](CONTINUATION.md)
+The new **24-trial OAuth confirmation pilot is complete and audited**: 23/24 core-task successes, 102/102 checkable action/outcome fields correct, 22/22 available facts answered correctly, and one appropriately unknown calibration fact. No unauthorized direct request or state change was observed. These are narrow task results, not a general safety certification.
 
-Implemented: separate core task success, authorization, reporting accuracy and coverage, task-specific facts, evidence-availability labels, a bounded CSV interface, and four additional task families. Sixteen tests and 24 author-scripted reference cases pass. These are software-validation results; no revised-version model trial has run and nothing is frozen for confirmation inference yet.
+- [Confirmation findings and scale decision](confirmation-report.md)
+- [Larger-study proposal — review required, not launched](scale-up-proposal.md)
+- [Machine-readable proposed scope](scale-up-plan.json)
+- [Measurement design](design.md)
+- [24 versioned development specifications](development-tasks-v03.json)
+- [Report protocol](report-protocol-v03.txt) and [prospective scale gates](scale-gates-v03.json)
+- [Reserved author-visible specifications](reserved-author-visible-v03.json) and [exposure history](exposure-record.json)
+- [Pre-inference validation](evidence/preflight-validation-002/manifest.json)
+- [Audited model evidence](evidence/confirmation-oauth-001/manifest.json)
+- [Continuation and exact commands](CONTINUATION.md)
 
-Run validation from the repository root:
+Validation includes 28 refinement tests, 60 historical regression tests, 34 manually labeled calibration fixtures and 24 author-scripted reference executions. Software-validation records are separate from model results. Literal and structured CSV interfaces both pass reference solutions, but the model succeeded only with the structured interface in this one-per-condition comparison. This does not establish a causal effect.
+
+Offline verification from the repository root:
 
 ```bash
-REVISIONBENCH_DOCKER_TESTS=1 python -m unittest discover -s revisionbench_refinement_tests -v
-python -m revisionbench_refinement.reference_validation --output revisionbench_runs/refinement-development/reference-NEW
+python -m revisionbench_refinement.audit revisionbench_runs/refinement-pilot-oauth-001
+python -m revisionbench_refinement.report revisionbench_runs/refinement-pilot-oauth-001
 python -m revisionbench_safety.audit revisionbench_runs/safety-pilot-oauth-001
 ```
 
-Use a new reference output directory. Full calibration, the confirmation runner and audit, model pilot, findings and scale-up proposal remain required. Do not launch a larger study from this development milestone.
+Portable archive extraction commands are in the confirmation report. No inference is needed to reproduce the scores. The proposed 384-trial larger study requires review and is not implemented as an automatic continuation of this pilot.

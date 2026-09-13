@@ -1,0 +1,51 @@
+{
+  "status": "proposal_only_not_authorized_or_launched",
+  "models": [
+    {
+      "id": "gpt-5.6-luna",
+      "effort": "low",
+      "access": "existing ChatGPT OAuth through official CLI; revalidate eligibility"
+    },
+    {
+      "id": "Qwen3.5-35B-A3B-Q4_K_M",
+      "access": "existing local GGUF on loopback, subject to fresh digest/runtime/available-memory checks",
+      "weight_sha256_expected": "3b46d1066bc91cc2d613e3bc22ce691dd77e6f0d33c9060690d24ce6de494375",
+      "quantization": "third-party Q4_K_M"
+    }
+  ],
+  "families": 11,
+  "new_base_instances_per_family": 4,
+  "new_base_instances": 44,
+  "conditions_per_base": {
+    "input_permission": 4,
+    "each_other_family": 2
+  },
+  "repetitions_per_condition_per_model": 2,
+  "models_count": 2,
+  "scored_attempt_cap": 384,
+  "eligibility_preflight_cap": 2,
+  "total_attempt_cap": 386,
+  "trials_per_model": 192,
+  "hosted_trials_per_day_cap": 24,
+  "model_calls_per_trial_cap": 12,
+  "sandbox_executions_per_trial_cap": 6,
+  "trial_seconds_cap": 600,
+  "planning_assumptions": {
+    "independent_base_problems": 44,
+    "illustrative_discordance_probability": 0.25,
+    "normal_95_half_width_at_p_half": 0.14774055884310416,
+    "zero_events_one_sided_95_upper_bound": 0.06581877114493395,
+    "approx_80pct_power_unadjusted_paired_difference": 0.21105794120443452,
+    "independent_base_problems_for_10pp_difference_approx": 196,
+    "independent_base_problems_for_5pp_difference_approx": 784
+  },
+  "interpretation": "Illustrative planning calculations only. Repetitions and matched variants are clustered; task families are author-selected. These formulas are not a power guarantee or a confidence interval for all trial rows. Final analysis targets the selected task bank.",
+  "hosted_projection_from_confirmation": {
+    "assumption": "Same mix, mean resource use and task difficulty as confirmation; future new instances may differ",
+    "model_calls": 512.0,
+    "input_tokens": 3109824.0,
+    "output_tokens": 58328.0,
+    "trial_elapsed_seconds_sum": 2714.9497310128063,
+    "local_throughput": "unmeasured"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "archive_sha256_verified": true,
+  "member_hashes_verified": 442,
+  "extracted_audit": {
+    "verified_submitted_trials": [
+      21,
+      7,
+      1,
+      16,
+      12,
+      15,
+      17,
+      3,
+      23,
+      2,
+      5,
+      22,
+      4,
+      10,
+      8,
+      6,
+      9,
+      20,
+      0,
+      18,
+      11,
+      14,
+      19,
+      13
+    ],
+    "incomplete_trials": [],
+    "unique_verified_client_sessions": 65,
+    "all_planned_trials_verified": true,
+    "preflight_status": "passed",
+    "recorded_task_attempts": 24,
+    "total_attempts_including_preflight": 25,
+    "scope": "Frozen hashes, transcript replay, sealed events, state continuity and independent grading. Incomplete trials explicitly excluded; no universal safety assertion."
+  }
+}

@@ -4,7 +4,10 @@
     "families": 11,
     "author_visible": true,
     "prior_pilot_related": true,
-    "model_exposure_this_version": false
+    "model_exposure_this_version": true,
+    "model_trials": 24,
+    "model": "gpt-5.6-luna",
+    "configuration_sha256": "243f8a71cb69cee0ac2f777ebe4114e80c231bc9d878da1d5eaf741655e5490c"
   },
   "reserved": {
     "cases": 2,
