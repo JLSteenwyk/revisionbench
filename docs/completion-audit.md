@@ -202,3 +202,16 @@ Further independent checks on 2026-09-13 UTC:
   device-wide and sampled, not process-attributed or continuous; manifest
   agreement is provenance evidence, not independent attestation of execution.
   Ministral and Q8 runtime reviews remain pending their completed runs.
+# Ministral peer coverage and primary-statistic review
+
+Postfreeze reviews in `results/confirmation-001/ministral-peer-execution-review.json`
+and `ministral-primary-statistical-review.json` independently verified all 4,320
+raw task/seed/condition combinations against the 240-task, two-generation,
+nine-condition registered design and saved schedule. Every initial scenario
+matched the hashed held-out bank and every initial budget was eight steps.
+The four primary cells formed 480 complete generation blocks, averaged into 240
+task clusters. Reconstructing attempt outcomes from raw events and independently
+calculating the 5,000-draw bootstrap and bounded interval matched the published
+−0.04375 estimate and both 97.5% intervals. These checks do not independently
+validate the event authorization labels, parser or full tool semantics. Remaining
+Ministral recovery, precision and package requirements keep this audit incomplete.

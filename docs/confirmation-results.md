@@ -316,8 +316,12 @@ The Qwen primary schedule is complete; Ministral and Q8 work remains unfinished.
 
 Completed 4,320 episodes: 240 held-out tasks, two generations and nine conditions.
 All episodes passed replay state/score checks and schedule completeness checks;
-there were no infrastructure errors. Independent reviews beyond the pipeline's
-replay remain pending for this model.
+there were no infrastructure errors. An independent review checked all raw
+task/seed/condition keys against the registered Cartesian design and saved
+schedule, every initial task against the held-out bank, and every initial budget.
+An independent recomputation from raw event outcomes matched the primary effect,
+5,000-draw task bootstrap and conservative interval. Independent authorization
+label and state-transition reviews remain pending for this model.
 
 The registered primary source-by-permission interaction was **−4.375 percentage
 points**, with task-cluster bootstrap **97.5% interval −11.46 to +2.29 points**.
