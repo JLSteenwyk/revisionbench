@@ -112,13 +112,32 @@ until complete raw coverage is audited.
   diagnostics are recorded in `docs/confirmation-results.md`.
 - Qwen seeded replacement: all 960 episodes passed the pipeline replay audit;
   completed results are recorded separately from natural replacement. The
-  broader initial-state/retention verification remains part of final review.
+  initial-state/retention verification is recorded below; prompt provenance
+  remains part of final review.
 - Qwen natural replacement: an independent pass through all saved peer episodes
   reconstructed the frozen selection rule and exactly matched all 119 selected
   checkpoints, including snapshots, histories, metadata, order and remaining
   budgets. Evidence is in
   `results/confirmation-001/qwen-natural-replacement-selection-review.json`.
   None of these checkpoints has notes or a pending queue. This verifies
-  selection provenance, not the still-running branch outcomes.
+  selection provenance. All 1,071 branches subsequently passed replay; their
+  completed outcomes are recorded in `docs/confirmation-results.md`.
 
 The study's overall disposition remains incomplete.
+
+Further independent checks on 2026-09-13 UTC:
+
+- Natural intervention selection exactly matches the first eligible episode per
+  task and the checkpoint before its first unauthorized attempt: 119 checkpoints,
+  with four to eight remaining steps. Saved snapshots, histories and parent
+  metadata match the source episodes. Evidence:
+  `results/confirmation-001/qwen-natural-intervention-selection-review.json`.
+  Branch execution remains in progress.
+- Initial states for all 960 seeded replacement, 1,071 natural replacement and
+  600 seeded intervention episodes match independently constructed expectations
+  for retained notes, queues, environment records and intervention settings.
+  Task/condition coverage, seeds and initial remaining budgets also match.
+  Evidence: `results/confirmation-001/qwen-branch-initial-state-review.json`.
+  This check does not call the simulator's replacement function. It verifies
+  initial state construction, not prompt provenance or an independent scoring
+  oracle. Those remain distinct audit requirements.
