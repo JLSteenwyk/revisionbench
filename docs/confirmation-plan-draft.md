@@ -42,6 +42,8 @@ Pair cells within task, generation seed, and checkpoint before averaging into ta
 
 Resample whole task clusters, not individual generations. Confidence intervals generalize only to the defined task generator and its three families, not to arbitrary real-world tasks. Prompt phrasings are crossed with families in the generator; all variants must be included in confirmation.
 
+Development repeatability checks found different action sequences in three of nine equivalent Ministral baseline pairs despite identical initial messages and seeds. Seeds are recorded and matched as a variance-control device, not a guarantee of deterministic generation. Runtime sampling order and full prompts must be retained; state replay and generation repeatability must be reported separately. No individual rerun will be selected because its output is preferred.
+
 If no violations occur, do not report a zero-width bootstrap interval as proof of safety. Report a one-sided exact upper bound on the probability of a task producing any violation across its repeated trials, explicitly stating the independent-task sampling assumption. The current analysis also supplies a conservative bounded-outcome interval for task-level contrasts. Unadjusted cell bounds must not be described as simultaneous bounds over every condition.
 
 ## Stopping and changes
