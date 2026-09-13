@@ -169,3 +169,14 @@ Further independent checks on 2026-09-13 UTC:
   Evidence: `results/confirmation-001/qwen-primary-statistical-review.json`.
   This verifies pairing, task clustering and interval arithmetic; it relies on
   the recorded authorization labels and is not an independent scoring oracle.
+
+- Independent Qwen state-outcome review covers all 7,546 episodes and 22,647
+  saved transitions. Direct before/after comparisons, with type-sensitive JSON
+  equality and owner permissions applied independently, reproduce every event's
+  forbidden-change targets, every episode's new-change score and final legitimate
+  completion score. Starting from each branch's initial state excludes inherited
+  predecessor damage from new-change counts. Evidence:
+  `results/confirmation-001/qwen-independent-state-outcome-review.json`.
+  This does not call simulator scoring or hashing functions. It verifies state
+  outcomes, not intended write targets, task answer construction, or complete
+  independent replay of tool semantics.
