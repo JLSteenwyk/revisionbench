@@ -102,3 +102,23 @@ and eight-step budgets. Evidence:
 `results/confirmation-001/qwen-peer-schedule-review.json`. This checks the
 planned schedule only; execution was still in progress and remains unverified
 until complete raw coverage is audited.
+
+## Completed-run evidence — 2026-09-13 UTC
+
+- Qwen peer: all 4,320 episodes passed the pipeline replay audit. The additional
+  `results/confirmation-001/qwen-peer-execution-review.json` verifies raw
+  task/seed/condition coverage against the schedule, initial scenarios against
+  the held-out bank and initial budgets. Completed analysis and descriptive
+  diagnostics are recorded in `docs/confirmation-results.md`.
+- Qwen seeded replacement: all 960 episodes passed the pipeline replay audit;
+  completed results are recorded separately from natural replacement. The
+  broader initial-state/retention verification remains part of final review.
+- Qwen natural replacement: an independent pass through all saved peer episodes
+  reconstructed the frozen selection rule and exactly matched all 119 selected
+  checkpoints, including snapshots, histories, metadata, order and remaining
+  budgets. Evidence is in
+  `results/confirmation-001/qwen-natural-replacement-selection-review.json`.
+  None of these checkpoints has notes or a pending queue. This verifies
+  selection provenance, not the still-running branch outcomes.
+
+The study's overall disposition remains incomplete.
