@@ -94,6 +94,86 @@ class DockerIntegrationTests(unittest.TestCase):
             self.assertEqual(result['termination'], 'output_limit')
             self.assertLessEqual(len(result['stdout']), 1000)
 
+    def test_total_storage_and_inode_limits(self):
+        with tempfile.TemporaryDirectory() as temp:
+            code = '''from pathlib import Path
+import errno
+try:
+    for i in range(100):
+        Path(str(i)).write_bytes(b'x'*65536)
+except OSError as e:
+    assert e.errno == errno.ENOSPC
+    print('byte_quota_enforced')
+'''
+            result = run(Path(temp), ('python', '-I', '-c', code), workspace_bytes=262144)
+            self.assertEqual(result['exit_code'], 0, result)
+            self.assertIn('byte_quota_enforced', result['stdout'])
+            self.assertLessEqual(result['workspace_bytes'], 262144)
+        with tempfile.TemporaryDirectory() as temp:
+            code = '''from pathlib import Path
+import errno
+try:
+    for i in range(100):
+        Path(str(i)).touch()
+except OSError as e:
+    assert e.errno == errno.ENOSPC
+    print('inode_quota_enforced')
+'''
+            result = run(Path(temp), ('python', '-I', '-c', code), file_limit=32)
+            self.assertEqual(result['exit_code'], 0, result)
+            self.assertIn('inode_quota_enforced', result['stdout'])
+            self.assertLessEqual(result['files'], 32)
+
+    def test_candidate_cannot_write_input_or_supervisor_pipe(self):
+        with tempfile.TemporaryDirectory() as temp:
+            code = '''from pathlib import Path
+import errno
+try:
+    Path('/input/injected').write_text('bad')
+    raise AssertionError('Writable host input')
+except OSError as e:
+    assert e.errno in (errno.EROFS, errno.EACCES)
+try:
+    Path('/proc/1/fd/1').open('wb')
+    raise AssertionError('Candidate can spoof supervisor output')
+except PermissionError:
+    pass
+status = Path('/proc/self/status').read_text()
+assert 'CapEff:\\t0000000000000000' in status
+print('supervisor_boundary_passes')
+'''
+            result = run(Path(temp), ('python', '-I', '-c', code))
+            self.assertEqual(result['exit_code'], 0, result)
+            self.assertIn('supervisor_boundary_passes', result['stdout'])
+            self.assertFalse((Path(temp)/'injected').exists())
+
+    def test_special_output_rejects_snapshot_without_changing_host(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root/'original').write_text('unchanged')
+            code = 'from pathlib import Path; Path("original").write_text("changed"); Path("link").symlink_to("/etc/passwd")'
+            result = run(root, ('python', '-I', '-c', code))
+            self.assertIsNotNone(result['snapshot_error'])
+            self.assertEqual((root/'original').read_text(), 'unchanged')
+            self.assertFalse((root/'link').exists())
+
+    def test_closed_stdout_does_not_end_execution_and_background_is_stopped(self):
+        with tempfile.TemporaryDirectory() as temp:
+            code = 'import os,time; from pathlib import Path; os.close(1); time.sleep(.2); Path("done").write_text("yes")'
+            result = run(Path(temp), ('python', '-I', '-c', code))
+            self.assertEqual(result['exit_code'], 0, result)
+            self.assertEqual((Path(temp)/'done').read_text(), 'yes')
+        with tempfile.TemporaryDirectory() as temp:
+            code = '''import subprocess,sys
+subprocess.Popen([sys.executable, '-c', 'import time; from pathlib import Path; time.sleep(2); Path("late").write_text("bad")'],
+                 start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+print('main_finished')
+'''
+            result = run(Path(temp), ('python', '-I', '-c', code))
+            self.assertEqual(result['exit_code'], 0, result)
+            self.assertIn('main_finished', result['stdout'])
+            self.assertFalse((Path(temp)/'late').exists())
+
 
 if __name__ == '__main__':
     unittest.main()

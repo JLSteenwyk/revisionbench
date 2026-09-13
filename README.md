@@ -7,18 +7,20 @@ reliability, preservation of unaffected results, and computational cost.
 **Status: executable development prototype. No model comparison or confirmatory
 study has been run. Novelty and broader task feasibility remain under review.**
 
-## First working fixture
+## Working development fixtures
 
 The prototype uses the public Palmer Penguins dataset, pinned to an upstream
-commit with SHA256 verification and CC0 attribution. A completed Python analysis
-produces a numerical summary, table, SVG figure, structured conclusion and sample
-counts. Three development cases exercise different recovery requirements:
+commit with SHA256 verification and CC0 attribution. Two completed Python workflows cover grouped species summaries and ordinary
+least-squares regression. They produce numerical results, a table, an SVG figure,
+structured conclusions and sample counts. Development cases exercise different
+recovery requirements:
 
 | Correction | Old outputs | Clean rerun | Known correct repair |
 |---|---|---|---|
 | Unchanged control | Pass | Pass | Pass |
 | Exclude 2007 observations | Fail | Pass | Pass |
-| Replace means with medians | Fail | Fail | Pass |
+| Replace means with medians (summary) | Fail | Fail | Pass |
+| Change flipper units from mm to cm (regression) | Fail | Fail | Pass |
 
 These are hypothetical benchmark corrections, not claims of errors in the source
 data. They validate the task and evaluator; they are not AI capability results.
@@ -27,26 +29,31 @@ data. They validate the task and evaluator; they are not AI capability results.
 
 Python 3.10+ and a working Docker daemon are required. Candidate code executes in
 a pinned Python container, without network access or host credentials, as a
-non-root user. Only its task directory is mounted. The oracle runs outside that
-container and never imports the candidate code.
+non-root user with zero effective capabilities. Candidate storage is a private
+temporary filesystem; host mounts are read-only. A trusted supervisor exports
+bounded snapshots after stopping candidate processes. The oracle runs outside
+the container and never imports candidate code.
 
 ```bash
 docker pull python@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
-python -m revisionbench smoke --output revisionbench_runs/smoke-001
+python -m revisionbench smoke --workflow all --output revisionbench_runs/smoke-001
+python -m revisionbench prepare --workflow all --output revisionbench_runs/branches-001
 python -m unittest discover -s revisionbench_tests -v
 REVISIONBENCH_DOCKER_TESTS=1 python -m unittest discover -s revisionbench_tests -v
 ```
 
-Use a new output directory each time. Execution has CPU, memory, process,
+Use a new output directory each time. Execution has CPU, memory, process, total-storage, inode,
 per-file, time and captured-output limits. See the [execution scope](projects/revisionbench/execution.md)
-for remaining isolation work before autonomous model-generated code is enabled.
+for the supervisor trust boundary and validation. Eighteen unit/integration tests
+pass. No model-generated code has run yet.
 
 ## Research documents
 
 - [Research plan](projects/revisionbench/README.md)
 - [Design questions and controls](projects/revisionbench/design.md)
 - [Closest-work assessment](projects/revisionbench/literature.md)
-- [Fixture validation evidence](projects/revisionbench/evidence/fixture-validation.json)
+- [Latest fixture validation](projects/revisionbench/evidence/two-workflow-validation.json)
+- [Test results](projects/revisionbench/evidence/tests-002.txt)
 - [Data provenance and license](revisionbench/data/provenance.json)
 
 The evaluator checks a declared output contract and specified claims, not arbitrary

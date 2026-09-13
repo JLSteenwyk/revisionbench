@@ -44,3 +44,25 @@ task diversity, available compute and matched budget definitions. Preserve pilot
 failures. Freeze hypotheses, sample allocation, task-level analysis and stopping
 rules before held-out evaluation. Null effects remain reportable; do not select
 tasks or expand the study according to preferred outcomes.
+
+## Development information policy
+
+All strategies receive the same corrected input, correction notice, explicit output
+contract and prior code/results in `prior/`. Ordinary repair starts with existing
+active code/results. Rebuild starts with neither, but may inspect and reuse prior
+code. This compares a clean active workspace with incremental repair; it does not
+claim a clean-room comparison with prior knowledge removed. Dependency-assisted
+repair additionally receives a benchmark-author map. Its construction cost and
+quality must be distinguished from agent-inferred maps in later experiments.
+
+`python -m revisionbench prepare --workflow all --output NEW_DIRECTORY` creates
+18 matched development workspaces: two workflow structures, three cases each and
+three strategies. The plan records corrected-input hashes, all initial files,
+source-code hashes and successful baseline execution/grades. This is a preparation
+manifest, not a preregistration, model result or power calculation.
+
+The workflows currently share one public dataset. Grouped summaries and OLS have
+different computational dependencies, but do not establish broad domain coverage.
+The regression unit-change control requires a transformed slope while preserving
+equivalent physical predictions, r-squared, intercept and sample counts. Data-only
+corrections retain a deterministic clean-rerun baseline.

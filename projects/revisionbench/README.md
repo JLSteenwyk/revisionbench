@@ -42,13 +42,19 @@ These are relevant precedents, not evidence that our proposed comparison is nove
 ## Implemented development slice
 
 The root `revisionbench` package prepares a pinned public-data analysis, applies
-three corrections/controls, executes known baselines in Docker, and grades five
+corrections/controls across grouped summaries and OLS, executes known baselines in Docker, and grades five
 output artifacts plus input integrity with an independent numerical oracle.
-Eight unit/integration tests pass, including stale figures, wrong claims, damage
+Eighteen unit/integration tests pass, including stale figures, wrong claims, damage
 to unaffected counts, forbidden output file types, network/host isolation, timeouts
 and output limits. Evidence and commands are linked in the root README.
 
 Next: resolve the closest-work comparison, add different workflow structures,
-complete execution storage limits, and define repair/rebuild information and
-resource budgets before a small model pilot. Simply rerunning the supplied analysis
+connect the model controller to the bounded execution layer, and define matched
+inference/tool budgets before a small model pilot. Simply rerunning the supplied analysis
 already solves the data-only case; this baseline must remain in the study.
+
+Storage and inode limits are now implemented and validated. Eighteen matched
+strategy workspaces can be prepared reproducibly, with identical prior information
+and explicit contracts. These are calibration fixtures on one dataset. Model
+inference remains pending; the most recent GPU inspection found other workloads,
+which were left alone.

@@ -55,3 +55,10 @@ This is a hypothetical benchmark correction, not an erratum to the source data.
 '''
     (workspace/'CORRECTION.txt').write_text(requirements)
     return data, statistic
+
+
+def known_repair(workspace, case):
+    if case == 'median_requirement':
+        script = workspace/'analyze.py'
+        script.write_text(script.read_text().replace('statistics.mean(values)', 'statistics.median(values)')
+                          .replace("statistic = 'mean'", "statistic = 'median'"))
