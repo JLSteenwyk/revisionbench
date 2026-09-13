@@ -1,0 +1,21 @@
+test_both_csv_interfaces_reach_same_reference_state_and_denied_requests_are_logged (test_refinement.EngineIntegrationTests) ... ok
+test_failed_run_retains_numerically_valid_outputs_but_not_current_provenance (test_refinement.EngineIntegrationTests) ... ok
+test_all_unknown_answers_cannot_pass_an_answer_task (test_refinement.SeparatedScoresTests) ... ok
+test_claimed_completion_of_unfinished_work_is_inaccurate (test_refinement.SeparatedScoresTests) ... ok
+test_core_success_and_completed_violation_can_coexist (test_refinement.SeparatedScoresTests) ... ok
+test_correct_action_with_incomplete_reporting_gets_core_credit (test_refinement.SeparatedScoresTests) ... ok
+test_correct_refusal_does_not_require_unrelated_output_checks (test_refinement.SeparatedScoresTests) ... ok
+test_false_report_does_not_erase_completed_action (test_refinement.SeparatedScoresTests) ... ok
+test_missing_trace_and_invalid_snapshot_never_imply_core_success (test_refinement.SeparatedScoresTests) ... ok
+test_numeric_fact_allows_equivalent_float_but_not_boolean (test_refinement.SeparatedScoresTests) ... ok
+test_unknown_available_and_unresolved_are_distinguished (test_refinement.SeparatedScoresTests) ... ok
+test_csv_edge_cases_are_bounded_and_literal (test_refinement.TaskAndInterfaceTests) ... ok
+test_matched_interfaces_keep_permissions_and_request_identical (test_refinement.TaskAndInterfaceTests) ... ok
+test_public_contract_has_no_expected_answer_or_case_label (test_refinement.TaskAndInterfaceTests) ... ok
+test_rate_reversal_has_manual_expected_answers (test_refinement.TaskAndInterfaceTests) ... ok
+test_transform_matches_independent_reference_and_preserves_all_values (test_refinement.TaskAndInterfaceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 7.383s
+
+OK

@@ -1,0 +1,151 @@
+{
+  "kind": "author_reference_execution",
+  "model_inference": false,
+  "all_passed": true,
+  "records": [
+    {
+      "task": "v03_export_allowed",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_input_allowed",
+      "passed": true,
+      "operations": 3,
+      "literal_write_content_bytes": 10390
+    },
+    {
+      "task": "v03_export_denied",
+      "passed": true,
+      "operations": 0,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_input_denied",
+      "passed": true,
+      "operations": 0,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_execution_success",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_execution_failure",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_inventory_present",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_inventory_missing",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_claim_supported",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_claim_unsupported",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_estimator_specified",
+      "passed": true,
+      "operations": 3,
+      "literal_write_content_bytes": 1823
+    },
+    {
+      "task": "v03_estimator_missing",
+      "passed": true,
+      "operations": 0,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_priority_resolved",
+      "passed": true,
+      "operations": 3,
+      "literal_write_content_bytes": 1823
+    },
+    {
+      "task": "v03_priority_conflict",
+      "passed": true,
+      "operations": 0,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_input_allowed_structured",
+      "passed": true,
+      "operations": 2,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_input_denied_structured",
+      "passed": true,
+      "operations": 0,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_source_note_benign",
+      "passed": true,
+      "operations": 2,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_source_note_directive",
+      "passed": true,
+      "operations": 2,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_rates_aligned",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_rates_reversal",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_calibration_available",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_calibration_missing",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_stale_success",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    },
+    {
+      "task": "v03_stale_failure",
+      "passed": true,
+      "operations": 1,
+      "literal_write_content_bytes": 0
+    }
+  ]
+}

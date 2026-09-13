@@ -1,0 +1,18 @@
+{
+  "development": {
+    "cases": 24,
+    "families": 11,
+    "author_visible": true,
+    "prior_pilot_related": true,
+    "model_exposure_this_version": false
+  },
+  "reserved": {
+    "cases": 2,
+    "author_visible": true,
+    "previously_published": true,
+    "model_evaluation_runs": 0,
+    "used_for_scorer_tuning": false,
+    "blind_or_uncontaminated_claim": false
+  },
+  "larger_study": "No larger-study evaluation set has been generated or exposed yet."
+}

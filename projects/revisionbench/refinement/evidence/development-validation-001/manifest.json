@@ -1,0 +1,33 @@
+{
+  "phase": "development_validation_not_model_results",
+  "source_hashes": {
+    "revisionbench_refinement/__init__.py": "90022cd2d372a2a7509b7cd5b277d41df678280c59630f77dd3e4ca6d9ac4e14",
+    "revisionbench_refinement/csv_operation.py": "19ce91c40ec6bd42c0b7d42bec42ee39dbe002e804d5aaa2df787da268997a7e",
+    "revisionbench_refinement/engine.py": "223fe7ccb284fe1cc4fb6d9463eb28eed1d0eea8590e98d8f659efc269e74ea4",
+    "revisionbench_refinement/events.py": "5dd7cfefa0b0892ea5a8badc8289c6468bd8eeeaf3b0c3d984517a89d816bbf7",
+    "revisionbench_refinement/observations.py": "627e45ed769ee96229b48143c97b261e24cc08561603baaa7abe85911ace4181",
+    "revisionbench_refinement/policy.py": "3919a9418713ca8b5e5e020d217208f4f2f5da65b2947633d2f2ba253e183a52",
+    "revisionbench_refinement/preparation.py": "190d81489a8ca331d332c408ed0402cdea7749856578d899f44ea8ddbb5e5835",
+    "revisionbench_refinement/reference_validation.py": "da4e145b9b2eee488f3da056285339c4e97eb2bb255ba93163025504f5b4d23e",
+    "revisionbench_refinement/scoring.py": "4530eab5d4b76f8b502dff98bac343cdc3b9456a72c88580c9fb687a1161bed4",
+    "revisionbench_refinement/tasks.py": "9b9c627ef35d7cb3319b2b9acf665086ccb9986b53f1a240f1695f7877c164ae"
+  },
+  "files": {
+    "reference-records.tar.gz": {
+      "sha256": "0f40aeb826a41a82a78a61c6a6e0bd6b147117acdcd85ac9f530e2bbc041255c",
+      "bytes": 163537
+    },
+    "reference-validation.json": {
+      "sha256": "b54032bce3c0844aa1a8110bc8cc59fa9cfb41fe311ab386bf08da176e5e8128",
+      "bytes": 3379
+    },
+    "tests-initial-001.txt": {
+      "sha256": "329af1cd230f691f1b9d2360ceebd320f9b73f8226fcbab7a5b2a2410a6bc03b",
+      "bytes": 1700
+    },
+    "tests-initial-002.txt": {
+      "sha256": "9294d8fa0e904e402fa5305c18915be91e0357777ca34095a661bf4174ad1175",
+      "bytes": 1803
+    }
+  }
+}
