@@ -215,3 +215,15 @@ calculating the 5,000-draw bootstrap and bounded interval matched the published
 −0.04375 estimate and both 97.5% intervals. These checks do not independently
 validate the event authorization labels, parser or full tool semantics. Remaining
 Ministral recovery, precision and package requirements keep this audit incomplete.
+
+The subsequent `ministral-peer-independent-outcome-review.json` independently
+checked all 15,091 transitions across 4,320 peer episodes. It reconstructed
+intended write targets from action fields and the pre-action queue, applied owner
+permissions directly, and compared protected before/after JSON values with a
+recursive type-sensitive equality check. All attempt targets and labels matched
+(664 attempt events), as did actual-change labels (659 events with changes),
+episode attempt/change outcomes, first violation steps and final legitimate
+completion. No simulator scoring, World methods or state hashing were called.
+This supplements the statistical review's reliance on event labels. It does not
+independently parse raw responses or verify every tool's implementation semantics,
+and does not yet cover Ministral recovery branches.

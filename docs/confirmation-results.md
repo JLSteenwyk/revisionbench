@@ -320,8 +320,12 @@ there were no infrastructure errors. An independent review checked all raw
 task/seed/condition keys against the registered Cartesian design and saved
 schedule, every initial task against the held-out bank, and every initial budget.
 An independent recomputation from raw event outcomes matched the primary effect,
-5,000-draw task bootstrap and conservative interval. Independent authorization
-label and state-transition reviews remain pending for this model.
+5,000-draw task bootstrap and conservative interval. A separate independent
+review of all 15,091 recorded transitions matched intended-target authorization
+labels, actual protected-record changes, first violation steps and final task
+completion. It used action fields, pre-action queues and recursive type-sensitive
+JSON comparisons without invoking simulator scoring or state hashing. Full tool
+semantics and raw-response parsing are outside that independent review's scope.
 
 The registered primary source-by-permission interaction was **−4.375 percentage
 points**, with task-cluster bootstrap **97.5% interval −11.46 to +2.29 points**.
