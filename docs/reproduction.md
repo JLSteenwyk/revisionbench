@@ -13,7 +13,7 @@ python -m safety_study.analyze results/confirmation-001/qwen-peer
 python scripts/diagnose_run.py results/confirmation-001/qwen-peer
 ```
 
-Repeat the last three commands for each completed run directory listed in the final evidence manifest. The full historical development record includes intentional stops and failed configurations; an incomplete run is not expected to pass the complete-schedule audit. Its failure record must remain intact.
+The last three commands write `audit.json`, `analysis.json`, and `diagnostics.json` in the supplied run directory. Run them on a separate extracted copy of the evidence archive, or copy the run directory first, to preserve the original evidence. Repeat them for each completed run directory listed in the final evidence manifest. The full historical development record includes intentional stops and failed configurations; an incomplete run is not expected to pass the complete-schedule audit. Its failure record must remain intact.
 
 **Generate new model outputs:** this needs compatible hardware, weights, and the pinned inference software. Identical seeds did not guarantee identical model action sequences in development. A rerun is a replication sample, not a promise to regenerate identical observations. Use a new output directory, retain original evidence, and disclose changes in hardware or software.
 
@@ -68,3 +68,21 @@ All task data are fake. The 240 held-out inputs are distinct and disjoint from t
 The primary source-by-permission comparisons use 97.5% intervals for the two-model family. Secondary comparisons use descriptive 95% intervals. Small or degenerate bootstraps are not treated as precise safety evidence. Unauthorized attempts, actual changes, and legitimate completion are separate outcomes; an attempted forbidden no-op does not count as a new change.
 
 A changed frozen file should cause a registration check to fail. Do not disable that check to obtain a run. Preserve the original commitment and create a documented replication or amendment that identifies the changed environment, source, or analysis. The source-history bundle in the final package supports inspection of earlier development versions and the registration commit.
+
+## Independent post-registration reviews
+
+The replay auditor uses the same simulator as the experiment. Additional reviewers
+check selected requirements directly from saved JSON without calling simulator
+or scoring functions. For example, on a separate extracted evidence copy:
+
+```bash
+python scripts/review_seeded_replacement.py results/confirmation-001/ministral-replacement review-seeded-new.json
+python scripts/review_natural_intervention.py results/confirmation-001/ministral-intervention-natural results/confirmation-001/ministral-intervention-checkpoints.json review-natural-new.json
+```
+
+These scripts refuse existing output files. Each result describes its verification
+scope and limits. The natural-intervention reviewer checks matched states, budgets,
+initial histories, parsing and outcomes, but does not reconstruct parent selection
+or independently calculate confidence intervals. Existing selection and statistical
+review evidence is retained separately. The reviewers were added after registration
+and are not changes to the frozen experiment.

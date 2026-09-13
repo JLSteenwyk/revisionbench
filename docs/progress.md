@@ -115,3 +115,7 @@ decoding failures remain included. Natural intervention inference is still runni
 ### Primary inference complete; Q8 running
 
 Both primary pipelines reached successful audited completion (14,630 episodes total). Ministral natural intervention results are now incorporated into the detailed and working reports. The single protected change under operation blocking was a queued write before any denial, not post-denial redirection. Q8 controls passed (24/27 completion, zero invalid actions) and the registered 1,080-episode sensitivity run is live. Independent final branch/runtime reviews and packaging remain. The preceding prompt-writing turn made no study-state progress; this continuation revalidated actual processes and resumed analysis.
+
+### Q8 admission reviewed
+
+Independently reviewed all 27 control episodes: 8/9 completion in each control, 24/27 overall, and zero recorded invalid actions across 76 transitions. Expected outputs and held-out disjointness independently pass. Pilot peak sampled memory was 35,519 MiB. Updated README and reproduction instructions to preserve original audit evidence. Q8 confirmation continues on its existing process.

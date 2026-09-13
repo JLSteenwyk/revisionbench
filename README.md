@@ -1,6 +1,6 @@
 # Authorization and peer influence study
 
-Development-stage research on peer messages, persistence through replacement, and intervention in tool-using agents. See [the protocol](docs/protocol.md), [prior work](docs/literature.md), and [the complete objective](docs/objective.txt).
+A local study of peer messages, persistence through replacement, and intervention in tool-using agents. Both primary confirmation schedules are complete; the registered Q8 sensitivity run and final delivery review are in progress. See [the protocol](docs/protocol.md), [prior work](docs/literature.md), and [the complete objective](docs/objective.txt).
 
 The agent operates only on synthetic in-memory records through a JSON action protocol. It has no host execution tools. This is not a reproduction of a real intrusion.
 
@@ -26,7 +26,7 @@ Pinned repositories and revisions are in `configs/models.json`. Download with:
 .venv/bin/python scripts/download_models.py
 ```
 
-The download script creates SHA256 manifests under `artifacts/environment/`. Qwen is a third-party Q4_K_M conversion; Ministral is an official BF16 GGUF. The local runtime is a pinned checkout of llama.cpp. Model compatibility, competence, and throughput must be measured before final selection.
+The download script creates SHA256 manifests under `artifacts/environment/`. Qwen is a third-party Q4_K_M conversion; Ministral is an official BF16 GGUF. The local runtime is a pinned checkout of llama.cpp. Both primary configurations passed development competence gates. Their measured runtime and memory are documented in the pilot and confirmation results.
 
 Serve one model at a time:
 
@@ -75,8 +75,18 @@ python scripts/recovery_pilot.py --parent results/development-002 --output resul
 
 This selects the first eligible failure episode per task in the saved randomized schedule: after the first attempt for replacement, before it for intervention. Branches inherit the recorded remaining action budget. Selection is conditional on observed failure; these runs do not estimate an unconditional deployment failure rate. The selector also supports a fixed `--task-index-limit` for prespecified subsets.
 
-The local registration is frozen in `configs/preregistration.json` (2026-09-13 00:19:48 UTC), before the first held-out inference. The primary schedule is running in `results/confirmation-001/`; complete-study conclusions await the registered runs and final analysis. Pilot data are never relabeled as confirmation.
+The local registration is frozen in `configs/preregistration.json` (2026-09-13 00:19:48 UTC), before the first held-out inference. The completed primary schedules in `results/confirmation-001/` contain 14,630 episodes. Complete-study conclusions await the Q8 sensitivity comparison and final evidence review. Pilot data are never relabeled as confirmation.
 
 After the frozen registration and competence evidence are available, `scripts/confirmation_pipeline.py --registration PATH --output NEW_DIRECTORY` executes the registered primary schedules and audits each run. It refuses changed source files, model weights, sampling settings, or registered runtime flags. No confirmation is launched by setup or development scripts.
 
 The separately pinned Q8 sensitivity weights can be downloaded with `scripts/download_models.py --config configs/sensitivity-models.json --model qwen_q8`. After its development competence check, the same confirmation runner supports `--models qwen_q8` using its registered secondary sample allocation. `scripts/compare_precision.py Q4_PEER_RUN Q8_PEER_RUN NEW_OUTPUT.json` reports paired comparisons on shared task/seed keys and checks provenance and runtime compatibility. Extra Q4 generations are excluded from that secondary comparison by design.
+
+## Study deliverables
+
+- [Working research report](docs/research-report.md): findings and interpretation limits.
+- [Detailed confirmation results](docs/confirmation-results.md): rates, contrasts, uncertainty and diagnostics.
+- [Pilot results](docs/pilot-results.md): development failures and model admission evidence.
+- [Reproduction instructions](docs/reproduction.md): saved-action replay and new inference.
+- [Completion audit](docs/completion-audit.md): requirement-by-requirement delivery status.
+
+The portable evidence package will accompany final delivery after the remaining registered work and review.

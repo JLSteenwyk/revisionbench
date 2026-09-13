@@ -21,7 +21,7 @@ and a dated finding for every row.
 | Development pilot and held-out confirmation | Inspect retained failed pilots as well as successful pilots; parsing, solvability, runtime and memory evidence; the revised task bank and disjointness audit; and actual confirmation inputs. Unique identifiers do not establish diverse problem types. | Development complete; confirmation coverage pending. |
 | Preregistration before confirmation, justified sample, exclusions and stopping | Verify `configs/preregistration.json` against Git history, all frozen file hashes and controller hash, run manifests and first inference timestamps. Inspect planning assumptions and actual sample coverage. Retain infrastructure failures and any explicit amendments; never substitute an outcome-selected smaller sample. | Registration frozen; full execution audit pending. |
 | Task-cluster uncertainty, effects and nulls | Inspect complete analysis outputs and recompute/report registered primary contrasts with 97.5% intervals for the two primary model tests; distinguish secondary 95% intervals. Check task aggregation, shared generation keys, exclusions, non-estimable contrasts and conservative bounds. Report null results without interpreting them as proof of equivalence. | Complete analyses pending. |
-| Quantization and application scaffolding | Inspect Q8 admission and the registered paired Q8/Q4 comparison, or document an actual admission failure. Match shared tasks and generation keys. Report third-party quantization provenance, role merging, fence parsing, controller limits and observed generation repeatability; do not attribute all between-model differences to model weights. | Q8 weights downloaded; admission and comparison pending. |
+| Quantization and application scaffolding | Inspect Q8 admission and the registered paired Q8/Q4 comparison, or document an actual admission failure. Match shared tasks and generation keys. Report third-party quantization provenance, role merging, fence parsing, controller limits and observed generation repeatability; do not attribute all between-model differences to model weights. | Q8 admission independently reviewed: all 27 control episodes, arithmetic/completion, held-out disjointness and manifest/telemetry evidence pass. Registered paired comparison running. |
 | Local inference and no unauthorized spending | Review launch/client paths and run provenance for local inference; no external paid inference or subscription replication has been authorized. Optional subscription replication is not necessary for completion. | Local execution so far; final provenance review pending. |
 | Complete deliverables and reproducibility | Inspect literature, protocol, harness, validated scenarios/tests, versioned configs, pilot results, complete confirmation analysis, final report and reproduction instructions. Verify archive contents/checksums and source history, and make all final artifact links usable. | Report, complete results and archive pending. |
 
@@ -367,3 +367,21 @@ library. Evidence:
 Both primary pipelines completed successfully: 7,546 Qwen and 7,084 Ministral episodes. The final Ministral natural-intervention replay passes 430 episodes. New post-registration `scripts/review_natural_intervention.py` independently checks matched coverage, states, parent links, seeds, budgets, initial histories, raw-response parsing, authorization targets, changes and completion without simulator/scoring imports. Its saved review passes 1,214 transitions; it shares Python JSON parsing and the independent type-sensitive equality helper. Parent checkpoint selection was reviewed separately. It does not independently attest server execution, full tool semantics or uncertainty calculations.
 
 The completed Ministral runtime review checks all five manifests and 4,295 final telemetry samples (peak 26,381 MiB). Frozen registration file hashes and source hash remain intact. Detailed and working reports now include the final intervention findings, distinguishing the pre-denial queued write from post-denial redirection. Q8 passed its competence gate (24/27, zero invalid actions); the registered sensitivity run remains active. Final Q8 review, synthesis and package verification remain outstanding.
+
+### Q8 admission and reproduction review — 2026-09-13 09:23 UTC
+
+Inspected all 27 Q8 pilot control episodes and their actual schedule. Each of the
+three controls completed 8/9 tasks (24/27 overall); all 76 recorded actions were
+valid. Independently computed expected results for each task and compared final
+records with them. All nine development inputs are disjoint from the held-out
+bank. The certificate matches these observations. Pinned weight hashes agree
+across model/weight/server manifests; the pilot ran with the designated GPU UUID.
+Ten final pilot telemetry samples have peak device memory 35,519 MiB; this is
+sampled device-wide evidence, not continuous process attribution. Saved evidence:
+`results/q8-controls/admission-independent-review.json`. The registered sensitivity
+run is still active and is not declared complete from its admission evidence.
+
+README status and artifact links now reflect completed primary inference.
+Reproduction instructions explicitly state that replay/analysis commands write
+into their supplied directory and should run on a separate evidence copy. Added
+commands for post-registration independent reviewers, with their scope limits.
