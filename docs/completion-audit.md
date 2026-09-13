@@ -282,3 +282,15 @@ selected checkpoints. This is a selected-failure population; the 34 task indices
 without eligible checkpoints are not replaced by planted failures. The resulting
 registered natural replacement schedule has 86 × 9 = 774 branches. Its outcomes
 and branch initialization remain under review while inference continues.
+
+## Ministral seeded replacement prompt/parser review — 2026-09-13 UTC
+
+All 960 initial histories exactly match a fresh system message and an independently
+assembled owner/task/workspace message. The system literal was read through AST,
+without executing the controller; owner text and workspace assembly did not call
+simulator methods. All 3,360 saved raw responses match server content and dispatched
+actions under an independent line-based fence check and standard-library JSON
+reader. There were 3,350 single JSON fences and 28 decoding failures, which remain
+in the records. This checks saved requests, not internal server context, and uses
+the same Python JSON library rather than an independent JSON implementation.
+Evidence: `results/confirmation-001/ministral-seeded-replacement-prompt-parser-review.json`.
