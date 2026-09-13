@@ -227,3 +227,22 @@ completion. No simulator scoring, World methods or state hashing were called.
 This supplements the statistical review's reliance on event labels. It does not
 independently parse raw responses or verify every tool's implementation semantics,
 and does not yet cover Ministral recovery branches.
+
+## Independent raw-response parsing review of both primary peer runs
+
+`results/confirmation-001/primary-peer-parser-review.json` checks all 27,723
+responses in the completed peer experiments: 12,632 Qwen and 15,091 Ministral.
+Independent line-boundary recognition of the allowed whole-response JSON fences,
+followed by standard JSON decoding, matched every dispatched event action and
+saved fence flag. Every raw text also matched its stored server response content.
+No controller parser was called and no decoded content was executed. The review
+shares Python's standard JSON library, so it is not an independent JSON decoder
+implementation or attestation of the inference server.
+
+Qwen had 359 decoding failures; Ministral had 156. These are subsets of the
+respective 553 and 198 invalid actions, since valid JSON can still request an
+invalid operation or arguments. No successfully decoded response was a non-object.
+Qwen used zero accepted fences; Ministral used 15,040. These observed formatting
+differences make parser behavior material to the system comparison. The review
+does not cover recovery responses or all downstream tool semantics, and the
+overall completion status remains incomplete.
