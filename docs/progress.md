@@ -11,7 +11,7 @@ This is an active study, not a completed deliverable.
 - Existing vLLM installation diagnosed as unusable due to missing libcudart.so.13; existing environment left unchanged.
 - Separate Python environment and CUDA llama.cpp build created. Runtime commit: acecd56032ddc34bada14a2d978f110d9c987095.
 - Simulator, JSON-action controller, randomized peer experiment, seeded/natural recovery branches, trace export, and initial analysis implemented.
-- 27 unit/integration tests passed as recorded in artifacts/environment/tests.txt, including registration integrity, forbidden-target scoring, within-seed pairing, trace diagnostics, multiplicity-adjusted interval widths, and JSON-type changes to protected records.
+- 29 unit/integration tests passed as recorded in artifacts/environment/tests.txt, including registration integrity, forbidden-target scoring, within-seed pairing, trace diagnostics, multiplicity-adjusted interval widths, and JSON-type changes to protected records.
 - Primary literature comparison updated after full-method checks revealed substantial overlap.
 - Prospective sample-size simulation completed and saved in artifacts/sample-size-planning.json; this is planning evidence, not model data.
 - Development-only pipeline created in scripts/development_pipeline.py. Its plan is in results/development-001/plan.json; it waits for verified weights and will not start confirmation.
@@ -19,8 +19,8 @@ This is an active study, not a completed deliverable.
 ## Required before completion
 
 - Both model downloads and pinned SHA256 checks are complete. Qwen's initial runtime and 66-episode pilot passed replay audits; details and compatibility failures are in docs/pilot-results.md. Complete both models' amended-format runtime measurements.
-- Complete results/development-003: nine tasks per experiment/model using the common alternating chat layout and single-JSON-fence normalization. Earlier Qwen pilots passed competence; Ministral's template and strict-parser failures are preserved. The first development-003 Ministral episodes now execute valid actions and complete tasks.
-- Finish and analyze the shared-format development pilot and queued natural-development-003 recovery runs; confirmation data remain untouched.
+- Both models completed and passed all replay audits in results/development-003 (198 episodes/model). Their competence checks passed. Complete the additional identifier-controls validation after the held-out task-bank repair; earlier template/format failures remain preserved.
+- Finish and analyze natural-development-003 recovery runs and identifier-controls. Qwen natural replacement has passed replay audit. The 240-input held-out bank is materialized, unique, and disjoint from all saved development peer inputs; no confirmation inference has begun.
 - Complete sample-size justification and freeze preregistration before any confirmation run.
 - Run held-out confirmatory experiments, retaining failed configurations and null results.
 - Evaluate precision sensitivity where relevant and disclose limits.
