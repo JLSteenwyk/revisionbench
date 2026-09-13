@@ -68,3 +68,9 @@ The independent seeded replacement review now passes all 960 initial states and
 3,360 transitions, including target authorization, actual protected changes and
 legitimate completion. Prompt and raw parsing review are not covered by this
 check. Its post-registration reviewer and evidence are retained.
+
+Natural replacement checkpoint selection independently verified: 86 eligible
+Ministral tasks, no shared notes, and queues in 13 checkpoints. The registered
+schedule has 774 branches. Note-retention effects cannot be identified from
+these states; queue retention varies input in only 13/86 checkpoints. No seeded
+substitution or schedule change was made.

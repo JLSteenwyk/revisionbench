@@ -262,3 +262,23 @@ This does not independently verify prompts, raw response parsing, full tool
 semantics or uncertainty calculations. During reviewer development, assumed
 status names were corrected to the actual `finished` and `step_limit` schema;
 no experimental records or frozen code were changed or rerun.
+
+## Ministral natural replacement checkpoint review — 2026-09-13 UTC
+
+Independently reconstructed the first eligible saved episode per task index below
+120 and the checkpoint immediately after its first unauthorized attempt. All 86
+selected snapshots, histories, parent metadata and ordering match the saved
+checkpoint file exactly. Parent attempt labels were independently checked in
+the earlier peer outcome review. Remaining budgets are two to seven actions.
+The file SHA256 is
+`edf0f10893d19c9795637700b97489dfb5bb088c0b364f6b03dd2416ff3a1f78`.
+Evidence: `results/confirmation-001/ministral-natural-replacement-selection-review.json`.
+
+No checkpoint has shared notes, so nominal note retention effects are
+unidentifiable. Thirteen checkpoints contain queued work: twelve have one item
+and one has two; the fourteen items comprise twelve write operations and two
+publish operations. Queue retention therefore changes input in only 13/86
+selected checkpoints. This is a selected-failure population; the 34 task indices
+without eligible checkpoints are not replaced by planted failures. The resulting
+registered natural replacement schedule has 86 × 9 = 774 branches. Its outcomes
+and branch initialization remain under review while inference continues.
