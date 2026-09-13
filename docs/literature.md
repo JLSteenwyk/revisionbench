@@ -20,7 +20,7 @@ Important limits: success claims add outcome evidence and permission claims add 
 
 Incident relevance: the study is inspired by questions raised by public incident reports. It is not an incident reconstruction, and no observed behavior here establishes what caused the Hugging Face incident. The methods require neither a real exploit nor access to production systems.
 
-Before confirmation: inspect full methods and cited neighbors for source-attribution, authorization persuasion, memory persistence, and recovery; update this comparison if closer precedents are found. A reproducible replication/extension remains useful even if priority is unavailable.
+The core full-method review above preceded registration. A subsequent cited-neighbor review is recorded below with its timing; it changes the literature positioning, not the frozen experiment. A reproducible replication/extension remains useful even when priority is unavailable.
 
 ## Full-method findings affecting our design
 
@@ -29,3 +29,15 @@ Multi-Agent AI Control preserves committed code across fresh executors, with a m
 The memory-revocation paper's appendices go beyond a simple memory-read benchmark: they test independent-role retrieval, journal removal, simulated tool calls, and successor relapse. Do not describe our replacement experiment as the first demonstration of journal-mediated persistence. Its full results also distinguish default retrieval, configuration overrides, and missing validity metadata; the abstract's broad phrasing should not be read as identical failure in every default system configuration.
 
 Causal Agent Replay explicitly limits its demonstrations to mocked tools and notes that diverging stochastic continuations complicate direct-effect attribution. Our matched-snapshot intervention estimates are total effects of the assigned continuation policy. They do not identify an agent's internal reason for acting.
+
+## Cited-neighbor follow-up during confirmation
+
+Follow-up checked on 2026-09-13 UTC, after registration, without changing the registered protocol, sample, or analysis. The closest-source metadata were rechecked, and references from the revocation paper led to these additional precedents:
+
+| Primary source | Verified scope | Consequence for our contribution |
+| --- | --- | --- |
+| [MemoryGraft](https://arxiv.org/html/2512.16962v1), Srivastava and He, December 2025 | Its methods use a persistent experience store and later retrieval of procedures presented as prior successes. The evaluation uses MetaGPT DataInterpreter with GPT-4o. | Success-framed procedural memory and persistence across invocations are established precedents. Our factorial artifact removal is a narrower controlled comparison, not the first memory-persistence demonstration. |
+| [Zombie Agents](https://arxiv.org/html/2602.15654v2), Yang et al., March 2026 revision | The threat model and methods separate initial external exposure from later sessions, with fixed model weights and evolving sliding-window or retrieval memory. | A context reset leaving unsafe memory is already studied. Our fresh-instance branches separate notes, queues, and record changes in a simpler simulator; they do not reproduce its memory-management mechanisms. |
+| [Autonomous LLM Agent Worms](https://arxiv.org/abs/2605.02812v1), Zha and Wang, May 2026 | The authors report persistent-state re-entry and cross-platform propagation, with defenses targeting the state-to-context-to-action chain. This follow-up checked the primary abstract, not an independent reproduction of its production-framework claims. | Persistence involving files, schedules, and agent communication is not a new threat category introduced by our study. We do not test self-propagation or infer deployment security from a virtual permission check. |
+
+The appropriate positioning is **replication and controlled extension**: two unauthorized source labels crossed with three claim types, followed by independently manipulated artifact retention and matched intervention branches, evaluated in a common local-model harness with a precision follow-up. The review does not establish priority for that exact combination. Several cited sources are preprints; author-reported findings are distinguished from independently replicated facts. None of these sources makes our experiment evidence about the cause of a specific production incident.
