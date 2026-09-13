@@ -51,12 +51,12 @@
     {
       "requirement": "publication",
       "evidence": "README.md; CONTINUATION.md; pilot-report.md",
-      "finding": "Sanitized source, documentation and evidence prepared for final Git commit/push; remote verification must pass before goal completion.",
-      "status": "pending_remote_verification"
+      "finding": "Source, documentation, sanitized validation and pilot evidence pushed; remote master verified equal to published evidence commit 245c943c146c6fdb632062a4df4a0a0c8b5725ff.",
+      "status": "verified"
     }
   ],
   "live_goal_processes": 0,
-  "remaining_before_completion": [
-    "Commit and push final report/evidence; verify remote head and staged scope."
-  ]
+  "remaining_before_completion": [],
+  "verified_evidence_commit": "245c943c146c6fdb632062a4df4a0a0c8b5725ff",
+  "completion_scope": "All requested implementation, validation, pilot, analysis, preservation and publication deliverables verified. Future construct validation and broader studies are explicitly outside this completed pilot."
 }
