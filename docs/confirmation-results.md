@@ -537,3 +537,14 @@ Evidence: `results/confirmation-001/ministral-intervention-natural/{analysis.jso
 ### Completed Ministral runtime review
 
 All five run manifests agree on the pinned weights, runtime, registration, source, generation settings and single-GPU launcher. The final telemetry contains 4,295 samples over 21,694.59 seconds, with median gap 5.05 seconds and maximum gap 5.91 seconds. Peak sampled device memory was 26,381 MiB. These are device-wide samples, not continuous process-attributed measurements. Evidence: `results/confirmation-001/ministral-runtime-review.json`. All frozen file hashes and the experimental source hash were reverified after the post-registration reporting/review additions.
+
+### Independent numerical verification of all primary analyses
+
+All ten primary analyses now pass a separate numerical review of 14,630 raw
+episodes and 78 contrasts. It reproduces cell attempt/change/completion rates,
+matched blocks, per-task aggregation, 5,000-draw 95%/97.5% bootstrap intervals,
+degeneracy handling and conservative bounds. Evidence is in
+`results/confirmation-001/*-full-statistical-review.json` and
+`ministral-natural-intervention-statistical-review.json`; reviewer code is
+`scripts/review_analysis.py`. Authorization labels rely on the separate outcome
+reviews. These calculations do not resolve identifiability or generalization limits.

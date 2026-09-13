@@ -119,3 +119,7 @@ Both primary pipelines reached successful audited completion (14,630 episodes to
 ### Q8 admission reviewed
 
 Independently reviewed all 27 control episodes: 8/9 completion in each control, 24/27 overall, and zero recorded invalid actions across 76 transitions. Expected outputs and held-out disjointness independently pass. Pilot peak sampled memory was 35,519 MiB. Updated README and reproduction instructions to preserve original audit evidence. Q8 confirmation continues on its existing process.
+
+### Primary statistical verification complete
+
+A post-registration reviewer independently reproduced all 78 contrasts and the main outcome rates across all ten primary analyses (14,630 episodes), including task aggregation, bootstrap uncertainty, degenerate intervals and conservative bounds. It does not import the experiment analysis or simulator. All checks pass; Q8 confirmation remains running.

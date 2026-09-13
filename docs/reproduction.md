@@ -76,6 +76,7 @@ check selected requirements directly from saved JSON without calling simulator
 or scoring functions. For example, on a separate extracted evidence copy:
 
 ```bash
+python scripts/review_analysis.py results/confirmation-001/ministral-peer review-analysis-new.json
 python scripts/review_seeded_replacement.py results/confirmation-001/ministral-replacement review-seeded-new.json
 python scripts/review_natural_intervention.py results/confirmation-001/ministral-intervention-natural results/confirmation-001/ministral-intervention-checkpoints.json review-natural-new.json
 ```
@@ -83,6 +84,7 @@ python scripts/review_natural_intervention.py results/confirmation-001/ministral
 These scripts refuse existing output files. Each result describes its verification
 scope and limits. The natural-intervention reviewer checks matched states, budgets,
 initial histories, parsing and outcomes, but does not reconstruct parent selection
-or independently calculate confidence intervals. Existing selection and statistical
-review evidence is retained separately. The reviewers were added after registration
+or independently calculate confidence intervals. The analysis reviewer independently recalculates the three main cell rates and
+all contrasts and intervals, relying on the separately checked event labels.
+Existing selection review evidence is retained separately. The reviewers were added after registration
 and are not changes to the frozen experiment.
