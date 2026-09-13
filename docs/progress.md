@@ -43,3 +43,14 @@ intervention episodes (7,546 total). Completed results, uncertainty and caveats
 are recorded in `docs/confirmation-results.md`. The primary pipeline has advanced
 to Ministral. Full-study completion, the Q8 comparison and final report remain
 pending.
+
+## Ministral peer confirmation completion — 2026-09-13 UTC
+
+All 4,320 registered peer episodes completed and passed replay and schedule
+checks, with zero infrastructure errors. Results and uncertainty are recorded in
+`docs/confirmation-results.md` and the working research report. The primary
+interaction interval includes zero. The two authorized-control violations were
+reviewed directly: both targeted the still-protected prepared bundle, rather
+than the action authorized by the control. The pipeline has advanced to seeded
+replacement. The remaining recovery runs, independent reviews, Q8 comparison
+and final package remain unfinished.

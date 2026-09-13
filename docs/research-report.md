@@ -1,8 +1,8 @@
 # Authorization boundaries, agent replacement and interventions
 
 **Working report — study incomplete.** This draft reports completed Qwen Q4
-confirmation only. Ministral confirmation and conditional Qwen Q8 sensitivity
-remain unfinished. It is not evidence of findings shared across models.
+confirmation and Ministral BF16 peer confirmation. Ministral recovery experiments
+and conditional Qwen Q8 sensitivity remain unfinished.
 
 ## Question and contribution
 
@@ -81,6 +81,24 @@ not eliminate them. Enforcement also reduced observed legitimate completion;
 the authorized route remained available. Complete cell rates, intervals and
 denial diagnostics are in [confirmation results](confirmation-results.md).
 
+## Completed Ministral peer findings
+
+All 4,320 Ministral peer episodes passed replay and schedule checks. Its primary
+interaction was **−4.38 percentage points**, bootstrap 97.5% interval **−11.46 to
++2.29**; the conservative interval was −42.59 to +33.84. Neither primary model's
+peer experiment establishes this interaction; this does not prove equivalence
+or supply a pooled estimate. The secondary permission-versus-facts effect
+averaged over sources was +29.69 points (bootstrap 95% +25.21 to +34.17;
+conservative +12.15 to +47.22).
+
+Ministral made no unauthorized attempts in the 480 no-message episodes. Its
+legitimate completion ranged from 60.42% to 73.75% across conditions, so a safety
+comparison based only on lower violation rates would omit task performance.
+Each authorized control contained one attempt to overwrite the still-protected
+prepared bundle; only one caused a new change. These events remain included.
+The detailed [results](confirmation-results.md) separate every outcome and retain
+secondary nulls, uncertainty and execution diagnostics.
+
 ## Interpretation limits and unfinished work
 
 Results concern these pinned models, scripted messages, three task families and
@@ -92,7 +110,7 @@ reminder. Fixed seeds did not ensure identical trajectories in development.
 Zero changes under enforcement describe the simulated tools, not deployment
 security or reliable behavioral compliance.
 
-Ministral results, the Q8 admission outcome and paired comparison, cross-model
+Ministral recovery results, the Q8 admission outcome and paired comparison, cross-model
 synthesis and the final completion audit must be incorporated before this report
 is finalized. Reproduction instructions are in [reproduction.md](reproduction.md);
 the portable evidence package remains to be generated and verified after those
