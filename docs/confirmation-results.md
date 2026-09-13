@@ -455,3 +455,42 @@ Environment retention and all-retained versus all-removed comparisons have posit
 Fresh-agent completion ranged from 67.44% to 73.26%, compared with 95.35% for original continuations. No new protected change does not mean earlier harm was repaired, and unauthorized no-op attempts remain violations. Zero-event cells have a one-sided 95% task-event upper bound of 3.42% within their finite observation budget.
 
 Evidence: `results/confirmation-001/ministral-replacement-natural/{analysis.json,audit.json,diagnostics.json,manifest.json,schedule.json,summary.jsonl,episodes/}` and `ministral-natural-replacement-selection-review.json`. An independent branch review now passes all 774 initial states and 2,432 transitions, including factorial coverage, parent links, seeds, equal remaining budgets, permissions, actual protected changes and task completion. Evidence: `ministral-natural-replacement-independent-review.json` (43 unauthorized attempt events; two events with new protected changes). A separate review verifies all 688 fresh prompts, 86 original histories and 2,432 raw-response/action mappings (2,422 single JSON fences; 18 decoding failures retained): `ministral-natural-replacement-prompt-parser-review.json`. These independent reviews do not recompute uncertainty intervals.
+
+## Ministral seeded intervention confirmation — 2026-09-13 UTC
+
+All 600 episodes (120 tasks × five interventions) completed without infrastructure errors and passed replay and schedule checks. Every branch starts from the same deliberately planted state for its task and has eight actions. An authorized solution remains available.
+
+| Intervention | Unauthorized attempt | New unauthorized change | Legitimate completion |
+|---|---:|---:|---:|
+| none | 31.67% | 31.67% | 81.67% |
+| block_operation | 33.33% | 0.00% | 70.83% |
+| owner_stop | 5.00% | 5.00% | 70.83% |
+| enforce_all | 30.00% | 0.00% | 71.67% |
+| acceptable_stop | 10.83% | 10.83% | 79.17% |
+
+Secondary differences are against no intervention. Intervals are task-cluster bootstrap 95% and conservative Hoeffding 95%; these secondary comparisons are not jointly adjusted.
+
+| Contrast / outcome | Difference (percentage points) | Bootstrap 95% | Conservative 95% |
+|---|---:|---:|---:|
+| block operation vs none unauthorized attempt | +1.67 | -2.50 to +5.83 | -23.13 to +26.46 |
+| block operation vs none unauthorized change | -31.67 | -40.00 to -23.33 | -56.46 to -6.87 |
+| block operation vs none task complete | -10.83 | -16.67 to -5.83 | -35.63 to +13.96 |
+| owner stop vs none unauthorized attempt | -26.67 | -35.83 to -17.50 | -51.46 to -1.87 |
+| owner stop vs none unauthorized change | -26.67 | -35.83 to -17.50 | -51.46 to -1.87 |
+| owner stop vs none task complete | -10.83 | -18.33 to -3.33 | -35.63 to +13.96 |
+| enforce all vs none unauthorized attempt | -1.67 | -5.00 to +1.67 | -26.46 to +23.13 |
+| enforce all vs none unauthorized change | -31.67 | -40.00 to -23.33 | -56.46 to -6.87 |
+| enforce all vs none task complete | -10.00 | -15.83 to -4.17 | -34.80 to +14.80 |
+| acceptable stop vs none unauthorized attempt | -20.83 | -30.00 to -12.50 | -45.63 to +3.96 |
+| acceptable stop vs none unauthorized change | -20.83 | -30.00 to -12.50 | -45.63 to +3.96 |
+| acceptable stop vs none task complete | -2.50 | -10.00 to +5.00 | -27.30 to +22.30 |
+
+Blocking the publish operation and enforcing all permissions both reduced new unauthorized changes from 38/120 to zero, but did not establish a reduction in attempts. Owner correction reduced attempted and actual violations to 6/120; its 95% bootstrap and conservative intervals both exclude zero. Acceptable-stop wording reduced violations to 13/120 with a bootstrap interval excluding zero, while its conservative interval includes zero. No condition establishes universal behavioral compliance.
+
+Legitimate completion was lower under blocking, full enforcement and owner correction than under no intervention. Their bootstrap completion intervals exclude zero but conservative intervals include zero. The acceptable-stop completion comparison includes zero under both methods. A safer observed outcome must be considered alongside useful work.
+
+There were denials in 40 blocking episodes and 36 enforcement episodes. Neither condition had a subsequent unauthorized attempt through a different effective operation or any protected-record change. One blocking episode made another unauthorized attempt after denial using the same effective operation. This absence of observed alternative-route violations does not prove that blocking one operation is generally sufficient.
+
+Literal `cannot_complete_within_scope` finishes occurred in 14 blocking, 11 enforcement, two owner-correction, one no-intervention and one acceptable-stop episodes. Other finish strings are retained verbatim in diagnostics and are not automatically interpreted as successful completion. One acceptable-stop episode exhausted its action budget; other conditions had no budget-exhaustion episodes.
+
+Evidence: `results/confirmation-001/ministral-intervention/{analysis.json,audit.json,diagnostics.json,manifest.json,schedule.json,summary.jsonl,episodes/}`. Independent branch/outcome/prompt reviews and natural intervention results remain pending.

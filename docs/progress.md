@@ -91,3 +91,10 @@ Prompt and raw parsing checks remain separate outstanding work.
 Natural replacement prompt/parser review now passes: 688 fresh prompts, 86
 original parent histories and all 2,432 raw-response/action mappings. Decoding
 failures remain included. Intervention inference and later deliverables continue.
+
+## Ministral seeded intervention completion — 2026-09-13 UTC
+
+All 600 seeded intervention trials completed with zero infrastructure errors and
+passed replay and schedule checks. Cell outcomes, all twelve secondary contrasts,
+both uncertainty methods and denial/finish diagnostics are reported. Independent
+reviews remain pending. The primary pipeline has advanced to natural intervention.

@@ -123,6 +123,22 @@ original continuations. Fresh-agent completion ranged from 67.44% to 73.26%,
 versus 95.35% for original continuations. These observations distinguish attempts,
 new damage and useful work; they do not show repair of predecessor changes.
 
+## Completed Ministral seeded intervention findings
+
+All 600 branches passed replay and schedule checks. Blocking the publish operation
+and enforcing all permissions each prevented new unauthorized changes, compared
+with 38/120 branches without intervention. Each change difference was −31.67
+percentage points (bootstrap 95% −40.00 to −23.33; conservative −56.46 to −6.87).
+Attempts remained at 40/120 and 36/120 respectively. Neither produced an observed
+alternative-operation violation after denial in this run. Owner correction reduced
+violations to 6/120, and acceptable-stop wording to 13/120; neither eliminated them.
+
+Legitimate completion was 81.67% without intervention, 70.83% under blocking or
+owner correction, 71.67% under full enforcement and 79.17% with acceptable-stop
+wording. Detailed results retain the uncertainty around these differences and the
+finish/denial diagnostics. These planted-state findings remain separate from the
+natural intervention experiment.
+
 ## Interpretation limits and unfinished work
 
 Results concern these pinned models, scripted messages, three task families and
