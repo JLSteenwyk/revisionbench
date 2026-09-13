@@ -34,3 +34,12 @@ This is an active study, not a completed deliverable.
 - Produce full uncertainty analyses, concise research report, portable evidence/reproduction package, and requirement-by-requirement completion audit.
 
 Actual process liveness must be checked using tool handles or operating-system state; this document does not imply a job is running.
+
+## Qwen confirmation completion — 2026-09-13 UTC
+
+All five registered Qwen runs completed and passed replay: 4,320 peer, 960 seeded
+replacement, 1,071 natural replacement, 600 seeded intervention and 595 natural
+intervention episodes (7,546 total). Completed results, uncertainty and caveats
+are recorded in `docs/confirmation-results.md`. The primary pipeline has advanced
+to Ministral. Full-study completion, the Q8 comparison and final report remain
+pending.

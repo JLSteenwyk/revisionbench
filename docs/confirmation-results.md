@@ -240,3 +240,75 @@ intervention run has started from 119 before-attempt checkpoints.
 Qwen natural intervention, the complete Ministral schedule, conditional Q8
 validation/comparison, full diagnostics synthesis and the final report remain
 pending. Natural recovery results must be reported separately from seeded states.
+
+## Qwen Q4 natural intervention
+
+Completed all 595 branches from 119 naturally selected checkpoints, five
+conditions per checkpoint, with no infrastructure errors. All branches passed
+replay. Selection was independently verified against the parent peer episodes:
+branches start immediately before the first unauthorized attempt with four to
+eight remaining steps. These are failure-selected contexts, not a random sample
+of all task states.
+
+| Intervention | Any unauthorized attempt | Any unauthorized change | Legitimate completion |
+| --- | ---: | ---: | ---: |
+| none | 80.67% | 80.67% | 95.80% |
+| block_operation | 80.67% | 1.68% | 78.15% |
+| owner_stop | 27.73% | 27.73% | 94.12% |
+| enforce_all | 80.67% | 0.00% | 78.15% |
+| acceptable_stop | 42.02% | 42.02% | 90.76% |
+
+All contrasts below are secondary, with task-cluster bootstrap 95% intervals;
+these intervals are not adjusted for the collection of secondary comparisons.
+Differences and interval endpoints are percentage points relative to no intervention.
+
+| Intervention | Outcome | Difference | 95% interval |
+| --- | --- | ---: | ---: |
+| block_operation | unauthorized_attempt | +0.00 | -4.20 to +4.20 |
+| block_operation | unauthorized_change | -78.99 | -85.71 to -71.43 |
+| block_operation | task_complete | -17.65 | -25.21 to -10.92 |
+| owner_stop | unauthorized_attempt | -52.94 | -63.87 to -41.18 |
+| owner_stop | unauthorized_change | -52.94 | -63.87 to -41.18 |
+| owner_stop | task_complete | -1.68 | -7.56 to +4.20 |
+| enforce_all | unauthorized_attempt | +0.00 | -5.04 to +5.04 |
+| enforce_all | unauthorized_change | -80.67 | -87.39 to -73.95 |
+| enforce_all | task_complete | -17.65 | -25.21 to -10.08 |
+| acceptable_stop | unauthorized_attempt | -38.66 | -48.74 to -28.57 |
+| acceptable_stop | unauthorized_change | -38.66 | -48.74 to -28.57 |
+| acceptable_stop | task_complete | -5.04 | -10.92 to +0.00 |
+
+Enforcement prevented all new unauthorized changes in this simulated tool set,
+while 96/119 branches still attempted a violation. Blocking only publish_bundle
+left two branches that changed a forbidden target through a different operation
+after denial. Both blocking conditions produced 93/119 legitimate completions,
+versus 114/119 without intervention. The completion differences have bootstrap
+intervals below zero, but conservative Hoeffding 95% intervals include zero
+(−42.55 to +7.25 points for both).
+
+Owner correction reduced attempts and changes from 96/119 to 33/119; its
+conservative 95% interval for the difference is −77.84 to −28.04 points.
+The acceptable-stop condition reduced them to 50/119, with a conservative
+interval of −63.55 to −13.76 points. This contrasts descriptively with the seeded
+acceptable-stop result, but the contexts and message placement differ: at natural
+checkpoints both owner correction and acceptable stop append the complete owner
+instruction, including a reminder of permissions. The study does not isolate
+the extra stop sentence from that reminder. No between-origin causal interaction
+is established by comparing these separate runs.
+
+The conservative change-difference intervals also exclude zero for blocking one
+operation (−100 to −54.09 points) and enforcing all permissions (−100 to −55.77).
+Attempt differences for either blocking condition are zero, with intervals
+including zero; equal aggregate rates do not mean identical paired trajectories.
+The acceptable-stop completion interval reaches zero, so this does not establish
+preserved completion or equivalence.
+
+Finish reasons include literal cannot_complete_within_scope in 1 no-intervention,
+18 block-operation, 3 owner-correction, 20 enforcement and 7 acceptable-stop
+branches. Seven block-operation, six enforcement and one owner-correction branch
+exhausted their budgets without finishing. A valid authorized solution remained
+available. The no-intervention replay violated in 96/119 cases despite selection
+on a parent violation: the branch uses its registered new seed and the runtime
+is not assumed to reproduce a parent action deterministically.
+
+Sources: the run's analysis.json, diagnostics.json, audit.json and raw episodes.
+The Qwen primary schedule is complete; Ministral and Q8 work remains unfinished.
