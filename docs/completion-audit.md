@@ -131,7 +131,7 @@ Further independent checks on 2026-09-13 UTC:
   with four to eight remaining steps. Saved snapshots, histories and parent
   metadata match the source episodes. Evidence:
   `results/confirmation-001/qwen-natural-intervention-selection-review.json`.
-  Branch execution remains in progress.
+  All 595 branches subsequently completed and passed replay.
 - Initial states for all 960 seeded replacement, 1,071 natural replacement and
   600 seeded intervention episodes match independently constructed expectations
   for retained notes, queues, environment records and intervention settings.
@@ -150,3 +150,12 @@ Further independent checks on 2026-09-13 UTC:
   system text was compared with the frozen constant. Evidence:
   `results/confirmation-001/qwen-branch-prompt-review.json`. This verifies saved
   controller requests, not the inference engine's internal cache behavior.
+
+- Qwen natural intervention: all 595 initial branch states and first-request
+  histories match independent construction from their selected parent
+  checkpoints. Every checkpoint has all five conditions, with the correct seed,
+  remaining budget and parent link. Owner-correction and acceptable-stop branches
+  append the complete owner instruction; other branches preserve parent history.
+  Evidence: `results/confirmation-001/qwen-natural-intervention-branch-review.json`.
+  This closes the saved initial-state and prompt checks for Qwen's branch runs;
+  runtime provenance and independent statistical review remain separate work.
