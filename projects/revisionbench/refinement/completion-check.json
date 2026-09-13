@@ -1,5 +1,5 @@
 {
-  "status": "deliverables_verified_publication_pending",
+  "status": "complete",
   "objective_groups": [
     {
       "requirement": "preserve_existing_evidence",
@@ -74,12 +74,11 @@
   "core_successes": 23,
   "historical_results_preserved": true,
   "larger_study_launched": false,
-  "remaining_required_work": [
-    "Commit, push and verify publication of final evidence and proposal."
-  ],
+  "remaining_required_work": [],
   "publication": {
     "implementation_freeze_commit": "d3fe421",
-    "final_deliverables_commit": null,
-    "remote_verified": false
+    "final_deliverables_commit": "3f64e745a7f2a25c1dafe90492afa95ac66b5e55",
+    "remote_verified": true,
+    "verification": "git ls-remote origin refs/heads/master matched final deliverables commit; tracked worktree clean before this verification record"
   }
 }
