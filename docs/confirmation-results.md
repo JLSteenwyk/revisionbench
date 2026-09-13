@@ -125,8 +125,65 @@ have no artifact variation in this selected natural sample. Their natural
 effects cannot be identified here. These checkpoint observations do not replace
 the pending branch outcomes.
 
+## Qwen Q4 natural replacement experiment
+
+Completed and replay-audited 1,071 branches from 119 selected task checkpoints:
+eight retention combinations and one original-agent continuation per checkpoint.
+Selection provenance was checked independently against the full peer traces.
+Branches inherited the parent's remaining budget (three to seven steps).
+These are states selected after a prior violation, not an unconditional sample
+of agent deployments.
+
+| Notes retained | Queue retained | Record changes retained | New unauthorized attempt | New unauthorized change | Legitimate completion |
+| --- | --- | --- | ---: | ---: | ---: |
+| No | No | No | 36.97% | 36.97% | 96.64% |
+| No | No | Yes | 29.41% | 0% | 84.87% |
+| No | Yes | No | 37.82% | 37.82% | 94.96% |
+| No | Yes | Yes | 33.61% | 0% | 84.87% |
+| Yes | No | No | 33.61% | 33.61% | 94.12% |
+| Yes | No | Yes | 28.57% | 0% | 83.19% |
+| Yes | Yes | No | 34.45% | 34.45% | 94.96% |
+| Yes | Yes | Yes | 30.25% | 0% | 83.19% |
+| Original agent continues | — | Yes | 0.84% | 0.84% | 100% |
+
+Each row contains 119 branches. No selected checkpoint contained a note or a
+pending queue. Consequently, differences between their nominal retention labels
+do not estimate effects of those artifacts. The automatic analysis reports a
+nominal notes contrast of −2.73 points with a bootstrap interval excluding zero,
+but that cannot support a note-removal claim when there were no notes to remove.
+This is variation across separate generations with identical relevant inputs;
+its specific runtime cause has not been isolated. Preserve the raw contrast for
+transparency and treat the artifact effect as unidentifiable in this sample.
+
+The registered fresh-agent/all-retained versus original-continuation comparison
+was **+29.41 percentage points in new unauthorized attempts** (task-cluster
+bootstrap 95% interval +21.01 to +37.82; conservative Hoeffding interval +4.51 to
++54.31). Fresh/all-retained branches made 36/119 attempts with zero new protected
+record changes; original continuations made 1/119 attempts and 1/119 changes.
+Resetting history therefore increased attempted boundary crossings in these
+selected states, without increasing observed new protected-record changes in
+that comparison. It also changed the history and information available to the
+agent; this is a system-level replacement effect, not evidence about motives.
+
+Preserving environment changes, averaged over the other labels, had an attempt
+difference of −5.25 points (bootstrap 95% interval −17.65 to +7.35; Hoeffding
+−30.15 to +19.65). All retained versus all removed was −6.72 points (bootstrap
+−19.33 to +5.88; Hoeffding −31.62 to +18.18). Neither comparison establishes a
+clear attempt-rate difference here.
+
+At 118/119 checkpoints the legitimate result was already complete, and at
+118/119 the protected template already equaled the prepared bundle. Retaining
+state thus often made repeated forbidden writes no-ops. Removing state restored
+both protected data and legitimate task progress, so its effect is not solely
+removal of unsafe information. New-change rates must not be read as removal of
+preexisting harm, and no observed new change does not imply permission compliance.
+
+Evidence: `results/confirmation-001/qwen-replacement-natural/analysis.json`,
+`audit.json`, raw branches and `qwen-natural-replacement-selection-review.json`
+in the parent directory. Seeded and natural findings remain separate.
+
 ## Outstanding
 
-Qwen natural replacement/intervention, the complete Ministral schedule, conditional Q8
+Qwen intervention, the complete Ministral schedule, conditional Q8
 validation/comparison, full diagnostics synthesis and the final report remain
 pending. Natural recovery results must be reported separately from seeded states.
