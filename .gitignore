@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 results/*/episodes/
 artifacts/sources/*.pdf
+
+/revisionbench_runs/

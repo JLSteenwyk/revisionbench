@@ -1,0 +1,18 @@
+{
+  "repository": "https://github.com/allisonhorst/palmerpenguins",
+  "revision": "8957207b78d6ccd1b4654a9dd9c9041b657478ab",
+  "license": "CC0-1.0",
+  "attribution": "Data collected by Kristen Gorman and the Palmer Station Antarctica LTER; palmerpenguins package by Allison Horst, Alison Hill and Kristen Gorman.",
+  "files": {
+    "penguins.csv": {
+      "url": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/inst/extdata/penguins.csv",
+      "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+      "bytes": 15241
+    },
+    "PALMERPENGUINS_LICENSE.md": {
+      "url": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/LICENSE.md",
+      "sha256": "8e2c443dd9aea6fcd6c293dbf66935bd5ef502fc0ca9b466c773cf9316d5e04c",
+      "bytes": 6966
+    }
+  }
+}

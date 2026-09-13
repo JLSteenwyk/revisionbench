@@ -1,6 +1,6 @@
-# Repair versus rebuild after scientific corrections
+# RevisionBench: repair versus rebuild after scientific corrections
 
-Status: feasibility and literature assessment; no experiments registered or run.
+Status: executable development fixture validated; literature and broader feasibility assessment ongoing. No model trials or confirmatory experiments registered or run.
 
 Question: when an upstream fact or dataset changes, when is repairing an existing
 analysis more reliable and less costly than rebuilding it from corrected inputs?
@@ -38,3 +38,17 @@ resource purchase is part of this initial local feasibility phase.
 - EarthVerse: https://arxiv.org/abs/2608.23525
 
 These are relevant precedents, not evidence that our proposed comparison is novel.
+
+## Implemented development slice
+
+The root `revisionbench` package prepares a pinned public-data analysis, applies
+three corrections/controls, executes known baselines in Docker, and grades five
+output artifacts plus input integrity with an independent numerical oracle.
+Eight unit/integration tests pass, including stale figures, wrong claims, damage
+to unaffected counts, forbidden output file types, network/host isolation, timeouts
+and output limits. Evidence and commands are linked in the root README.
+
+Next: resolve the closest-work comparison, add different workflow structures,
+complete execution storage limits, and define repair/rebuild information and
+resource budgets before a small model pilot. Simply rerunning the supplied analysis
+already solves the data-only case; this baseline must remain in the study.

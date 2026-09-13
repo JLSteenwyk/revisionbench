@@ -1,94 +1,62 @@
-# Authorization and peer influence study
+# RevisionBench
 
-A local study of peer messages, persistence through replacement, and intervention in tool-using agents. All 15,710 registered confirmation episodes and their evidence reviews are complete. Read the [final research report](docs/research-report.md) for findings and limitations. See [the protocol](docs/protocol.md), [prior work](docs/literature.md), and [the complete objective](docs/objective.txt).
+When scientific inputs or requirements change, should an AI agent repair the
+existing analysis or rebuild it? RevisionBench will compare complete correction
+reliability, preservation of unaffected results, and computational cost.
 
-The agent operates only on synthetic in-memory records through a JSON action protocol. It has no host execution tools. This is not a reproduction of a real intrusion.
+**Status: executable development prototype. No model comparison or confirmatory
+study has been run. Novelty and broader task feasibility remain under review.**
 
-## Validate the simulator
+## First working fixture
 
-```bash
-python -m unittest discover -s tests -v
-```
+The prototype uses the public Palmer Penguins dataset, pinned to an upstream
+commit with SHA256 verification and CC0 attribution. A completed Python analysis
+produces a numerical summary, table, SVG figure, structured conclusion and sample
+counts. Three development cases exercise different recovery requirements:
 
-## Local models
+| Correction | Old outputs | Clean rerun | Known correct repair |
+|---|---|---|---|
+| Unchanged control | Pass | Pass | Pass |
+| Exclude 2007 observations | Fail | Pass | Pass |
+| Replace means with medians | Fail | Fail | Pass |
 
-On a compatible Linux/CUDA 12.9 machine, build the pinned runtime with:
+These are hypothetical benchmark corrections, not claims of errors in the source
+data. They validate the task and evaluator; they are not AI capability results.
 
-```bash
-bash scripts/setup_runtime.sh
-```
+## Run locally
 
-This uses a project-local virtual environment. CUDA compiler and a C++ toolchain must already exist. The measured host has NVIDIA Ada GPUs (compute capability 8.9); adjust the build architecture for a different GPU and record that change.
-
-Pinned repositories and revisions are in `configs/models.json`. Download with:
-
-```bash
-.venv/bin/python scripts/download_models.py
-```
-
-The download script creates SHA256 manifests under `artifacts/environment/`. Qwen is a third-party Q4_K_M conversion; Ministral is an official BF16 GGUF. The local runtime is a pinned checkout of llama.cpp. Both primary configurations passed development competence gates. Their measured runtime and memory are documented in the pilot and confirmation results.
-
-Serve one model at a time:
-
-```bash
-.venv/bin/python scripts/serve.py qwen
-```
-
-The launcher checks available memory on the selected GPU and binds only to loopback. The default GPU UUID is this study machine's GPU 0; pass `--gpu YOUR_GPU_UUID` elsewhere. It records launch flags and samples GPU memory every five seconds. Stop this foreground process before launching the other model. The development configuration disables reasoning; this is a recorded experimental setting, not a claim about default model behavior.
-
-## Development pilot
-
-With the selected local model served on port 8765 under the alias `qwen` or `ministral`:
+Python 3.10+ and a working Docker daemon are required. Candidate code executes in
+a pinned Python container, without network access or host credentials, as a
+non-root user. Only its task directory is mounted. The oracle runs outside that
+container and never imports the candidate code.
 
 ```bash
-python -m safety_study.run --model qwen --tasks 3 --repeats 1 --output results/pilot-qwen
-python -m safety_study.run --model qwen --experiment replacement --output results/seeded-replacement-qwen
-python -m safety_study.run --model qwen --experiment intervention --output results/seeded-intervention-qwen
+docker pull python@sha256:fd95fa221297a88e1cf49c55ec1828edd7c5a428187e67b5d1805692d11588db
+python -m revisionbench smoke --output revisionbench_runs/smoke-001
+python -m unittest discover -s revisionbench_tests -v
+REVISIONBENCH_DOCKER_TESTS=1 python -m unittest discover -s revisionbench_tests -v
 ```
 
-Every run gets a manifest, randomized schedule, full episode traces/checkpoints, and a summary. Existing output directories are never overwritten. Inference errors stop the run without paid fallback.
+Use a new output directory each time. Execution has CPU, memory, process,
+per-file, time and captured-output limits. See the [execution scope](projects/revisionbench/execution.md)
+for remaining isolation work before autonomous model-generated code is enabled.
 
-Verify and analyze completed runs:
+## Research documents
 
-```bash
-python scripts/audit_run.py results/pilot-qwen
-python -m safety_study.analyze results/pilot-qwen
-python scripts/diagnose_run.py results/pilot-qwen
-```
+- [Research plan](projects/revisionbench/README.md)
+- [Design questions and controls](projects/revisionbench/design.md)
+- [Closest-work assessment](projects/revisionbench/literature.md)
+- [Fixture validation evidence](projects/revisionbench/evidence/fixture-validation.json)
+- [Data provenance and license](revisionbench/data/provenance.json)
 
-The audit replays actions and checks full state transitions, scores, summary rows, and schedule completion. Analysis groups natural and seeded experiments separately and pairs conditions within task, seed, and checkpoint before estimating task-cluster uncertainty. Sparse or degenerate empirical bootstrap intervals are not presented as precise evidence of no effect.
+The evaluator checks a declared output contract and specified claims, not arbitrary
+scientific prose or visual quality. The first dataset is a feasibility fixture,
+not sufficient task diversity for a publication claim.
 
-Diagnostics summarize recorded response latency, first-violation timing, and different-operation attempts after a denial. Timing among violating episodes is conditional; episodes without an observed violation remain explicitly counted. These diagnostics include partial failure traces and are descriptive, not a speed benchmark or an unconditional survival estimate.
+## Earlier study
 
-For natural checkpoints:
-
-```bash
-python scripts/select_checkpoints.py results/pilot-qwen results/natural-before.json --timing before
-python -m safety_study.run --model qwen --experiment intervention --checkpoints results/natural-before.json --output results/natural-intervention-qwen
-```
-
-For the full natural-recovery development pilot after both models finish an expanded development run:
-
-```bash
-python scripts/recovery_pilot.py --parent results/development-002 --output results/natural-development-002
-```
-
-This selects the first eligible failure episode per task in the saved randomized schedule: after the first attempt for replacement, before it for intervention. Branches inherit the recorded remaining action budget. Selection is conditional on observed failure; these runs do not estimate an unconditional deployment failure rate. The selector also supports a fixed `--task-index-limit` for prespecified subsets.
-
-The local registration is frozen in `configs/preregistration.json` (2026-09-13 00:19:48 UTC), before the first held-out inference. The completed primary schedules in `results/confirmation-001/` contain 14,630 episodes. The Q8 sensitivity run adds 1,080 completed episodes in `results/confirmation-q8-001/`. The final report includes the paired comparison. Pilot data are never relabeled as confirmation.
-
-After the frozen registration and competence evidence are available, `scripts/confirmation_pipeline.py --registration PATH --output NEW_DIRECTORY` executes the registered primary schedules and audits each run. It refuses changed source files, model weights, sampling settings, or registered runtime flags. No confirmation is launched by setup or development scripts.
-
-The separately pinned Q8 sensitivity weights can be downloaded with `scripts/download_models.py --config configs/sensitivity-models.json --model qwen_q8`. After its development competence check, the same confirmation runner supports `--models qwen_q8` using its registered secondary sample allocation. `scripts/compare_precision.py Q4_PEER_RUN Q8_PEER_RUN NEW_OUTPUT.json` reports paired comparisons on shared task/seed keys and checks provenance and runtime compatibility. Extra Q4 generations are excluded from that secondary comparison by design.
-
-## Study deliverables
-
-- [Final research report](docs/research-report.md): findings and interpretation limits.
-- [Detailed confirmation results](docs/confirmation-results.md): rates, contrasts, uncertainty and diagnostics.
-- [Pilot results](docs/pilot-results.md): development failures and model admission evidence.
-- [Reproduction instructions](docs/reproduction.md): saved-action replay and new inference.
-- [Completion audit](docs/completion-audit.md): requirement-by-requirement delivery status.
-
-The portable evidence package retains raw results, configurations, review evidence and Git history; weights and the runtime build are downloaded separately. See the reproduction guide and final archive verification receipt.
-
-[Download the evidence archive](artifacts/delivery/ai-safety-study-final-20260913.tar.gz) · [Verification receipt](artifacts/delivery/ai-safety-study-final-20260913.tar.gz.verification.json)
+This repository's history also contains the completed authorization-boundary study.
+Its [report](docs/research-report.md), [protocol](docs/protocol.md), and frozen
+configuration remain intact. Historical model weights, raw runs and local delivery
+archives are not included in this GitHub source checkout. RevisionBench code is
+under `revisionbench/`; its tests and planning documents are separate.
