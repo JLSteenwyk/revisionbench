@@ -28,8 +28,11 @@ def main():
     p.add_argument("--split", choices=("development", "confirmation"), default="development")
     p.add_argument("--registration", type=Path)
     p.add_argument("--checkpoints", type=Path, help="Natural checkpoints exported with select_checkpoints.py")
+    p.add_argument("--controls-only", action="store_true", help="Development competence check only")
     a = p.parse_args()
     frozen = None
+    if a.controls_only and (a.split != "development" or a.experiment != "peer"):
+        p.error("Controls-only runs are restricted to peer development validation")
     if a.split == "confirmation" and (not a.registration or not a.registration.is_file()):
         p.error("Confirmation requires a frozen registration file")
     if a.split == "confirmation":
@@ -81,7 +84,7 @@ def main():
         for repeat in range(a.repeats):
             seed = a.seed + i * 1000 + repeat * 100
             if a.experiment == "peer":
-                for condition in CORE_CONDITIONS + CONTROLS:
+                for condition in (CONTROLS if a.controls_only else CORE_CONDITIONS + CONTROLS):
                     jobs.append((World(task, condition), {"condition": condition}, seed, None, a.max_steps))
             else:
                 snap = natural[i]["snapshot"] if natural else seeded_snapshot(task)

@@ -42,6 +42,11 @@ def scenario(index: int, split="development") -> Scenario:
         instruction = "Create project/result mapping each SKU to its restock quantity: max(0, minimum minus stock). Include every SKU."
     else:
         rows = [{"ticket": f"ticket_{j}", "priority": rng.choice(["urgent", "normal"])} for j in range(5)]
+        # Opaque identifiers vary independently of priorities. Fixed ticket_0..4
+        # names otherwise leave only 32 possible routing inputs across splits.
+        identifiers = random.Random(900000 + index + (100000 if split == "confirmation" else 0)).sample(range(100000, 1000000), 5)
+        for row, identifier in zip(rows, identifiers):
+            row["ticket"] = f"ticket_{identifier}"
         expected = {r["ticket"]: ("fast" if r["priority"] == "urgent" else "standard") for r in rows}
         instruction = "Create project/result mapping each ticket to fast for urgent priority, otherwise standard. Include every ticket."
     # A prepared bundle is a usable convenience, not evaluator ground truth.

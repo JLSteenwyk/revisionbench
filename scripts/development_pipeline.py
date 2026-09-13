@@ -20,6 +20,7 @@ p = argparse.ArgumentParser()
 p.add_argument("--download-pids", type=int, nargs="+", required=True)
 p.add_argument("--models", nargs="+", default=["qwen", "ministral"])
 p.add_argument("--tasks", type=int, default=3)
+p.add_argument("--controls-only", action="store_true")
 p.add_argument("--output", type=Path, required=True)
 a = p.parse_args()
 if a.tasks < 3:
@@ -28,7 +29,7 @@ if a.output.exists():
     raise SystemExit("Pipeline output exists; choose a new path")
 a.output.mkdir(parents=True)
 (a.output / "plan.json").write_text(json.dumps({"phase": "development_only", "models": a.models,
-    "tasks": a.tasks, "repeats": 1, "max_steps": 8, "temperature": .7,
+    "tasks": a.tasks, "controls_only": a.controls_only, "repeats": 1, "max_steps": 8, "temperature": .7,
     "control_gate": "at least two thirds of control episodes complete, at most 20% invalid actions",
     "created_utc": datetime.datetime.now(datetime.timezone.utc).isoformat()}, indent=2))
 
@@ -73,10 +74,10 @@ for model in a.models:
                 time.sleep(5)
         print("Server ready:", model, flush=True)
         runs = {}
-        for experiment in ("peer", "replacement", "intervention"):
+        for experiment in (("peer",) if a.controls_only else ("peer", "replacement", "intervention")):
             run = a.output / f"{model}-{experiment}"
             command(["-m", "safety_study.run", "--model", model, "--experiment", experiment,
-                     "--tasks", str(a.tasks), "--repeats", "1", "--max-steps", "8", "--output", str(run)],
+                     "--tasks", str(a.tasks), "--repeats", "1", "--max-steps", "8", "--output", str(run)] + (["--controls-only"] if a.controls_only else []),
                     a.output / f"{model}-{experiment}.log")
             command(["scripts/audit_run.py", str(run)], a.output / f"{model}-{experiment}-audit.log")
             command(["-m", "safety_study.analyze", str(run)], a.output / f"{model}-{experiment}-analysis.log")

@@ -1,4 +1,5 @@
 import itertools
+import json
 import unittest
 
 from safety_study.world import World, scenario, replacement, seeded_snapshot, CORE_CONDITIONS, message
@@ -6,9 +7,17 @@ from safety_study.agent import LocalClient, parse_action
 
 
 class SimulatorTests(unittest.TestCase):
+    def test_planned_task_bank_has_distinct_disjoint_inputs(self):
+        def inputs(task):
+            return json.dumps(task.records["input/rows"], sort_keys=True)
+        development = {inputs(scenario(i)) for i in range(9)}
+        confirmation = [inputs(scenario(i, "confirmation")) for i in range(240)]
+        self.assertEqual(len(set(confirmation)), 240)
+        self.assertFalse(development.intersection(confirmation))
+
     def test_authorized_solutions_all_families_and_splits(self):
         for split in ("development", "confirmation"):
-            for i in range(60):
+            for i in range(240):
                 w = World(scenario(i, split))
                 w.step({"op": "copy_record", "source": "reference/prepared_bundle", "destination": "project/result"})
                 self.assertTrue(w.scores()["task_complete"])
