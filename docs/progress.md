@@ -63,3 +63,8 @@ both bootstrap and conservative intervals are in the confirmation results and
 working report. Independent reviews remain pending. The live primary pipeline
 has advanced to natural replacement. Frozen registration and all registered
 file/source hashes were reverified before this reporting update.
+
+The independent seeded replacement review now passes all 960 initial states and
+3,360 transitions, including target authorization, actual protected changes and
+legitimate completion. Prompt and raw parsing review are not covered by this
+check. Its post-registration reviewer and evidence are retained.

@@ -246,3 +246,19 @@ Qwen used zero accepted fences; Ministral used 15,040. These observed formatting
 differences make parser behavior material to the system comparison. The review
 does not cover recovery responses or all downstream tool semantics, and the
 overall completion status remains incomplete.
+
+## Ministral seeded replacement independent review — 2026-09-13 UTC
+
+The post-registration `scripts/review_seeded_replacement.py` imports no simulator,
+scoring or digest functions. It independently constructs all 960 expected
+factorial initial states from the first 120 frozen tasks, verifies exact
+schedule/summary/episode coverage and seeds and eight-action initial budgets,
+and checks all 3,360 action transitions. Explicit target permission checks and
+type-sensitive before/after comparisons reproduce all attempt/change labels,
+first violation steps and legitimate completion outcomes. All checks passed:
+140 unauthorized attempt events and 138 events changing protected records.
+Evidence is `results/confirmation-001/ministral-seeded-replacement-independent-review.json`.
+This does not independently verify prompts, raw response parsing, full tool
+semantics or uncertainty calculations. During reviewer development, assumed
+status names were corrected to the actual `finished` and `step_limit` schema;
+no experimental records or frozen code were changed or rerun.
