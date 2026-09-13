@@ -1,6 +1,6 @@
 # Authorization boundaries, agent replacement and interventions
 
-**Working report — study incomplete.** Both primary confirmation schedules are complete: 7,546 Qwen Q4 and 7,084 Ministral BF16 episodes. Qwen Q8 sensitivity and final evidence review remain unfinished.
+**Final research report — 2026-09-13.** All 15,710 registered confirmation episodes completed: 7,546 Qwen Q4, 7,084 Ministral BF16 and 1,080 Qwen Q8. Replay and independent outcome/statistical reviews passed. Delivery verification is documented in the [completion audit](completion-audit.md).
 
 ## Question and contribution
 
@@ -24,7 +24,7 @@ The model-facing tools cannot access host files, real credentials or services.
 The primary models are Qwen3.5-35B-A3B Q4_K_M and Ministral 3 14B Instruct BF16,
 served locally with a common controller, one GPU at a time. Exact model hashes,
 runtime revisions and settings are in the versioned configurations and run
-manifests. Qwen Q8 is a conditional secondary precision comparison.
+manifests. Qwen Q8 passed its conditional admission gate and completed the secondary precision comparison.
 
 After separate development pilots, the local Git-versioned registration was
 frozen before held-out inference at 2026-09-13 00:19:48 UTC. Each primary peer
@@ -176,7 +176,25 @@ restrictions. These observations support checking permissions on every simulated
 write and evaluating safety alongside completion. They do not establish deployment
 security, a pooled cross-model effect, or equivalence between interventions.
 
-## Interpretation limits and unfinished work
+## Qwen Q8 precision sensitivity
+
+Q8 completed 1,080 peer episodes on the first 120 held-out tasks, one generation
+per condition. All initial states and prompts exactly match their Q4 generation-zero
+counterparts. Its source-by-permission interaction was zero (secondary bootstrap
+95% −10.00 to +10.00 points). The paired Q8-minus-Q4 interaction difference was
++1.67 points (bootstrap 95% −10.00 to +13.33; conservative −97.52 to +100.85).
+This establishes neither a precision effect nor equivalence. All per-condition
+attempt and change comparisons include zero under their available intervals.
+
+One peer-success completion difference had a positive bootstrap interval (+5.83
+points, +0.83 to +11.67), but its conservative interval included zero. Secondary
+comparisons are not jointly adjusted. Conversion details and nondeterministic
+generation limit attribution to precision alone. No Q8 recovery replication was
+registered or conducted. Peak sampled device memory was 35,527 MiB, compared
+with 21,333 MiB for primary Q4 and 26,381 MiB for Ministral; these are sampled
+device-wide measurements, not continuous process-specific peaks.
+
+## Interpretation limits
 
 Results concern these pinned models, scripted messages, three task families and
 controller. Distinct input identifiers do not imply diverse reasoning problems.
@@ -187,8 +205,19 @@ reminder. Fixed seeds did not ensure identical trajectories in development.
 Zero changes under enforcement describe the simulated tools, not deployment
 security or reliable behavioral compliance.
 
-Qwen Q8 passed its controls gate (24/27 completed tasks; zero invalid actions) and
-its registered comparison is running. That paired comparison and the final completion audit must be incorporated before this report
-is finalized. Reproduction instructions are in [reproduction.md](reproduction.md);
-the portable evidence package remains to be generated and verified after those
-requirements are satisfied.
+The correct prepared result was supplied, so tasks mainly tested execution-route
+choice rather than difficult reasoning. Clarification received a scripted refusal
+to grant extra permission. Message wording and length, role merging, JSON-fence
+handling, action budgets and disabled reasoning are part of the tested system.
+No inference used paid APIs or subscription replication.
+
+## Reproducibility
+
+The [reproduction guide](reproduction.md) distinguishes deterministic replay of
+saved actions from stochastic new inference. The frozen registration, exact model
+revisions, weights' hashes, runtime settings, complete raw episodes and source
+history accompany the study. All 84 within-configuration contrasts and 28 paired
+precision comparisons were independently recalculated. The [detailed results](confirmation-results.md)
+retain every cell, null result and uncertainty interval; [pilot results](pilot-results.md)
+retain unsuccessful development configurations. Independent reviews supplement
+simulator replay and state their scope limits.

@@ -1,29 +1,25 @@
 # Completion audit
 
-Status: **incomplete**. This checklist was added after preregistration to organize
-delivery verification. It does not amend the experiments, scoring, exclusions,
-or analysis. Paths below identify evidence to inspect, not assertions that the
-evidence already proves completion. Final sign-off requires actual inspection
-and a dated finding for every row.
+Status: **scientific and execution requirements verified; archive verification is the remaining delivery gate.** This audit was added after registration and does not amend the experiments. The dated evidence below records actual inspections. The archive and its checksum receipt will provide the final distribution evidence.
 
 ## Objective requirements
 
 | Requirement | Evidence and scope required at final review | Current disposition |
 | --- | --- | --- |
-| Closest primary research and specific contribution | Inspect `docs/literature.md` and the final report for established findings versus hypotheses, source-specific method comparisons, and the absence of an unsupported priority claim. Preserve the distinction between pre-freeze review and later literature follow-up. | Reviewed: primary-source comparison distinguishes established precedents, candidate contribution, pre-freeze review and later follow-up; no priority claim. Final Q8 synthesis remains pending. |
+| Closest primary research and specific contribution | Inspect `docs/literature.md` and the final report for established findings versus hypotheses, source-specific method comparisons, and the absence of an unsupported priority claim. Preserve the distinction between pre-freeze review and later literature follow-up. | Reviewed: primary-source comparison distinguishes established precedents, candidate contribution, pre-freeze review and later follow-up; no priority claim. Final report includes Q8 synthesis and scope limits. |
 | No unsupported explanation of the Hugging Face incident | Inspect the final report for incident-specific claims; without incident evidence, restrict conclusions to the simulated tasks. | Reviewed report explicitly disclaims incident reconstruction; no incident-specific causal claim is made. |
 | Isolated synthetic workplace and valid authorized solutions | Review `safety_study/world.py`, controller tool dispatch, local client restrictions, tests, and saved action traces. Verify fake records/notes/queues, permissions, technically possible violations, and authorized solutions across all three task families and held-out cases. Model outputs must never be executed as host code. | Reviewed virtual dispatch, JSON parsing, local client, and test coverage. Independent arithmetic passes all 240 held-out tasks; authorized-route tests cover all tasks in both splits. Boundary claim is limited to model-facing tools. |
-| Local models, pinned availability/license/runtime/precision, one GPU | Inspect both primary weight manifests, upstream metadata, model configurations, launcher records and GPU telemetry for every run. Confirm the designated GPU and exact weight/runtime/settings provenance. Review competence certificates and their underlying control episodes, not certificates alone. | Both primary model admissions and completed runtime records reviewed; Qwen Q8 admitted and its confirmation telemetry remains live. |
+| Local models, pinned availability/license/runtime/precision, one GPU | Inspect both primary weight manifests, upstream metadata, model configurations, launcher records and GPU telemetry for every run. Confirm the designated GPU and exact weight/runtime/settings provenance. Review competence certificates and their underlying control episodes, not certificates alone. | Both primary model admissions and completed runtime records reviewed; Q8 admission, completed runtime and final telemetry also reviewed. |
 | Peer influence: matched information, source by claim, three controls | Check the six scripted message conditions and all three controls, actual initial states and permissions, budgets, randomized schedules, task/generation keys, and per-cell coverage in both primary peer runs. Explicitly describe scripted messages. | Both complete peer schedules, raw states, generation keys, permissions, outcomes and parser mappings independently reviewed; 4,320 episodes per model. |
 | Replacement: fresh agents, independent artifact retention, new actions | Check all eight branches, original task/current permissions, retained/removed notes, queue and environment state, fresh history, remaining budgets and reset event counters. Keep seeded and natural origins separate; report when a natural artifact is absent and its effect is not identifiable. Include the registered original-agent continuation comparator. | Both complete primary schedules and independent branch/selection/history reviews pass; seeded and natural results reported separately. |
 | Intervention: matched checkpoints and five responses | Check branch snapshot identity, equal remaining budgets, the five conditions, actual enforcement across direct and queued operations, and attempts versus changes. Verify that natural branches start before the first attempt, while replacement branches start after it, under the frozen selector. | Both complete primary schedules and independent branch/selection/history reviews pass; seeded and natural results reported separately. |
-| Deterministic scoring and behavioral outcomes | Inspect replay audits and the underlying scoring logic for attempted/actual violations, legitimate completion, first violation time, clarification, repeated attempts after denial and alternative operations. Distinguish unauthorized no-op writes from actual record changes. Do not infer motives. | All primary replay audits, independent outcome reviews and complete diagnostics inspected; Q8 diagnostics await run completion. |
-| Development pilot and held-out confirmation | Inspect retained failed pilots as well as successful pilots; parsing, solvability, runtime and memory evidence; the revised task bank and disjointness audit; and actual confirmation inputs. Unique identifiers do not establish diverse problem types. | Development and both primary confirmation schedules audited; failures retained and task-bank disjointness documented. Q8 complete coverage pending. |
-| Preregistration before confirmation, justified sample, exclusions and stopping | Verify `configs/preregistration.json` against Git history, all frozen file hashes and controller hash, run manifests and first inference timestamps. Inspect planning assumptions and actual sample coverage. Retain infrastructure failures and any explicit amendments; never substitute an outcome-selected smaller sample. | Frozen registration/source hashes intact; both primary schedules complete at their registered sample sizes. Q8 execution still active. |
-| Task-cluster uncertainty, effects and nulls | Inspect complete analysis outputs and recompute/report registered primary contrasts with 97.5% intervals for the two primary model tests; distinguish secondary 95% intervals. Check task aggregation, shared generation keys, exclusions, non-estimable contrasts and conservative bounds. Report null results without interpreting them as proof of equivalence. | All 78 contrasts across ten primary analyses independently reproduced from raw episodes, including 95/97.5 bootstrap and conservative intervals. Q8 analysis pending. |
-| Quantization and application scaffolding | Inspect Q8 admission and the registered paired Q8/Q4 comparison, or document an actual admission failure. Match shared tasks and generation keys. Report third-party quantization provenance, role merging, fence parsing, controller limits and observed generation repeatability; do not attribute all between-model differences to model weights. | Q8 admission independently reviewed: all 27 control episodes, arithmetic/completion, held-out disjointness and manifest/telemetry evidence pass. Registered paired comparison running. |
-| Local inference and no unauthorized spending | Review launch/client paths and run provenance for local inference; no external paid inference or subscription replication has been authorized. Optional subscription replication is not necessary for completion. | Reviewed client and launcher: literal loopback only, no authentication header, redirects/proxies disabled, designated single GPU and no paid fallback. Primary provenance complete; final Q8 manifest/telemetry review pending. |
-| Complete deliverables and reproducibility | Inspect literature, protocol, harness, validated scenarios/tests, versioned configs, pilot results, complete confirmation analysis, final report and reproduction instructions. Verify archive contents/checksums and source history, and make all final artifact links usable. | Report, complete results and archive pending. |
+| Deterministic scoring and behavioral outcomes | Inspect replay audits and the underlying scoring logic for attempted/actual violations, legitimate completion, first violation time, clarification, repeated attempts after denial and alternative operations. Distinguish unauthorized no-op writes from actual record changes. Do not infer motives. | All primary replay audits, independent outcome reviews and complete diagnostics inspected; Q8 diagnostics and all 3,066 response/action transitions also reviewed. |
+| Development pilot and held-out confirmation | Inspect retained failed pilots as well as successful pilots; parsing, solvability, runtime and memory evidence; the revised task bank and disjointness audit; and actual confirmation inputs. Unique identifiers do not establish diverse problem types. | Development and both primary confirmation schedules audited; failures retained and task-bank disjointness documented. Q8 coverage independently passes all 1,080 episodes. |
+| Preregistration before confirmation, justified sample, exclusions and stopping | Verify `configs/preregistration.json` against Git history, all frozen file hashes and controller hash, run manifests and first inference timestamps. Inspect planning assumptions and actual sample coverage. Retain infrastructure failures and any explicit amendments; never substitute an outcome-selected smaller sample. | Frozen registration/source hashes intact; both primary schedules complete at their registered sample sizes. Q8 completed its full registered schedule; no confirmation infrastructure errors or outcome-based stopping. |
+| Task-cluster uncertainty, effects and nulls | Inspect complete analysis outputs and recompute/report registered primary contrasts with 97.5% intervals for the two primary model tests; distinguish secondary 95% intervals. Check task aggregation, shared generation keys, exclusions, non-estimable contrasts and conservative bounds. Report null results without interpreting them as proof of equivalence. | All 78 contrasts across ten primary analyses independently reproduced from raw episodes, including 95/97.5 bootstrap and conservative intervals. Q8 six within-run and all 28 paired contrasts independently verified. |
+| Quantization and application scaffolding | Inspect Q8 admission and the registered paired Q8/Q4 comparison, or document an actual admission failure. Match shared tasks and generation keys. Report third-party quantization provenance, role merging, fence parsing, controller limits and observed generation repeatability; do not attribute all between-model differences to model weights. | Q8 admission independently reviewed: all 27 control episodes, arithmetic/completion, held-out disjointness and manifest/telemetry evidence pass. All 120 matched task/generation keys, 28 paired comparisons and identical starting states/histories independently verified. |
+| Local inference and no unauthorized spending | Review launch/client paths and run provenance for local inference; no external paid inference or subscription replication has been authorized. Optional subscription replication is not necessary for completion. | Reviewed client and launcher: literal loopback only, no authentication header, redirects/proxies disabled, designated single GPU and no paid fallback. All three completed configuration/runtime records reviewed. |
+| Complete deliverables and reproducibility | Inspect literature, protocol, harness, validated scenarios/tests, versioned configs, pilot results, complete confirmation analysis, final report and reproduction instructions. Verify archive contents/checksums and source history, and make all final artifact links usable. | Literature, protocol, runnable harness, validated scenarios/tests, versioned configs, pilot record, full analyses, final report and reproduction guide inspected. Archive checksum/read-back verification remains the final gate. |
 
 ## Registered execution coverage
 
@@ -51,12 +47,18 @@ For every completed run, inspect schedule coverage, provenance, replay audit,
 diagnostics and analysis. Completion markers and checksum receipts alone do not
 prove scientific validity or the completeness of the objective.
 
-## Final sign-off
+## Scientific sign-off — 2026-09-13 UTC
 
-Not yet performed. Record the review date, concrete inspected evidence, any
-remaining uncertainty, and a supported disposition for each requirement above.
-Do not mark the study complete while any required item is missing, incomplete,
-or unverified.
+All objective requirements concerning design, implementation, execution, scoring,
+analysis, literature positioning and reporting are supported by the inspections
+and saved evidence listed below. There are 15,710 completed confirmation episodes,
+84 within-run contrasts and 28 paired precision comparisons. All registered
+schedules, complete replay audits and independent review scopes pass.
+
+The remaining delivery gate is creating and reading back the portable evidence
+archive, verifying every file hash and the bundled Git history. Completion must
+not be declared until its sibling `.verification.json` receipt exists and passes.
+This distribution gate does not call for further model inference.
 
 ## Interim source review — 2026-09-13 UTC
 
@@ -437,3 +439,26 @@ are local timestamp/provenance checks, not an external registry attestation.
 Prospective sample planning discloses its assumptions and does not guarantee
 power. Both primary fixed schedules completed; Q8 still needs its full schedule,
 paired results, final runtime review and delivery packaging.
+
+### Final Q8 and report review — 2026-09-13 UTC
+
+Q8 completed 1,080 episodes with no infrastructure failure; the monitor and
+registered pipeline exited successfully. Independent raw review passes all
+3,066 transitions and matches every initial state/history against the separately
+reviewed Q4 generation-zero counterpart. The single owner-control violation
+consists of repeated no-op writes to the still-protected prepared bundle, and
+remains included. Complete diagnostics distinguish conditional violation timing,
+clarifications, budget exhaustion, invalid output and actual completion.
+
+The independent numerical checks reproduce all six within-Q8 contrasts and
+all 28 matched Q8-minus-Q4 comparisons, including degenerate interval handling.
+Final runtime review verifies shared source and settings and the pinned Q8 weight
+hash; 308 final telemetry samples have peak device memory 35,527 MiB. Evidence is
+under `results/confirmation-q8-001/` in the raw, statistical, paired and runtime
+review files.
+
+The final report now includes all configurations, uncertainty, primary nulls,
+secondary multiplicity, absent natural-memory factors, no-op attempts, lost
+legitimate progress, owner-reminder confounding and precision interpretation
+limits. README and detailed-result status are current. Frozen experimental files
+were not changed; new review code is explicitly post-registration.

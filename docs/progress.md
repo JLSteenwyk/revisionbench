@@ -131,3 +131,7 @@ Independent arithmetic passes all 240 held-out answers and prepared bundles. Loc
 ### All registered inference complete
 
 The Q8 monitor exited successfully after all 1,080 episodes, replay audit and paired comparison. All 15,710 confirmation episodes are now complete. Q8 numerical review passed its six contrasts. Detailed results include the full secondary paired comparison, including nulls and suppressed degenerate intervals. Remaining work: independent Q8 raw-output/paired-statistical/runtime review, final synthesis and evidence package.
+
+### Scientific work complete; distribution gate next
+
+Final Q8 raw-output, paired-statistical and runtime reviews pass. Final research report and requirement audit include all 15,710 episodes, 84 within-run contrasts and 28 precision comparisons. No further inference remains. Archive creation, read-back checks and final distribution receipt are next.

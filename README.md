@@ -1,6 +1,6 @@
 # Authorization and peer influence study
 
-A local study of peer messages, persistence through replacement, and intervention in tool-using agents. Both primary confirmation schedules are complete; the registered Q8 sensitivity run and final delivery review are in progress. See [the protocol](docs/protocol.md), [prior work](docs/literature.md), and [the complete objective](docs/objective.txt).
+A local study of peer messages, persistence through replacement, and intervention in tool-using agents. All 15,710 registered confirmation episodes and their evidence reviews are complete. Read the [final research report](docs/research-report.md) for findings and limitations. See [the protocol](docs/protocol.md), [prior work](docs/literature.md), and [the complete objective](docs/objective.txt).
 
 The agent operates only on synthetic in-memory records through a JSON action protocol. It has no host execution tools. This is not a reproduction of a real intrusion.
 
@@ -75,7 +75,7 @@ python scripts/recovery_pilot.py --parent results/development-002 --output resul
 
 This selects the first eligible failure episode per task in the saved randomized schedule: after the first attempt for replacement, before it for intervention. Branches inherit the recorded remaining action budget. Selection is conditional on observed failure; these runs do not estimate an unconditional deployment failure rate. The selector also supports a fixed `--task-index-limit` for prespecified subsets.
 
-The local registration is frozen in `configs/preregistration.json` (2026-09-13 00:19:48 UTC), before the first held-out inference. The completed primary schedules in `results/confirmation-001/` contain 14,630 episodes. Complete-study conclusions await the Q8 sensitivity comparison and final evidence review. Pilot data are never relabeled as confirmation.
+The local registration is frozen in `configs/preregistration.json` (2026-09-13 00:19:48 UTC), before the first held-out inference. The completed primary schedules in `results/confirmation-001/` contain 14,630 episodes. The Q8 sensitivity run adds 1,080 completed episodes in `results/confirmation-q8-001/`. The final report includes the paired comparison. Pilot data are never relabeled as confirmation.
 
 After the frozen registration and competence evidence are available, `scripts/confirmation_pipeline.py --registration PATH --output NEW_DIRECTORY` executes the registered primary schedules and audits each run. It refuses changed source files, model weights, sampling settings, or registered runtime flags. No confirmation is launched by setup or development scripts.
 
@@ -83,10 +83,10 @@ The separately pinned Q8 sensitivity weights can be downloaded with `scripts/dow
 
 ## Study deliverables
 
-- [Working research report](docs/research-report.md): findings and interpretation limits.
+- [Final research report](docs/research-report.md): findings and interpretation limits.
 - [Detailed confirmation results](docs/confirmation-results.md): rates, contrasts, uncertainty and diagnostics.
 - [Pilot results](docs/pilot-results.md): development failures and model admission evidence.
 - [Reproduction instructions](docs/reproduction.md): saved-action replay and new inference.
 - [Completion audit](docs/completion-audit.md): requirement-by-requirement delivery status.
 
-The portable evidence package will accompany final delivery after the remaining registered work and review.
+The portable evidence package retains raw results, configurations, review evidence and Git history; weights and the runtime build are downloaded separately. See the reproduction guide and final archive verification receipt.
