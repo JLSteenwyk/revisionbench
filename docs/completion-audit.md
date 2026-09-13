@@ -159,3 +159,13 @@ Further independent checks on 2026-09-13 UTC:
   Evidence: `results/confirmation-001/qwen-natural-intervention-branch-review.json`.
   This closes the saved initial-state and prompt checks for Qwen's branch runs;
   runtime provenance and independent statistical review remain separate work.
+
+- Qwen primary statistical review: reconstructed attempted-violation outcomes
+  from raw trace events, paired four source/claim cells within each of 480
+  task/generation blocks and averaged the two generations within each of 240
+  tasks. An independent bootstrap implementation reproduces the registered
+  source-by-permission estimate (+0.625 percentage points), 97.5% interval
+  (−5.83 to +7.08 points), and conservative interval (−37.59 to +38.84 points).
+  Evidence: `results/confirmation-001/qwen-primary-statistical-review.json`.
+  This verifies pairing, task clustering and interval arithmetic; it relies on
+  the recorded authorization labels and is not an independent scoring oracle.
