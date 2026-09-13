@@ -334,3 +334,17 @@ Checkpoint SHA256:
 `651e37cfb94f9cba74e4880ae58687084436f904653a9df053c89d69b3704471`.
 Evidence: `results/confirmation-001/ministral-natural-intervention-selection-review.json`.
 This checks selection and scheduling, not the still-running branch outcomes.
+
+## Ministral seeded intervention independent review — 2026-09-13 UTC
+
+All 600 initial states match independent construction of the planted state and
+five intervention conditions. Full task/condition coverage, seeds, eight-action
+budgets, parent-free seeded origin and schedule/summary linkage pass. Across
+2,213 transitions, direct target permissions and type-sensitive before/after
+records reproduce all attempt/change labels, first violations and task completion.
+There were 135 unauthorized attempt events and 57 events with protected changes.
+All 77 recorded denial events match an applicable intervention and leave all
+records unchanged. No simulator, scoring or digest functions were called.
+Evidence: `results/confirmation-001/ministral-seeded-intervention-independent-review.json`.
+This does not independently verify prompts, raw parsing, full tool semantics or
+uncertainty calculations.

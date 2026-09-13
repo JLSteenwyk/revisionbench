@@ -103,3 +103,7 @@ Natural intervention selection and schedule independently verified: 86 eligible
 before-attempt checkpoints and 430 branches, with equal remaining budgets within
 each checkpoint. Queues occur in 21 checkpoints and notes in none. Inference is
 still running; completed branch outcomes have not yet been reported.
+
+Independent seeded intervention review passes all 600 starting states and 2,213
+transitions. All 77 recorded denials left records unchanged. Prompt/raw parsing
+checks remain separate; natural intervention inference continues.
