@@ -12,13 +12,15 @@ import time
 
 root = Path(__file__).resolve().parents[1]
 p = argparse.ArgumentParser()
-p.add_argument("model", choices=("qwen", "ministral"))
+p.add_argument("model", choices=("qwen", "ministral", "qwen_q8"))
 p.add_argument("--gpu", default="GPU-56e78ad3-b4d7-54f6-38fa-e95729009960")
 p.add_argument("--port", type=int, default=8765)
 p.add_argument("--context", type=int, default=8192)
 p.add_argument("--reasoning", choices=("on", "off"), default="off")
 a = p.parse_args()
-spec = json.loads((root / "configs/models.json").read_text())[a.model]
+specs = json.loads((root / "configs/models.json").read_text())
+specs.update(json.loads((root / "configs/sensitivity-models.json").read_text()))
+spec = specs[a.model]
 weights = root / "models" / a.model / spec["filename"]
 if not (root / f"artifacts/environment/{a.model}-weights.json").exists():
     raise SystemExit("Download and verify pinned weights first")

@@ -10,12 +10,12 @@ from pathlib import Path
 
 from .agent import LocalClient, run_episode
 from .world import CORE_CONDITIONS, CONTROLS, INTERVENTIONS, World, scenario, seeded_snapshot, replacement, digest
-from .registration import source_hash, validate_registration
+from .registration import source_hash, validate_registration, validate_live_runtime
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--model", choices=("qwen", "ministral"), required=True)
+    p.add_argument("--model", choices=("qwen", "ministral", "qwen_q8"), required=True)
     p.add_argument("--endpoint", default="http://127.0.0.1:8765/v1")
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--experiment", choices=("peer", "replacement", "intervention"), default="peer")
@@ -29,11 +29,12 @@ def main():
     p.add_argument("--registration", type=Path)
     p.add_argument("--checkpoints", type=Path, help="Natural checkpoints exported with select_checkpoints.py")
     a = p.parse_args()
+    frozen = None
     if a.split == "confirmation" and (not a.registration or not a.registration.is_file()):
         p.error("Confirmation requires a frozen registration file")
     if a.split == "confirmation":
         try:
-            validate_registration(a.registration, a)
+            frozen = validate_registration(a.registration, a)
         except (ValueError, KeyError) as e:
             p.error(str(e))
     natural = json.loads(a.checkpoints.read_text()) if a.checkpoints else None
@@ -51,9 +52,17 @@ def main():
     client = LocalClient(a.endpoint, a.model, a.temperature, a.max_tokens)
     served_models = client.server_info()
     model_specs = json.loads(Path("configs/models.json").read_text())
+    model_specs.update(json.loads(Path("configs/sensitivity-models.json").read_text()))
     weight_manifest = Path(f"artifacts/environment/{a.model}-weights.json")
     if not weight_manifest.exists():
         p.error("Verified pinned weight manifest missing")
+    if frozen is not None:
+        try:
+            validate_live_runtime(frozen, a.model,
+                                  json.loads(Path("artifacts/environment/server-current.json").read_text()),
+                                  json.loads(weight_manifest.read_text()))
+        except (ValueError, KeyError, FileNotFoundError) as e:
+            p.error(str(e))
     a.output.mkdir(parents=True)
     (a.output / "episodes").mkdir()
     manifest = {"arguments": {k: str(v) if isinstance(v, Path) else v for k, v in vars(a).items()},

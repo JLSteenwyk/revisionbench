@@ -6,10 +6,22 @@ from tempfile import TemporaryDirectory
 from types import SimpleNamespace
 import unittest
 
-from safety_study.registration import source_hash, file_hash, validate_registration
+from safety_study.registration import source_hash, file_hash, validate_registration, validate_live_runtime
 
 
 class RegistrationTests(unittest.TestCase):
+    def test_runtime_weight_and_reasoning_mismatch_rejected(self):
+        doc = {"runtime": {"commit": "abc", "flags": {"--reasoning": "off", "--no-context-shift": True}},
+               "model_weight_sha256": {"qwen": "expected"}}
+        server = {"model": "qwen", "runtime_commit": "abc", "weight_sha256": "expected",
+                  "command": ["server", "--reasoning", "off", "--no-context-shift"]}
+        validate_live_runtime(doc, "qwen", server, {"sha256": "expected"})
+        with self.assertRaisesRegex(ValueError, "weight hash"):
+            validate_live_runtime(doc, "qwen", server, {"sha256": "different"})
+        server["command"][2] = "on"
+        with self.assertRaisesRegex(ValueError, "flag differs"):
+            validate_live_runtime(doc, "qwen", server, {"sha256": "expected"})
+
     def test_freeze_matches_code_config_and_run(self):
         old = Path.cwd()
         with TemporaryDirectory() as temp:
@@ -34,6 +46,15 @@ class RegistrationTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "tasks"):
                     validate_registration("registration.json", args)
                 args.tasks = 12
+                reg["model_experiments"] = {"qwen": {"peer": {**plan, "tasks": 6}}}
+                Path("registration.json").write_text(json.dumps(reg))
+                with self.assertRaisesRegex(ValueError, "tasks"):
+                    validate_registration("registration.json", args)
+                args.tasks = 6
+                validate_registration("registration.json", args)
+                args.tasks = 12
+                del reg["model_experiments"]
+                Path("registration.json").write_text(json.dumps(reg))
                 Path("configs/models.json").write_text('{"changed":true}')
                 with self.assertRaisesRegex(ValueError, "file changed"):
                     validate_registration("registration.json", args)

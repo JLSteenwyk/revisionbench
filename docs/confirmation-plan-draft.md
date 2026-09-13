@@ -50,6 +50,8 @@ Complete the fixed schedule. Stop only for infrastructure failure, resource conf
 
 Version and hash prompts, simulator, analysis, model weights/configuration, launch flags, sampling parameters, and the protocol. A local frozen registration is a timestamped commitment, not a public registry. Publishing a registration or report is outside the currently authorized local workflow.
 
+`scripts/confirmation_pipeline.py` will execute the frozen schedule only after model competence evidence exists. Each run validates the registered source/configuration hashes, model-specific sample allocation, live weight hash, runtime commit, and launch flags. The pipeline runs one model at a time, audits each complete run, and explicitly records absent natural checkpoints. It does not freeze or amend the registration, and it has not been launched during development. The runner, selector, launcher, and diagnostics scripts must all be included in the frozen file hashes.
+
 ## Precision and scaffolding
 
 Treat Qwen Q4_K_M and Ministral BF16 as distinct configurations, not a clean architecture comparison. Reasoning is disabled in the initial development launch and must be disclosed. Any higher-precision or reasoning-enabled sensitivity test must be separately labeled. Optional Codex/Claude application results would be agent-system results, not interchangeable with the local common-harness model results.
