@@ -1,0 +1,19 @@
+test_unsealed_interruption_is_not_a_valid_record (test_measurement.LedgerTests) ... ok
+test_valid_seal_detects_changes_deletions_reordering_and_rehash (test_measurement.LedgerTests) ... ok
+test_escape_and_prefix_confusion_denied (test_measurement.PolicyTests) ... ok
+test_permission_inversion_same_action (test_measurement.PolicyTests) ... ok
+test_quoted_attack_is_not_an_operation (test_measurement.PolicyTests) ... ok
+test_blocked_attempt_is_not_completed_violation (test_measurement.ScoringTests) ... ok
+test_completed_state_change_does_not_claim_internal_attempt_coverage (test_measurement.ScoringTests) ... ok
+test_compliant_reference_and_missing_report (test_measurement.ScoringTests) ... ok
+test_correct_clarification_and_unnecessary_refusal (test_measurement.ScoringTests) ... ok
+test_corrupt_incomplete_trace_and_failed_snapshot_never_pass (test_measurement.ScoringTests) ... ok
+test_identical_bytes_can_still_be_completed_forbidden_write (test_measurement.ScoringTests) ... ok
+test_run_claim_and_fact_claim_are_checked_independently (test_measurement.ScoringTests) ... ok
+test_unknown_is_not_correct_and_bool_is_not_a_number (test_measurement.ScoringTests) ... ok
+test_unknown_presence_does_not_become_known_missing (test_measurement.ScoringTests) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.023s
+
+OK

@@ -1,0 +1,42 @@
+[
+  {
+    "repository": "ethz-spylab/agentdojo",
+    "commit": "089ed468cf3ed0322acc66b0211f26d9d90dbf60",
+    "path": "src/agentdojo/base_tasks.py",
+    "url": "https://github.com/ethz-spylab/agentdojo/blob/089ed468cf3ed0322acc66b0211f26d9d90dbf60/src/agentdojo/base_tasks.py",
+    "sha256": "08d3a4646d1a250968045b0f933803335650a4ed04c9d2387b17d08b1e0427c5",
+    "bytes": 6880
+  },
+  {
+    "repository": "ethz-spylab/agentdojo",
+    "commit": "089ed468cf3ed0322acc66b0211f26d9d90dbf60",
+    "path": "src/agentdojo/task_suite/task_suite.py",
+    "url": "https://github.com/ethz-spylab/agentdojo/blob/089ed468cf3ed0322acc66b0211f26d9d90dbf60/src/agentdojo/task_suite/task_suite.py",
+    "sha256": "2e69da06f7e150dd6d238c53a74845b56eebeb224e07f694e1051a6e0c6a2bc1",
+    "bytes": 19818
+  },
+  {
+    "repository": "sierra-research/tau-bench",
+    "commit": "59a200c6d575d595120f1cb70fea53cef0632f6b",
+    "path": "tau_bench/envs/base.py",
+    "url": "https://github.com/sierra-research/tau-bench/blob/59a200c6d575d595120f1cb70fea53cef0632f6b/tau_bench/envs/base.py",
+    "sha256": "1ad0402073f0ac9ca6b527efa0706e2aa8836dd2e5c1d453ed414ecb768c6d21",
+    "bytes": 5688
+  },
+  {
+    "repository": "ryoungj/ToolEmu",
+    "commit": "ac4a7ab7ed8c7985d96231e214bd6b54304b7ddb",
+    "path": "toolemu/evaluators.py",
+    "url": "https://github.com/ryoungj/ToolEmu/blob/ac4a7ab7ed8c7985d96231e214bd6b54304b7ddb/toolemu/evaluators.py",
+    "sha256": "acc98dc417e6ee3c5330123db1fa189b87774c14b91d4717a3a61867bcf71024",
+    "bytes": 5598
+  },
+  {
+    "repository": "haoyuwang99/AgentSpec",
+    "commit": "e6fa3902e2cfb9681f454b355691b771f70543f8",
+    "path": "src/enforcement.py",
+    "url": "https://github.com/haoyuwang99/AgentSpec/blob/e6fa3902e2cfb9681f454b355691b771f70543f8/src/enforcement.py",
+    "sha256": "8be2b544ac6748685369407025f98e593bb957c69c62e757297a27ce5b26775d",
+    "bytes": 3204
+  }
+]
