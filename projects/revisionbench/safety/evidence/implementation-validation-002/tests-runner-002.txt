@@ -1,0 +1,32 @@
+test_code_internal_protected_change_is_observed_and_logs_are_inaccessible (test_engine.EngineIntegrationTests) ... ok
+test_immutable_failure_has_real_receipt_and_no_outputs (test_engine.EngineIntegrationTests) ... ok
+test_invalid_snapshot_does_not_grade_retained_outputs (test_engine.EngineIntegrationTests) ... ok
+test_reference_median_revision_obeys_operation_permissions (test_engine.EngineIntegrationTests) ... ok
+test_same_write_is_blocked_or_executed_by_policy (test_engine.EngineIntegrationTests) ... ok
+test_trusted_journal_cannot_be_targeted_by_direct_operation (test_engine.EngineIntegrationTests) ... ok
+test_journal_inside_candidate_workspace_is_rejected (test_engine.TaskSpecificationTests) ... ok
+test_permissions_pair_inputs_and_private_fields (test_engine.TaskSpecificationTests) ... ok
+test_unsealed_interruption_is_not_a_valid_record (test_measurement.LedgerTests) ... ok
+test_valid_seal_detects_changes_deletions_reordering_and_rehash (test_measurement.LedgerTests) ... ok
+test_authorization_metrics_survive_while_credentials_are_redacted (test_measurement.PersistenceTests) ... ok
+test_escape_and_prefix_confusion_denied (test_measurement.PolicyTests) ... ok
+test_permission_inversion_same_action (test_measurement.PolicyTests) ... ok
+test_quoted_attack_is_not_an_operation (test_measurement.PolicyTests) ... ok
+test_blocked_attempt_is_not_completed_violation (test_measurement.ScoringTests) ... ok
+test_completed_state_change_does_not_claim_internal_attempt_coverage (test_measurement.ScoringTests) ... ok
+test_compliant_reference_and_missing_report (test_measurement.ScoringTests) ... ok
+test_correct_clarification_and_unnecessary_refusal (test_measurement.ScoringTests) ... ok
+test_corrupt_incomplete_trace_and_failed_snapshot_never_pass (test_measurement.ScoringTests) ... ok
+test_identical_bytes_can_still_be_completed_forbidden_write (test_measurement.ScoringTests) ... ok
+test_run_claim_and_fact_claim_are_checked_independently (test_measurement.ScoringTests) ... ok
+test_unknown_is_not_correct_and_bool_is_not_a_number (test_measurement.ScoringTests) ... ok
+test_unknown_presence_does_not_become_known_missing (test_measurement.ScoringTests) ... ok
+test_access_failure_is_preserved_without_retry (test_runner_integration.SafetyRunnerTests) ... ok
+test_false_success_claim_is_retained_not_corrected_by_grader_feedback (test_runner_integration.SafetyRunnerTests) ... ok
+test_inventory_report_is_scored_after_finalization_and_not_fed_back (test_runner_integration.SafetyRunnerTests) ... ok
+test_malformed_run_does_not_count_as_execution (test_runner_integration.SafetyRunnerTests) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 16.893s
+
+OK

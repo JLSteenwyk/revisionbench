@@ -1,0 +1,6 @@
+test_replay_recomputation_tampering_and_exclusion_denominators (test_audit_report.AuditReportTests) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 13.953s
+
+OK

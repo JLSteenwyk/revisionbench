@@ -1,39 +1,26 @@
 # Active objective and continuation
 
-Objective: implement and validate a programmatic safety profile, then complete one small OAuth development pilot and publish sanitized evidence. Approximately three days is a work horizon, not a waiting requirement. The full user objective is in `/home/bizon/.codex/attachments/9f3457c2-3eca-4179-ab82-95a388d40289/pasted-text-1.txt`.
+Implement a programmatic safety profile, validate it, complete one small OAuth pilot and publish audited evidence. Goal remains active. The full user objective is `/home/bizon/.codex/attachments/9f3457c2-3eca-4179-ab82-95a388d40289/pasted-text-1.txt`.
 
-## Completed in the first implementation stage
+## Verified implementation
 
-- Inspected existing runner/scorers/pilot and four primary benchmark implementations. Pinned source links and hashes are recorded.
-- Wrote the measurement design, observation limits and focused related-work assessment.
-- Added a separate `revisionbench_safety` package, preserving the original frozen `revisionbench` source hashes.
-- Implemented typed permission checks, a sealed event journal, and deterministic safety-profile comparisons with explicit unknown/missing observations.
-- Defined 14 development task specifications across seven matched pairs. They are planned tasks, not model results.
-- Fourteen unit tests pass; 30 manually labeled calibration fixtures match their expected labels. Small fixture sensitivities/FPRs are not general detector performance estimates.
-- The original 18-trial correction pilot still passes its audit against the unchanged implementation.
+The separate `revisionbench_safety` package now contains task preparation, a trusted operation engine, sealed journals, independent observations and scorers, a bounded frozen runner, aggregate reporting, and a read-only audit. There are 14 development cases in seven matched pairs and two separate author-visible reserved specifications. Reserved cases have not been model-evaluated or used to tune the scorer.
 
-No new safety-model inference has run. No reserved evaluation instances have been generated yet. No task/scorer/pilot configuration has been frozen. The model-facing operation engine, observations from real executions, safety trial controller, aggregate pilot report and final audit remain incomplete.
+All 29 safety tests pass; the additional receipt-audit test passes after extending it to reject native-tool events and reused client sessions. All 31 original tests pass. Thirty manually labeled scorer fixtures and 14 author-reference executions pass. These are software validation, not model findings. Logs and material fixes are in `evidence/implementation-validation-002/`; fuller disposable evidence is in `revisionbench_runs/safety-development/`.
 
-## Next work, in dependency order
+The historical 18-trial correction pilot still passes its original audit. Original `revisionbench` Python files remain unchanged. Do not stage unrelated `artifacts/` or `results/`.
 
-1. Implement real task preparation, independently verified baselines and interventions. Generate a separate author-visible reserved set; document its exposure and relatedness without claiming blind holdout status.
-2. Build a trusted operation engine connecting `policy.py`, `ledger.py`, the existing sandbox and bounded file operations. Journal requests before enforcement and results afterward. Keep the journal/seal, private task oracle and other trials outside candidate mounts. Derive protected changes and factual truth from trusted observations, not submitted reports.
-3. Implement the structured final-report protocol and safety runner using the existing OAuth adapter. Add per-trial source/config hashes, randomization, hard budgets, resumption accounting, and a global attempt ceiling of 60 (planned pilot 14). Log all calls and protocol errors. Never feed hidden scores back.
-4. Validate actual operation-engine behavior, denied attempts, successful forbidden state changes in disposable sandbox copies, inability to tamper with trusted logs, missing snapshots, interruptions and infrastructure/access failures. Rerun scorer fixtures and existing relevant tests after changes. Preserve failures/fixes.
-5. Recheck supported OAuth login/client version and native-tool isolation without extracting tokens. Freeze only after the above gates pass, then run one 14-trial development pilot. No extra model or expansion based on results.
-6. Compute per-dimension rates with denominators/opportunities/unknowns, audit and package all trials, write limitations/recommendations, update continuation state, commit and push. Do not mark the goal complete before actual required evidence exists.
+## Pilot transition
 
-## Commands available now
+OAuth preflight completed using `codex-cli 0.154.0`, existing ChatGPT login, and `gpt-5.6-luna`. The event stream showed disabled Code Mode failing closed and no native tool calls. This one infrastructure preflight is separate from task-trial accounting. Receipt and metadata: `revisionbench_runs/safety-development/oauth-preflight-001/`.
+
+Next: initialize `revisionbench_runs/safety-pilot-oauth-001` with `validation-gate-001.txt`, then run the frozen 14-case plan. Before repeating either command, inspect whether the directory and a live process already exist. Never restart based solely on a stale status note. No code changes after freeze; the runner rejects source drift.
 
 ```bash
-python -m unittest discover -s revisionbench_safety_tests -v
-python -m revisionbench_safety.validation --output revisionbench_runs/safety-development/calibration-NEW
-python -m revisionbench_safety.tasks
-python projects/revisionbench/audit_pilot.py revisionbench_runs/pilot-oauth-001
+python -m revisionbench_safety.runner init --output revisionbench_runs/safety-pilot-oauth-001 --model gpt-5.6-luna --validation-evidence revisionbench_runs/safety-development/validation-gate-001.txt
+python -m revisionbench_safety.runner run --output revisionbench_runs/safety-pilot-oauth-001 --model gpt-5.6-luna
+python -m revisionbench_safety.audit revisionbench_runs/safety-pilot-oauth-001
+python -m revisionbench_safety.report revisionbench_runs/safety-pilot-oauth-001
 ```
 
-Use a new calibration output directory. Sources under `revisionbench_safety` may change until the new pilot freezes; keep the original `revisionbench` package unchanged so the historical pilot remains auditable. Do not add the unrelated untracked `artifacts/` or `results/` directories to Git.
-
-## Processes and access
-
-No live process was launched for this safety stage. No GPU job or local model server was started or stopped. The earlier OAuth pilot completed; its process is terminal. Revalidate actual process handles and OAuth status before relying on earlier observations. Credentials must remain accessible only to the trusted official client, with native model tools disabled.
+After the pilot: verify idempotent resumption, audit scores and original-study invariants, package sanitized evidence with hashes, write a limitations-aware report and literature comparison, commit and push, and verify the remote head. Do not mark the goal complete before those deliverables are verified. No GPU workloads were started or stopped.

@@ -150,3 +150,19 @@ class ScoringTests(unittest.TestCase):
         observations=copy.deepcopy(OBS);observations['output_presence']['outputs/result.json']=None
         result=score(SPEC,[],REPORT,observations)
         self.assertEqual(result['reporting']['fields']['outputs.outputs/result.json'],'unobservable')
+
+
+class PersistenceTests(unittest.TestCase):
+    def test_authorization_metrics_survive_while_credentials_are_redacted(self):
+        from revisionbench_safety.persistence import write_json
+        with tempfile.TemporaryDirectory() as temp:
+            path=Path(temp)/'profile.json'
+            write_json(path,{'authorization':{'operation_opportunities':3,'attempted_forbidden_ids':['op-1']},
+                             'headers':{'Authorization':'Bearer private-value'},'access_token':'secret'})
+            value=json.loads(path.read_text())
+            self.assertEqual(value['authorization']['operation_opportunities'],3)
+            self.assertEqual(value['headers']['Authorization'],'[REDACTED]')
+            self.assertNotIn('private-value',path.read_text())
+            self.assertNotIn('secret',path.read_text())
+            write_json(path,{'authorization':None})
+            self.assertIsNone(json.loads(path.read_text())['authorization'])

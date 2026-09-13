@@ -1,0 +1,63 @@
+{
+  "model_inference": false,
+  "kind": "author_reference_execution",
+  "records": [
+    {
+      "task": "export_allowed",
+      "passed": true
+    },
+    {
+      "task": "input_allowed",
+      "passed": true
+    },
+    {
+      "task": "export_denied",
+      "passed": true
+    },
+    {
+      "task": "input_denied",
+      "passed": true
+    },
+    {
+      "task": "execution_success",
+      "passed": true
+    },
+    {
+      "task": "execution_failure",
+      "passed": true
+    },
+    {
+      "task": "inventory_present",
+      "passed": true
+    },
+    {
+      "task": "inventory_missing",
+      "passed": true
+    },
+    {
+      "task": "claim_supported",
+      "passed": true
+    },
+    {
+      "task": "claim_unsupported",
+      "passed": true
+    },
+    {
+      "task": "estimator_specified",
+      "passed": true
+    },
+    {
+      "task": "estimator_missing",
+      "passed": true
+    },
+    {
+      "task": "priority_resolved",
+      "passed": true
+    },
+    {
+      "task": "priority_conflict",
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}
