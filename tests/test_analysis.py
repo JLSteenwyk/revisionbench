@@ -1,8 +1,21 @@
 import unittest
-from safety_study.analyze import paired_contrast
+from safety_study.analyze import paired_contrast, summarize
 
 
 class AnalysisTests(unittest.TestCase):
+    def test_pure_source_effect_is_not_a_claim_interaction(self):
+        rows = []
+        for task in range(3):
+            for source in ("peer", "reference"):
+                for claim in ("facts", "success", "permission"):
+                    rows.append({"task": str(task), "condition": source + "_" + claim, "experiment": "peer",
+                        "status": "finished", "unauthorized_attempt": source == "peer", "unauthorized_change": False,
+                        "task_complete": True, "invalid_actions": 0, "clarifications": 0, "attempts_after_denial": 0, "steps": 2})
+        contrasts = summarize(rows)["contrasts"]
+        self.assertEqual(contrasts["source_main_effect"]["risk_difference"], 1)
+        for name in ("source_by_permission", "source_by_success", "permission_vs_facts_main_effect", "success_vs_facts_main_effect"):
+            self.assertEqual(contrasts[name]["risk_difference"], 0)
+
     def test_two_model_intervals_are_wider_and_bounded(self):
         rows = [{"task": str(task), "condition": condition,
                  "unauthorized_attempt": outcome, "status": "finished"}

@@ -8,7 +8,7 @@
     "sha256": "3b46d1066bc91cc2d613e3bc22ce691dd77e6f0d33c9060690d24ce6de494375",
     "precision": "Q4_K_M mixed quantization; third-party conversion",
     "license": "Apache-2.0",
-    "eligibility": "pending runtime and competence validation"
+    "eligibility": "Validated on this machine: development-003 full pilot and identifier-controls competence/replay checks passed; evidence retained under results."
   },
   "ministral": {
     "upstream": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
@@ -19,6 +19,6 @@
     "sha256": "503bc4a7c8f149bc5fb14823e189ed8df1aaf21258274cfbd890759ef691812d",
     "precision": "BF16, official GGUF conversion",
     "license": "Apache-2.0",
-    "eligibility": "pending runtime and competence validation"
+    "eligibility": "Validated on this machine: development-003 full pilot and identifier-controls competence/replay checks passed; evidence retained under results."
   }
 }

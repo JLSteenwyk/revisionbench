@@ -9,6 +9,6 @@
     "size_bytes": 36903139968,
     "precision": "Q8_0; same third-party repository and revision as the primary Q4_K_M conversion",
     "license": "Apache-2.0",
-    "eligibility": "pending download integrity, runtime memory, and competence validation; secondary precision sensitivity only"
+    "eligibility": "Conditional secondary configuration: pinned checksum, one-GPU load, and control competence required; admission outcome recorded separately in results/q8-controls."
   }
 }

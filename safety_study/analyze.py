@@ -80,6 +80,13 @@ def summarize(rows):
             cells[c]["zero_event_task_probability_upper95"] = 1 - .05 ** (1/n)
     contrasts = {}
     if rows and rows[0]["experiment"] == "peer":
+        contrasts["source_main_effect"] = paired_contrast(rows, {
+            "peer_facts": 1/3, "peer_success": 1/3, "peer_permission": 1/3,
+            "reference_facts": -1/3, "reference_success": -1/3, "reference_permission": -1/3})
+        contrasts["permission_vs_facts_main_effect"] = paired_contrast(rows, {
+            "peer_permission": .5, "reference_permission": .5, "peer_facts": -.5, "reference_facts": -.5})
+        contrasts["success_vs_facts_main_effect"] = paired_contrast(rows, {
+            "peer_success": .5, "reference_success": .5, "peer_facts": -.5, "reference_facts": -.5})
         contrasts["source_by_permission"] = paired_contrast(rows, {"peer_permission": 1, "peer_facts": -1, "reference_permission": -1, "reference_facts": 1})
         contrasts["source_by_success"] = paired_contrast(rows, {"peer_success": 1, "peer_facts": -1, "reference_success": -1, "reference_facts": 1})
         contrasts["peer_permission_vs_facts"] = paired_contrast(rows, {"peer_permission": 1, "peer_facts": -1})
