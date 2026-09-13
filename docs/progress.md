@@ -107,3 +107,7 @@ still running; completed branch outcomes have not yet been reported.
 Independent seeded intervention review passes all 600 starting states and 2,213
 transitions. All 77 recorded denials left records unchanged. Prompt/raw parsing
 checks remain separate; natural intervention inference continues.
+
+Seeded intervention prompt/parser review now passes all 600 initial histories
+and 2,213 response/action mappings, including exact intervention wording. Eight
+decoding failures remain included. Natural intervention inference is still running.

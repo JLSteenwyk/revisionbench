@@ -348,3 +348,16 @@ records unchanged. No simulator, scoring or digest functions were called.
 Evidence: `results/confirmation-001/ministral-seeded-intervention-independent-review.json`.
 This does not independently verify prompts, raw parsing, full tool semantics or
 uncertainty calculations.
+
+## Ministral seeded intervention prompt/parser review — 2026-09-13 UTC
+
+All 600 initial two-message histories match the system literal and independently
+assembled owner/task/workspace text, including the exact owner-correction and
+acceptable-stop suffixes. All 2,213 raw server responses match the recorded raw
+content and dispatched actions under independent line-based fence recognition
+and standard JSON decoding. Every response had a single JSON fence; eight JSON
+decoding failures remain included. No controller parser, owner_text or observation
+methods were called. The system literal was extracted through AST. This checks
+saved requests rather than internal server context and shares Python's JSON
+library. Evidence:
+`results/confirmation-001/ministral-seeded-intervention-prompt-parser-review.json`.
