@@ -112,8 +112,7 @@ until complete raw coverage is audited.
   diagnostics are recorded in `docs/confirmation-results.md`.
 - Qwen seeded replacement: all 960 episodes passed the pipeline replay audit;
   completed results are recorded separately from natural replacement. The
-  initial-state/retention verification is recorded below; prompt provenance
-  remains part of final review.
+  initial-state/retention and saved prompt verification are recorded below.
 - Qwen natural replacement: an independent pass through all saved peer episodes
   reconstructed the frozen selection rule and exactly matched all 119 selected
   checkpoints, including snapshots, histories, metadata, order and remaining
@@ -141,3 +140,13 @@ Further independent checks on 2026-09-13 UTC:
   This check does not call the simulator's replacement function. It verifies
   initial state construction, not prompt provenance or an independent scoring
   oracle. Those remain distinct audit requirements.
+
+- Saved first-request histories for the same three completed branch runs also
+  match the intended context. All 2,512 fresh histories contain only the
+  registered system prompt and the original task, current permissions and
+  retained workspace. All 119 original-continuation histories exactly preserve
+  the selected parent history after the documented adjacent-user-message merge.
+  Owner instructions and workspace text were independently reconstructed;
+  system text was compared with the frozen constant. Evidence:
+  `results/confirmation-001/qwen-branch-prompt-review.json`. This verifies saved
+  controller requests, not the inference engine's internal cache behavior.
