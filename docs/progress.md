@@ -135,3 +135,7 @@ The Q8 monitor exited successfully after all 1,080 episodes, replay audit and pa
 ### Scientific work complete; distribution gate next
 
 Final Q8 raw-output, paired-statistical and runtime reviews pass. Final research report and requirement audit include all 15,710 episodes, 84 within-run contrasts and 28 precision comparisons. No further inference remains. Archive creation, read-back checks and final distribution receipt are next.
+
+### Delivery verified
+
+The evidence export passed 17,179 file checksums and an independent inventory covering all 15,710 confirmation episodes and required artifacts. Scientific and delivery requirements are complete. Final packaging incorporates completed audit and archive links; the external verification receipt supplies the final distribution hash. No additional inference or research work remains.

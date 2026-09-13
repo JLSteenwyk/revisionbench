@@ -88,3 +88,14 @@ or independently calculate confidence intervals. The analysis reviewer independe
 all contrasts and intervals, relying on the separately checked event labels.
 Existing selection review evidence is retained separately. The reviewers were added after registration
 and are not changes to the frozen experiment.
+
+## Portable evidence archive
+
+Download the [final archive](../artifacts/delivery/ai-safety-study-final-20260913.tar.gz)
+and its [verification receipt](../artifacts/delivery/ai-safety-study-final-20260913.tar.gz.verification.json).
+The receipt records the archive SHA256, size and read-back result. Inside the
+archive, `MANIFEST.json` lists each file's SHA256 and byte count;
+`source-history.bundle` preserves the Git history, including the preregistration
+commit. Extract into a separate directory before running the replay commands.
+The archive contains all 15,710 confirmation episodes and retained development
+records; weights and compiled runtime are deliberately omitted.

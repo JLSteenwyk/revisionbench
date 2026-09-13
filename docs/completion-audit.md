@@ -1,6 +1,6 @@
 # Completion audit
 
-Status: **scientific and execution requirements verified; archive verification is the remaining delivery gate.** This audit was added after registration and does not amend the experiments. The dated evidence below records actual inspections. The archive and its checksum receipt will provide the final distribution evidence.
+Status: **complete**. Scientific, execution and delivery requirements have been verified. This audit was added after registration and does not amend the experiments. Dated findings below record actual inspections; the final archive has a separate checksum/read-back receipt.
 
 ## Objective requirements
 
@@ -19,7 +19,7 @@ Status: **scientific and execution requirements verified; archive verification i
 | Task-cluster uncertainty, effects and nulls | Inspect complete analysis outputs and recompute/report registered primary contrasts with 97.5% intervals for the two primary model tests; distinguish secondary 95% intervals. Check task aggregation, shared generation keys, exclusions, non-estimable contrasts and conservative bounds. Report null results without interpreting them as proof of equivalence. | All 78 contrasts across ten primary analyses independently reproduced from raw episodes, including 95/97.5 bootstrap and conservative intervals. Q8 six within-run and all 28 paired contrasts independently verified. |
 | Quantization and application scaffolding | Inspect Q8 admission and the registered paired Q8/Q4 comparison, or document an actual admission failure. Match shared tasks and generation keys. Report third-party quantization provenance, role merging, fence parsing, controller limits and observed generation repeatability; do not attribute all between-model differences to model weights. | Q8 admission independently reviewed: all 27 control episodes, arithmetic/completion, held-out disjointness and manifest/telemetry evidence pass. All 120 matched task/generation keys, 28 paired comparisons and identical starting states/histories independently verified. |
 | Local inference and no unauthorized spending | Review launch/client paths and run provenance for local inference; no external paid inference or subscription replication has been authorized. Optional subscription replication is not necessary for completion. | Reviewed client and launcher: literal loopback only, no authentication header, redirects/proxies disabled, designated single GPU and no paid fallback. All three completed configuration/runtime records reviewed. |
-| Complete deliverables and reproducibility | Inspect literature, protocol, harness, validated scenarios/tests, versioned configs, pilot results, complete confirmation analysis, final report and reproduction instructions. Verify archive contents/checksums and source history, and make all final artifact links usable. | Literature, protocol, runnable harness, validated scenarios/tests, versioned configs, pilot record, full analyses, final report and reproduction guide inspected. Archive checksum/read-back verification remains the final gate. |
+| Complete deliverables and reproducibility | Inspect literature, protocol, harness, validated scenarios/tests, versioned configs, pilot results, complete confirmation analysis, final report and reproduction instructions. Verify archive contents/checksums and source history, and make all final artifact links usable. | Literature, protocol, runnable harness, validated scenarios/tests, versioned configs, pilot record, full analyses, final report and reproduction guide inspected. Archive checksum/read-back and full inventory checks pass; final distribution receipt accompanies the archive. |
 
 ## Registered execution coverage
 
@@ -55,10 +55,11 @@ and saved evidence listed below. There are 15,710 completed confirmation episode
 84 within-run contrasts and 28 paired precision comparisons. All registered
 schedules, complete replay audits and independent review scopes pass.
 
-The remaining delivery gate is creating and reading back the portable evidence
-archive, verifying every file hash and the bundled Git history. Completion must
-not be declared until its sibling `.verification.json` receipt exists and passes.
-This distribution gate does not call for further model inference.
+The delivery archive passed checksum read-back for 17,179 files and independent
+inventory verification covering all 15,710 confirmation episodes, required
+deliverables, audits and source history. README, report and reproduction file
+links resolve. Final packaging includes this completed audit; its sibling receipt
+records the final archive hash and read-back result. No inference remains.
 
 ## Interim source review — 2026-09-13 UTC
 
@@ -462,3 +463,19 @@ secondary multiplicity, absent natural-memory factors, no-op attempts, lost
 legitimate progress, owner-reminder confounding and precision interpretation
 limits. README and detailed-result status are current. Frozen experimental files
 were not changed; new review code is explicitly post-registration.
+
+## Distribution verification — 2026-09-13 UTC
+
+The first complete evidence export, `artifacts/delivery/ai-safety-study-20260913.tar.gz`,
+passed all 17,179 per-file checksums and an independent inventory check of all
+registered episodes, required documents/configurations/tests, replay audits and
+Git history. Its archive SHA256 is
+`b6e2f914ff077942995e33a67ac67b6133ef4739a27a13ad76c83236a272aeed`.
+The export intentionally omits model weights, native runtime build, virtual
+environment and full third-party articles; pinned sources and hashes are retained.
+
+The final export incorporates the completed delivery documentation:
+[final evidence archive](../artifacts/delivery/ai-safety-study-final-20260913.tar.gz)
+and [verification receipt](../artifacts/delivery/ai-safety-study-final-20260913.tar.gz.verification.json).
+The receipt is external to the archive so it can identify the final archive's
+checksum without a circular self-reference.

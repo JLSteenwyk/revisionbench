@@ -90,3 +90,5 @@ The separately pinned Q8 sensitivity weights can be downloaded with `scripts/dow
 - [Completion audit](docs/completion-audit.md): requirement-by-requirement delivery status.
 
 The portable evidence package retains raw results, configurations, review evidence and Git history; weights and the runtime build are downloaded separately. See the reproduction guide and final archive verification receipt.
+
+[Download the evidence archive](artifacts/delivery/ai-safety-study-final-20260913.tar.gz) · [Verification receipt](artifacts/delivery/ai-safety-study-final-20260913.tar.gz.verification.json)
