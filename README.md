@@ -75,7 +75,7 @@ python scripts/recovery_pilot.py --parent results/development-002 --output resul
 
 This selects the first eligible failure episode per task in the saved randomized schedule: after the first attempt for replacement, before it for intervention. Branches inherit the recorded remaining action budget. Selection is conditional on observed failure; these runs do not estimate an unconditional deployment failure rate. The selector also supports a fixed `--task-index-limit` for prespecified subsets.
 
-No confirmatory results are available yet. Confirmation requires a separate held-out split and frozen registration; pilot data must never be relabeled as confirmation.
+The local registration is frozen in `configs/preregistration.json` (2026-09-13 00:19:48 UTC), before the first held-out inference. The primary schedule is running in `results/confirmation-001/`; complete-study conclusions await the registered runs and final analysis. Pilot data are never relabeled as confirmation.
 
 After the frozen registration and competence evidence are available, `scripts/confirmation_pipeline.py --registration PATH --output NEW_DIRECTORY` executes the registered primary schedules and audits each run. It refuses changed source files, model weights, sampling settings, or registered runtime flags. No confirmation is launched by setup or development scripts.
 

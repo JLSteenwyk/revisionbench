@@ -11,19 +11,26 @@ This is an active study, not a completed deliverable.
 - Existing vLLM installation diagnosed as unusable due to missing libcudart.so.13; existing environment left unchanged.
 - Separate Python environment and CUDA llama.cpp build created. Runtime commit: acecd56032ddc34bada14a2d978f110d9c987095.
 - Simulator, JSON-action controller, randomized peer experiment, seeded/natural recovery branches, trace export, and initial analysis implemented.
-- 29 unit/integration tests passed as recorded in artifacts/environment/tests.txt, including registration integrity, forbidden-target scoring, within-seed pairing, trace diagnostics, multiplicity-adjusted interval widths, and JSON-type changes to protected records.
+- 31 unit/integration tests passed as recorded in artifacts/environment/tests.txt, including registration integrity, forbidden-target scoring, within-seed pairing, trace diagnostics, multiplicity-adjusted interval widths, and JSON-type changes to protected records.
 - Primary literature comparison updated after full-method checks revealed substantial overlap.
 - Prospective sample-size simulation completed and saved in artifacts/sample-size-planning.json; this is planning evidence, not model data.
 - Development-only pipeline created in scripts/development_pipeline.py. Its plan is in results/development-001/plan.json; it waits for verified weights and will not start confirmation.
 
+## Completed validation and registration
+
+- Both primary weight files passed pinned SHA256 checks and loaded on one GPU.
+- Both models completed 198 shared-format development episodes and passed all replay audits in results/development-003.
+- Natural recovery completed and audited: Qwen 72 replacement + 40 intervention branches; Ministral 63 + 35.
+- Revised-identifier controls passed: Qwen 25/27 tasks, no invalid actions; Ministral 21/27, 0.99% invalid actions.
+- The materialized 240-input held-out bank is unique and disjoint from current and earlier saved development inputs. Earlier format failures and the failed task-bank audit are retained.
+- Local preregistration frozen at 2026-09-13T00:19:48.976082+00:00, before held-out inference, and committed as b8efaaa. Registration SHA256: 9b9cb2ba760d2db2c60983c37a12b910622a462709e9ab857abc2eaa1fa1dc89.
+- Registered primary execution started in results/confirmation-001. Its first run manifest confirms the held-out split, 240 tasks, two generations, and matching registration hash.
+- Q8 controls and its registered secondary peer comparison are queued after successful completion of both primary schedules. Q8 admission remains conditional on weight/runtime and competence checks.
+
 ## Required before completion
 
-- Both model downloads and pinned SHA256 checks are complete. Qwen's initial runtime and 66-episode pilot passed replay audits; details and compatibility failures are in docs/pilot-results.md. Complete both models' amended-format runtime measurements.
-- Both models completed and passed all replay audits in results/development-003 (198 episodes/model). Their competence checks passed. Complete the additional identifier-controls validation after the held-out task-bank repair; earlier template/format failures remain preserved.
-- Finish and analyze natural-development-003 recovery runs and identifier-controls. Qwen natural replacement has passed replay audit. The 240-input held-out bank is materialized, unique, and disjoint from all saved development peer inputs; no confirmation inference has begun.
-- Complete sample-size justification and freeze preregistration before any confirmation run.
-- Run held-out confirmatory experiments, retaining failed configurations and null results.
-- Evaluate precision sensitivity where relevant and disclose limits.
-- Complete analysis, report, reproducibility instructions, and requirement-by-requirement final audit.
+- Finish and audit the registered primary peer, seeded recovery, and natural recovery schedules; retain nulls and any failures.
+- Complete Q8 integrity/runtime/competence validation and its registered paired sensitivity check, or document an actual eligibility failure.
+- Produce full uncertainty analyses, concise research report, portable evidence/reproduction package, and requirement-by-requirement completion audit.
 
 Actual process liveness must be checked using tool handles or operating-system state; this document does not imply a job is running.
