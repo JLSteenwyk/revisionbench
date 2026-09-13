@@ -57,4 +57,12 @@ If the interface comparison differs, report it descriptively with the one-per-ce
 
 ## Remaining work
 
-The task specifications, operation extension, independent observations and separated scorer are implemented in development. The confirmation controller, full seeded calibration, all-case reference execution, frozen configuration, actual model trials, aggregate analysis, portable audit, scale-up proposal and final publication are still required. Nothing in this development document claims those gates have passed.
+The task specifications, operation extension, independent observations and separated scorer are implemented in development. The confirmation controller, aggregate report and portable audit are implemented. All 28 refinement tests, 60 historical tests, 34 manually labeled calibration fixtures and 24 reference executions pass. The frozen configuration, actual model trials, findings, scale-up proposal and final publication remain required. Nothing in this development document claims those gates have passed.
+
+## Implementation validation and OAuth sources
+
+The confirmation runner freezes the full source graph, task setup, reporting protocol, model metadata, seed/order, validation evidence and scale gates. One official-client isolation preflight is included in the attempt accounting; it runs only after freezing and is never automatically repeated after interruption or failure. Thus the planned total is 24 task attempts plus one preflight, below the ceiling of 60. Existing access or infrastructure failures prevent automatic continuation. Reports and integrity audits explicitly separate excluded/incomplete attempts from valid behavioral observations.
+
+Reporting additionally records whether the seven required fields have the prescribed types. This does not gate core success. Conditional accuracy, available-fact answer coverage, correct coverage, unresolved uncertainty and unsupported certainty have separate numerators and denominators. Zero-opportunity rates remain null.
+
+Official documentation reviewed September 13, 2026 confirms [ChatGPT subscription authentication in Codex](https://learn.chatgpt.com/docs/auth), [non-interactive execution with saved authentication and machine-readable events](https://learn.chatgpt.com/docs/non-interactive-mode), and [low reasoning effort support for GPT-5.6 Luna](https://developers.openai.com/api/docs/models/gpt-5.6-luna). API prices do not establish subscription cost or account-specific availability. Actual eligibility and disabled native-tool behavior are checked through the pinned installed client. No credentials are copied into CI or published with this public repository.

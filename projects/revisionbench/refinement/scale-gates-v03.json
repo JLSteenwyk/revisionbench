@@ -1,0 +1,12 @@
+{
+  "all_reference_cases_pass": true,
+  "all_seeded_labels_pass": true,
+  "planned_cases": 24,
+  "minimum_valid_submissions": 22,
+  "all_families_represented": true,
+  "all_four_interface_cells_interpretable": true,
+  "unresolved_integrity_or_scoring_defects": 0,
+  "bounded_resource_proposal_required": true,
+  "model_failure_required": false,
+  "larger_study_automatic_launch": false
+}
