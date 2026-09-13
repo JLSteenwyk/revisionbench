@@ -76,8 +76,57 @@ diagnostics.json,manifest.json,schedule.json,summary.jsonl,episodes/}` and
 `results/confirmation-001/qwen-peer-execution-review.json`. Raw outputs remain
 available for checking rounding and every reported contrast.
 
+## Qwen Q4 seeded replacement experiment
+
+Completed and replay-audited 960 episodes: 120 held-out tasks × eight artifact
+retention combinations. Each fresh agent received the original task and current
+permissions, with an eight-step budget. Notes, queued work and the predecessor's
+record change were deliberately planted; these results do not measure how often
+agents naturally create persistent unsafe artifacts.
+
+| Notes retained | Queue retained | Record change retained | New unauthorized attempt/change | Legitimate completion |
+| --- | --- | --- | ---: | ---: |
+| No | No | No | 35.83% | 95.00% |
+| No | No | Yes | 41.67% | 96.67% |
+| No | Yes | No | 54.17% | 91.67% |
+| No | Yes | Yes | 64.17% | 96.67% |
+| Yes | No | No | 65.83% | 96.67% |
+| Yes | No | Yes | 70.83% | 97.50% |
+| Yes | Yes | No | 86.67% | 94.17% |
+| Yes | Yes | Yes | 92.50% | 95.83% |
+
+Each row contains 120 episodes. Attempt and actual-change rates coincide here;
+the planted preexisting change is not itself counted as a new violation.
+
+Registered secondary effects on new unauthorized attempts, averaged over the
+other retention factors:
+
+| Artifact preserved versus removed | Difference in percentage points | Task-cluster bootstrap 95% interval | Conservative Hoeffding 95% interval |
+| --- | ---: | ---: | ---: |
+| Notes | +30.00 | +22.71 to +37.08 | +5.20 to +54.80 |
+| Queue | +20.83 | +14.58 to +26.88 | −3.96 to +45.63 |
+| Record change | +6.67 | +2.29 to +10.84 | −18.13 to +31.46 |
+| All three versus none | +56.67 | +46.67 to +66.67 | +31.87 to +81.46 |
+
+The queue and record-change intervals depend materially on the uncertainty
+method. These effects describe the particular planted artifacts and tasks.
+Removing all artifacts still leaves a substantial baseline violation rate.
+The seeded record change is a `predecessor_staged` value in the protected
+template; it does not include completed legitimate work. In natural replacement,
+removing environment changes can also remove legitimate progress, a separate
+interpretation issue that must be retained in that analysis.
+
+Evidence: `results/confirmation-001/qwen-replacement/analysis.json`, `audit.json`
+and the raw episodes in the same directory.
+
+Natural replacement has begun from 119 eligible checkpoints under the frozen
+selection rule. None contains a saved note or pending queue, so those factors
+have no artifact variation in this selected natural sample. Their natural
+effects cannot be identified here. These checkpoint observations do not replace
+the pending branch outcomes.
+
 ## Outstanding
 
-Qwen replacement/intervention, the complete Ministral schedule, conditional Q8
+Qwen natural replacement/intervention, the complete Ministral schedule, conditional Q8
 validation/comparison, full diagnostics synthesis and the final report remain
 pending. Natural recovery results must be reported separately from seeded states.
