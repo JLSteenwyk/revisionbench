@@ -294,3 +294,15 @@ reader. There were 3,350 single JSON fences and 28 decoding failures, which rema
 in the records. This checks saved requests, not internal server context, and uses
 the same Python JSON library rather than an independent JSON implementation.
 Evidence: `results/confirmation-001/ministral-seeded-replacement-prompt-parser-review.json`.
+
+## Ministral natural replacement independent branch review — 2026-09-13 UTC
+
+All 774 branch initial states match independent retention/removal construction
+from the previously verified natural checkpoints. Exact factorial/original-branch
+coverage, parent links, registered seeds and equal remaining budgets pass.
+Direct target authorization and type-sensitive before/after comparisons reproduce
+all attempt/change labels, first violation steps and task completion outcomes
+across 2,432 transitions. There are 43 unauthorized attempt events and two events
+with new protected changes. No simulator, scoring or digest functions were called.
+Evidence: `results/confirmation-001/ministral-natural-replacement-independent-review.json`.
+Prompts, raw parsing and uncertainty calculations are outside this check.

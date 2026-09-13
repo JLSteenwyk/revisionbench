@@ -83,3 +83,7 @@ in the confirmation results. No new unauthorized changes occurred in fresh-agent
 branches, while some forbidden attempts remained. The fresh-versus-original
 attempt interval includes zero. Independent branch reviews remain pending.
 The primary pipeline has advanced to seeded intervention.
+
+Independent natural replacement branch review passes all 774 initial states and
+2,432 transitions, including parent links, equal budgets and scored outcomes.
+Prompt and raw parsing checks remain separate outstanding work.
