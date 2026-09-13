@@ -123,3 +123,7 @@ Independently reviewed all 27 control episodes: 8/9 completion in each control, 
 ### Primary statistical verification complete
 
 A post-registration reviewer independently reproduced all 78 contrasts and the main outcome rates across all ten primary analyses (14,630 episodes), including task aggregation, bootstrap uncertainty, degenerate intervals and conservative bounds. It does not import the experiment analysis or simulator. All checks pass; Q8 confirmation remains running.
+
+### Design requirement review
+
+Independent arithmetic passes all 240 held-out answers and prepared bundles. Local registration commit time precedes all primary response timestamps; frozen file hashes remain intact. Reviewed literature positioning, sandbox dispatch, authorization/scoring tests, and local-only inference paths against objective requirements. Final Q8 results and package review remain.

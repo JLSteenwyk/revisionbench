@@ -10,9 +10,9 @@ and a dated finding for every row.
 
 | Requirement | Evidence and scope required at final review | Current disposition |
 | --- | --- | --- |
-| Closest primary research and specific contribution | Inspect `docs/literature.md` and the final report for established findings versus hypotheses, source-specific method comparisons, and the absence of an unsupported priority claim. Preserve the distinction between pre-freeze review and later literature follow-up. | Literature comparison exists; final synthesis pending. |
-| No unsupported explanation of the Hugging Face incident | Inspect the final report for incident-specific claims; without incident evidence, restrict conclusions to the simulated tasks. | Final report pending. |
-| Isolated synthetic workplace and valid authorized solutions | Review `safety_study/world.py`, controller tool dispatch, local client restrictions, tests, and saved action traces. Verify fake records/notes/queues, permissions, technically possible violations, and authorized solutions across all three task families and held-out cases. Model outputs must never be executed as host code. | Implementation and development evidence exist; final review pending. |
+| Closest primary research and specific contribution | Inspect `docs/literature.md` and the final report for established findings versus hypotheses, source-specific method comparisons, and the absence of an unsupported priority claim. Preserve the distinction between pre-freeze review and later literature follow-up. | Reviewed: primary-source comparison distinguishes established precedents, candidate contribution, pre-freeze review and later follow-up; no priority claim. Final Q8 synthesis remains pending. |
+| No unsupported explanation of the Hugging Face incident | Inspect the final report for incident-specific claims; without incident evidence, restrict conclusions to the simulated tasks. | Reviewed report explicitly disclaims incident reconstruction; no incident-specific causal claim is made. |
+| Isolated synthetic workplace and valid authorized solutions | Review `safety_study/world.py`, controller tool dispatch, local client restrictions, tests, and saved action traces. Verify fake records/notes/queues, permissions, technically possible violations, and authorized solutions across all three task families and held-out cases. Model outputs must never be executed as host code. | Reviewed virtual dispatch, JSON parsing, local client, and test coverage. Independent arithmetic passes all 240 held-out tasks; authorized-route tests cover all tasks in both splits. Boundary claim is limited to model-facing tools. |
 | Local models, pinned availability/license/runtime/precision, one GPU | Inspect both primary weight manifests, upstream metadata, model configurations, launcher records and GPU telemetry for every run. Confirm the designated GPU and exact weight/runtime/settings provenance. Review competence certificates and their underlying control episodes, not certificates alone. | Both primary model admissions and completed runtime records reviewed; Qwen Q8 admitted and its confirmation telemetry remains live. |
 | Peer influence: matched information, source by claim, three controls | Check the six scripted message conditions and all three controls, actual initial states and permissions, budgets, randomized schedules, task/generation keys, and per-cell coverage in both primary peer runs. Explicitly describe scripted messages. | Both complete peer schedules, raw states, generation keys, permissions, outcomes and parser mappings independently reviewed; 4,320 episodes per model. |
 | Replacement: fresh agents, independent artifact retention, new actions | Check all eight branches, original task/current permissions, retained/removed notes, queue and environment state, fresh history, remaining budgets and reset event counters. Keep seeded and natural origins separate; report when a natural artifact is absent and its effect is not identifiable. Include the registered original-agent continuation comparator. | Both complete primary schedules and independent branch/selection/history reviews pass; seeded and natural results reported separately. |
@@ -22,7 +22,7 @@ and a dated finding for every row.
 | Preregistration before confirmation, justified sample, exclusions and stopping | Verify `configs/preregistration.json` against Git history, all frozen file hashes and controller hash, run manifests and first inference timestamps. Inspect planning assumptions and actual sample coverage. Retain infrastructure failures and any explicit amendments; never substitute an outcome-selected smaller sample. | Frozen registration/source hashes intact; both primary schedules complete at their registered sample sizes. Q8 execution still active. |
 | Task-cluster uncertainty, effects and nulls | Inspect complete analysis outputs and recompute/report registered primary contrasts with 97.5% intervals for the two primary model tests; distinguish secondary 95% intervals. Check task aggregation, shared generation keys, exclusions, non-estimable contrasts and conservative bounds. Report null results without interpreting them as proof of equivalence. | All 78 contrasts across ten primary analyses independently reproduced from raw episodes, including 95/97.5 bootstrap and conservative intervals. Q8 analysis pending. |
 | Quantization and application scaffolding | Inspect Q8 admission and the registered paired Q8/Q4 comparison, or document an actual admission failure. Match shared tasks and generation keys. Report third-party quantization provenance, role merging, fence parsing, controller limits and observed generation repeatability; do not attribute all between-model differences to model weights. | Q8 admission independently reviewed: all 27 control episodes, arithmetic/completion, held-out disjointness and manifest/telemetry evidence pass. Registered paired comparison running. |
-| Local inference and no unauthorized spending | Review launch/client paths and run provenance for local inference; no external paid inference or subscription replication has been authorized. Optional subscription replication is not necessary for completion. | Local execution so far; final provenance review pending. |
+| Local inference and no unauthorized spending | Review launch/client paths and run provenance for local inference; no external paid inference or subscription replication has been authorized. Optional subscription replication is not necessary for completion. | Reviewed client and launcher: literal loopback only, no authentication header, redirects/proxies disabled, designated single GPU and no paid fallback. Primary provenance complete; final Q8 manifest/telemetry review pending. |
 | Complete deliverables and reproducibility | Inspect literature, protocol, harness, validated scenarios/tests, versioned configs, pilot results, complete confirmation analysis, final report and reproduction instructions. Verify archive contents/checksums and source history, and make all final artifact links usable. | Report, complete results and archive pending. |
 
 ## Registered execution coverage
@@ -402,3 +402,38 @@ Evidence: `results/confirmation-001/*-full-statistical-review.json`, plus
 primary-interaction-only numerical checks to all reported secondary comparisons.
 Numerical agreement does not make absent natural notes identifiable or remove
 secondary multiplicity, selection or controller limitations.
+
+### Design and source requirement review — 2026-09-13 09:28 UTC
+
+Inspected the current literature comparison, report limitations, protocol,
+registration hypotheses/sample justification/exclusions/stopping rules, simulator
+dispatch and scoring, launcher, and scoring/registration/precision tests. The
+literature positioning is a controlled extension with no established priority;
+pre-freeze and later source review remain distinguished. No incident-specific
+causal claim is made.
+
+The virtual dispatcher performs dictionary/list operations only. Parsed model
+outputs cannot name a host tool. Queued mutations receive permission checks when
+executed, and full enforcement checks targets before applying any record writes.
+The client sends inference only to a literal loopback endpoint with proxies and
+redirects disabled. The launcher selects one GPU UUID after checking available
+memory, and removes provider credential variables from its child environment.
+These observations establish the harness boundary, not a security assessment of
+the native runtime or all host software.
+
+The retained frozen test record passes 31 tests. Inspected coverage includes
+authorized completion over 240 tasks in each split, all three mutation routes,
+queued enforcement, no-op versus type-changing writes, fresh histories, source
+labels, infrastructure handling and precision pairing. No changed implementation
+required rerunning these already-passing tests. A new direct arithmetic review
+independently checks every one of the 240 held-out answers and supplied bundles,
+with 80 distinct inputs per family. Evidence:
+`results/confirmation-001/final-design-evidence-review.json`.
+
+The registration commit is `b8efaaa7e66cefff9074d66f99b0915018062ab7`, Unix
+time 1789258825. Earliest saved primary response timestamps are 1789258856
+(Qwen) and 1789269046 (Ministral), both later. Frozen file hashes pass. These
+are local timestamp/provenance checks, not an external registry attestation.
+Prospective sample planning discloses its assumptions and does not guarantee
+power. Both primary fixed schedules completed; Q8 still needs its full schedule,
+paired results, final runtime review and delivery packaging.
