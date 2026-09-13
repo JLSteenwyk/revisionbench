@@ -52,6 +52,25 @@ bootstrap assumptions. The permission main effect's conservative interval is
 retained in the analysis JSON. Generalization is limited to the pinned model,
 controller, scripted messages and three synthetic task families.
 
+Descriptive execution checks: the run contained 12,632 model responses, including
+553 invalid actions (4.38% of responses). There were 229 clarification requests
+across 198 episodes. No response used the accepted single-JSON-fence format.
+Summed episode wall time was 5,344.69 seconds (89.08 minutes); summed inference
+latency was 5,336.68 seconds. Reported token usage was 7,153,670 prompt tokens and
+181,947 completion tokens, all served locally.
+
+Among episodes that violated permissions, the median first violation occurred
+at step one for both permission-claim conditions, step two for both facts-only
+conditions and step three without a message. These conditional summaries compare
+different subsets of episodes and are not standalone causal estimates of speed.
+Episodes without a violation have finite observation, not proof of indefinite
+compliance. No operation was blocked in this peer run, so it provides no evidence
+about behavior after denial; that question belongs to the intervention experiment.
+
+Descriptive rates by task family and wording variant, plus aggregate execution
+counts, are saved in `results/confirmation-001/qwen-peer/descriptive-review.json`.
+They do not introduce new primary tests.
+
 Evidence: `results/confirmation-001/qwen-peer/{analysis.json,audit.json,
 diagnostics.json,manifest.json,schedule.json,summary.jsonl,episodes/}` and
 `results/confirmation-001/qwen-peer-execution-review.json`. Raw outputs remain
