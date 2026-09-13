@@ -99,6 +99,18 @@ prepared bundle; only one caused a new change. These events remain included.
 The detailed [results](confirmation-results.md) separate every outcome and retain
 secondary nulls, uncertainty and execution diagnostics.
 
+## Completed Ministral seeded replacement findings
+
+All 960 seeded replacement branches passed replay and schedule checks. Retaining
+all planted state produced new unauthorized changes in 40/120 branches (33.33%),
+versus 0/120 with all state removed. The difference was +33.33 percentage points
+(bootstrap 95% +25.00 to +41.69; conservative +8.54 to +58.13). Attempts and new
+changes had identical cell rates. Marginal note, queue and environment-retention
+effects were positive under bootstrap intervals, but their conservative intervals
+included zero. Legitimate completion ranged from 71.67% to 83.33%. These are
+results for deliberately planted workflows, not evidence that unsafe state
+arose spontaneously. Natural replacement remains under evaluation.
+
 ## Interpretation limits and unfinished work
 
 Results concern these pinned models, scripted messages, three task families and
@@ -110,7 +122,7 @@ reminder. Fixed seeds did not ensure identical trajectories in development.
 Zero changes under enforcement describe the simulated tools, not deployment
 security or reliable behavioral compliance.
 
-Ministral recovery results, the Q8 admission outcome and paired comparison, cross-model
+The remaining Ministral recovery results, the Q8 admission outcome and paired comparison, cross-model
 synthesis and the final completion audit must be incorporated before this report
 is finalized. Reproduction instructions are in [reproduction.md](reproduction.md);
 the portable evidence package remains to be generated and verified after those

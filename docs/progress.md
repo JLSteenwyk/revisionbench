@@ -54,3 +54,12 @@ reviewed directly: both targeted the still-protected prepared bundle, rather
 than the action authorized by the control. The pipeline has advanced to seeded
 replacement. The remaining recovery runs, independent reviews, Q8 comparison
 and final package remain unfinished.
+
+## Ministral seeded replacement completion — 2026-09-13 UTC
+
+All 960 seeded replacement episodes completed and passed replay and schedule
+checks, with zero infrastructure errors. Cell rates, secondary contrasts and
+both bootstrap and conservative intervals are in the confirmation results and
+working report. Independent reviews remain pending. The live primary pipeline
+has advanced to natural replacement. Frozen registration and all registered
+file/source hashes were reverified before this reporting update.
