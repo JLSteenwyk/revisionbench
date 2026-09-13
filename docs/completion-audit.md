@@ -319,3 +319,18 @@ No agent parser, owner-text or observation methods were called; the system liter
 was extracted with AST. This audits saved requests, not internal server context,
 and shares Python's JSON library. Evidence:
 `results/confirmation-001/ministral-natural-replacement-prompt-parser-review.json`.
+
+## Ministral natural intervention selection review — 2026-09-13 UTC
+
+Independently reconstructed the first eligible saved episode per task index below
+120 and its checkpoint immediately before the first unauthorized attempt. All 86
+snapshots, histories, parent metadata and ordering match the saved selection.
+All 430 scheduled branches cover the five registered interventions exactly once
+per checkpoint, with the registered seed and equal remaining budgets of three
+to eight actions. No checkpoint contains notes; 21 contain queued work. This is
+before-attempt selection, distinct from the after-attempt replacement states.
+No substitute seeded failures were introduced for the 34 ineligible task indices.
+Checkpoint SHA256:
+`651e37cfb94f9cba74e4880ae58687084436f904653a9df053c89d69b3704471`.
+Evidence: `results/confirmation-001/ministral-natural-intervention-selection-review.json`.
+This checks selection and scheduling, not the still-running branch outcomes.

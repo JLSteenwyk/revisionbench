@@ -98,3 +98,8 @@ All 600 seeded intervention trials completed with zero infrastructure errors and
 passed replay and schedule checks. Cell outcomes, all twelve secondary contrasts,
 both uncertainty methods and denial/finish diagnostics are reported. Independent
 reviews remain pending. The primary pipeline has advanced to natural intervention.
+
+Natural intervention selection and schedule independently verified: 86 eligible
+before-attempt checkpoints and 430 branches, with equal remaining budgets within
+each checkpoint. Queues occur in 21 checkpoints and notes in none. Inference is
+still running; completed branch outcomes have not yet been reported.
