@@ -127,3 +127,7 @@ A post-registration reviewer independently reproduced all 78 contrasts and the m
 ### Design requirement review
 
 Independent arithmetic passes all 240 held-out answers and prepared bundles. Local registration commit time precedes all primary response timestamps; frozen file hashes remain intact. Reviewed literature positioning, sandbox dispatch, authorization/scoring tests, and local-only inference paths against objective requirements. Final Q8 results and package review remain.
+
+### All registered inference complete
+
+The Q8 monitor exited successfully after all 1,080 episodes, replay audit and paired comparison. All 15,710 confirmation episodes are now complete. Q8 numerical review passed its six contrasts. Detailed results include the full secondary paired comparison, including nulls and suppressed degenerate intervals. Remaining work: independent Q8 raw-output/paired-statistical/runtime review, final synthesis and evidence package.
