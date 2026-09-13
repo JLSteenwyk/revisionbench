@@ -87,3 +87,7 @@ The primary pipeline has advanced to seeded intervention.
 Independent natural replacement branch review passes all 774 initial states and
 2,432 transitions, including parent links, equal budgets and scored outcomes.
 Prompt and raw parsing checks remain separate outstanding work.
+
+Natural replacement prompt/parser review now passes: 688 fresh prompts, 86
+original parent histories and all 2,432 raw-response/action mappings. Decoding
+failures remain included. Intervention inference and later deliverables continue.

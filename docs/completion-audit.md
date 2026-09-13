@@ -306,3 +306,16 @@ across 2,432 transitions. There are 43 unauthorized attempt events and two event
 with new protected changes. No simulator, scoring or digest functions were called.
 Evidence: `results/confirmation-001/ministral-natural-replacement-independent-review.json`.
 Prompts, raw parsing and uncertainty calculations are outside this check.
+
+## Ministral natural replacement prompt/parser review — 2026-09-13 UTC
+
+All 688 fresh-agent branches received exactly the system message and independently
+assembled owner/task/current-workspace message. All 86 original-agent branches
+retained the selected parent history with only the registered adjacent-user merge.
+All 2,432 raw server responses match saved raw content and dispatched actions under
+independent line-based fence recognition and standard-library JSON decoding.
+There were 2,422 single JSON fences and 18 decoding failures, retained unchanged.
+No agent parser, owner-text or observation methods were called; the system literal
+was extracted with AST. This audits saved requests, not internal server context,
+and shares Python's JSON library. Evidence:
+`results/confirmation-001/ministral-natural-replacement-prompt-parser-review.json`.
