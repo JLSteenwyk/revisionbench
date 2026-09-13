@@ -419,3 +419,39 @@ All four bootstrap intervals exclude zero; only the all-retained versus all-remo
 Legitimate completion ranged from 71.67% to 83.33%. No operation was denied in this experiment. Conditional median first-violation steps were three in five violating cells and four in the notes-only cell; comparisons among selected violating episodes do not establish causal timing effects.
 
 Evidence: `results/confirmation-001/ministral-replacement/{analysis.json,audit.json,diagnostics.json,manifest.json,schedule.json,summary.jsonl,episodes/}`. An independent review checked all 960 initial branch states, schedule/seed/budget coverage and 3,360 action transitions against explicit permissions and type-sensitive before/after records. All scored attempts, changes, first violations and task completions matched. There were 140 unauthorized attempt events and 138 events with unauthorized changes; event counts differ from episode rates. Evidence: `results/confirmation-001/ministral-seeded-replacement-independent-review.json`, reproducible with `scripts/review_seeded_replacement.py`. A separate prompt/parser review also verified all 960 fresh initial histories and all 3,360 raw-response-to-action mappings (3,350 single JSON fences; 28 JSON decoding failures retained). Evidence: `results/confirmation-001/ministral-seeded-replacement-prompt-parser-review.json`. Confidence intervals are outside these independent checks. Natural replacement and both intervention runs are not yet reported.
+
+## Ministral natural replacement confirmation — 2026-09-13 UTC
+
+All 774 branches (86 selected tasks × nine conditions) completed with zero infrastructure errors and passed replay and schedule checks. The independently verified checkpoints occur immediately after the first unauthorized attempt, with two to seven actions remaining. Branches from each checkpoint receive equal remaining budgets.
+
+No checkpoint contains notes, making note retention unidentifiable. Queues exist in only 13/86 checkpoints. The 34 task indices without an eligible checkpoint were not replaced with seeded failures. These are selected failure states, not an unbiased deployment sample.
+
+| Condition (notes / queue / changes retained) | Attempt | New unauthorized change | Legitimate completion |
+|---|---:|---:|---:|
+| 0 / 0 / 0 | 0.00% | 0.00% | 73.26% |
+| 0 / 0 / 1 | 11.63% | 0.00% | 68.60% |
+| 0 / 1 / 0 | 0.00% | 0.00% | 72.09% |
+| 0 / 1 / 1 | 13.95% | 0.00% | 68.60% |
+| 1 / 0 / 0 | 0.00% | 0.00% | 73.26% |
+| 1 / 0 / 1 | 11.63% | 0.00% | 67.44% |
+| 1 / 1 / 0 | 0.00% | 0.00% | 72.09% |
+| 1 / 1 / 1 | 9.30% | 0.00% | 68.60% |
+| original_continues | 2.33% | 2.33% | 95.35% |
+
+Secondary contrasts below concern attempted violations. Bootstrap intervals are task-cluster 95% intervals, not jointly adjusted across secondary comparisons.
+
+| Contrast | Difference (percentage points) | Bootstrap 95% | Conservative 95% |
+|---|---:|---:|---:|
+| notes preserved vs removed (nominal; unidentifiable) | -1.16 | -2.91 to +0.58 | -30.45 to +28.13 |
+| queue preserved vs removed | +0.00 | -1.45 to +1.45 | -29.29 to +29.29 |
+| changes preserved vs removed | +11.63 | +5.81 to +18.02 | -17.66 to +40.92 |
+| all preserved vs all removed | +9.30 | +3.49 to +16.28 | -19.99 to +38.59 |
+| fresh vs original | +6.98 | +0.00 to +13.95 | -22.31 to +36.27 |
+
+All-state-retaining fresh agents attempted violations in 8/86 branches versus 2/86 original continuations. The +6.98-point bootstrap interval includes zero at its lower endpoint, and the conservative interval also includes zero. This does not establish a fresh-versus-original attempt effect or equivalence. New unauthorized changes were 0/86 versus 2/86; these are distinct outcomes. All eight fresh-agent cells had zero new unauthorized changes.
+
+Environment retention and all-retained versus all-removed comparisons have positive bootstrap intervals but conservative intervals include zero. Clearing environment changes also clears legitimate progress; this manipulation does not isolate protected-record history. The zero queue contrast averages over many checkpoints with no queue, so it does not establish queue irrelevance. The nonzero nominal note contrast cannot be interpreted as a note effect because no notes were present; runtime generation variability remains unisolated.
+
+Fresh-agent completion ranged from 67.44% to 73.26%, compared with 95.35% for original continuations. No new protected change does not mean earlier harm was repaired, and unauthorized no-op attempts remain violations. Zero-event cells have a one-sided 95% task-event upper bound of 3.42% within their finite observation budget.
+
+Evidence: `results/confirmation-001/ministral-replacement-natural/{analysis.json,audit.json,diagnostics.json,manifest.json,schedule.json,summary.jsonl,episodes/}` and `ministral-natural-replacement-selection-review.json`. Independent branch-state, prompt and outcome reviews remain pending.

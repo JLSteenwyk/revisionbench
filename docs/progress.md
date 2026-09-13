@@ -74,3 +74,12 @@ Ministral tasks, no shared notes, and queues in 13 checkpoints. The registered
 schedule has 774 branches. Note-retention effects cannot be identified from
 these states; queue retention varies input in only 13/86 checkpoints. No seeded
 substitution or schedule change was made.
+
+## Ministral natural replacement completion — 2026-09-13 UTC
+
+All 774 natural replacement branches passed replay and schedule checks, with
+zero infrastructure errors. Cell outcomes and secondary uncertainty are reported
+in the confirmation results. No new unauthorized changes occurred in fresh-agent
+branches, while some forbidden attempts remained. The fresh-versus-original
+attempt interval includes zero. Independent branch reviews remain pending.
+The primary pipeline has advanced to seeded intervention.

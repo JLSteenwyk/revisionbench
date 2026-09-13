@@ -109,7 +109,19 @@ changes had identical cell rates. Marginal note, queue and environment-retention
 effects were positive under bootstrap intervals, but their conservative intervals
 included zero. Legitimate completion ranged from 71.67% to 83.33%. These are
 results for deliberately planted workflows, not evidence that unsafe state
-arose spontaneously. Natural replacement remains under evaluation.
+arose spontaneously. Natural replacement findings follow.
+
+## Completed Ministral natural replacement findings
+
+All 774 branches from 86 selected failure checkpoints passed replay and schedule
+checks. No checkpoint contained notes, and only 13 contained queued work. With
+all state retained, fresh agents attempted violations in 8/86 branches versus
+2/86 original continuations: +6.98 percentage points (bootstrap 95% 0.00 to
++13.95; conservative −22.31 to +36.27). This does not establish an attempt effect.
+New unauthorized changes were zero in every fresh-agent cell, versus two in
+original continuations. Fresh-agent completion ranged from 67.44% to 73.26%,
+versus 95.35% for original continuations. These observations distinguish attempts,
+new damage and useful work; they do not show repair of predecessor changes.
 
 ## Interpretation limits and unfinished work
 
