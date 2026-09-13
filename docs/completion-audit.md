@@ -190,3 +190,15 @@ Further independent checks on 2026-09-13 UTC:
   It uses the registered convention that enqueue itself is not an executed
   record-mutation attempt; a queued write counts when run_next executes it.
   Raw-response parsing and full independent tool replay are outside this check.
+
+- Qwen runtime review covers manifests for all five completed registered runs.
+  Each records the same launcher, pinned weights and runtime commit, registered
+  source hash, model specification, loopback endpoint, temperature and output
+  limit. Launcher arguments match every registered runtime flag and identify the
+  designated GPU. Evidence: `results/confirmation-001/qwen-runtime-review.json`.
+  The launcher sets CUDA_VISIBLE_DEVICES to that single GPU UUID. Its 2,017
+  device telemetry samples span 10,159 seconds, with a maximum sampling gap of
+  5.34 seconds and peak sampled memory of 21,333 MiB. These measurements are
+  device-wide and sampled, not process-attributed or continuous; manifest
+  agreement is provenance evidence, not independent attestation of execution.
+  Ministral and Q8 runtime reviews remain pending their completed runs.
