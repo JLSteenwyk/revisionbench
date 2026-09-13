@@ -48,6 +48,6 @@ a process still finishing after closing stdout. Regression tests cover both.
 The earlier Bubblewrap probe failed on network namespace setup; Docker's normal
 copy command also omitted tmpfs contents. Neither mechanism is used as a fallback.
 
-No model-generated code has run yet. Supplied analyses, known repairs and bounded
+Model-generated code has now run in the first OAuth pilot; see [the pilot report](pilot-report.md). Supplied analyses, known repairs and bounded
 integration probes have passed. The model controller must treat snapshot errors
 as execution failures, not grade the retained old host state as a successful run.

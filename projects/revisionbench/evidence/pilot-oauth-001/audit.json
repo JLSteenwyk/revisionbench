@@ -1,0 +1,15 @@
+{
+  "audit_passed": true,
+  "config_sha256": "ecbf5ac9e04bad49d18e1a1835123a9c099ae6648ad40d307040a86b0985052a",
+  "checks": {
+    "trials": 18,
+    "model_calls": 77,
+    "sandbox_executions": 35,
+    "artifact_checks": 108,
+    "protocol_errors": 8,
+    "successes": 18,
+    "failures": {}
+  },
+  "unique_ephemeral_sessions": 77,
+  "scope": "Frozen source/config/plan, complete trial accounting, fresh sessions, declared feedback chain, budgets, protected inputs, final artifact hashes and independent regrading of all recorded successes."
+}

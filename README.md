@@ -4,8 +4,8 @@ When scientific inputs or requirements change, should an AI agent repair the
 existing analysis or rebuild it? RevisionBench will compare complete correction
 reliability, preservation of unaffected results, and computational cost.
 
-**Status: executable development prototype. No model comparison or confirmatory
-study has been run. Novelty and broader task feasibility remain under review.**
+**Status: first OAuth feasibility pilot complete. All 18 trials passed, showing
+a ceiling in these calibration tasks. No confirmatory study or novelty claim.**
 
 ## Working development fixtures
 
@@ -44,8 +44,11 @@ REVISIONBENCH_DOCKER_TESTS=1 python -m unittest discover -s revisionbench_tests 
 
 Use a new output directory each time. Execution has CPU, memory, process, total-storage, inode,
 per-file, time and captured-output limits. See the [execution scope](projects/revisionbench/execution.md)
-for the supervisor trust boundary and validation. Eighteen unit/integration tests
-pass. No model-generated code has run yet.
+for the supervisor trust boundary and validation. All 31 unit/integration tests
+pass. The [model runner](projects/revisionbench/runner.md) supports the official
+Codex CLI with an existing ChatGPT OAuth login and a separate loopback-only local adapter.
+The [first pilot report](projects/revisionbench/pilot-report.md) explains the results
+and why these tasks need stronger distinctions before scaling.
 
 ## Research documents
 
@@ -53,7 +56,9 @@ pass. No model-generated code has run yet.
 - [Design questions and controls](projects/revisionbench/design.md)
 - [Closest-work assessment](projects/revisionbench/literature.md)
 - [Latest fixture validation](projects/revisionbench/evidence/two-workflow-validation.json)
-- [Test results](projects/revisionbench/evidence/tests-002.txt)
+- [First model pilot and interpretation](projects/revisionbench/pilot-report.md)
+- [Model runner and OAuth setup](projects/revisionbench/runner.md)
+- [Latest test results](projects/revisionbench/evidence/pilot-oauth-001/development/tests-final.txt)
 - [Data provenance and license](revisionbench/data/provenance.json)
 
 The evaluator checks a declared output contract and specified claims, not arbitrary

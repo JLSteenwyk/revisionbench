@@ -1,6 +1,6 @@
 # RevisionBench: repair versus rebuild after scientific corrections
 
-Status: executable development fixture validated; literature and broader feasibility assessment ongoing. No model trials or confirmatory experiments registered or run.
+Status: first OAuth feasibility pilot complete; all 18 trials passed. Literature and broader feasibility assessment remain ongoing. No confirmatory experiment or novelty claim. See the [pilot report](pilot-report.md).
 
 Question: when an upstream fact or dataset changes, when is repairing an existing
 analysis more reliable and less costly than rebuilding it from corrected inputs?
@@ -44,17 +44,19 @@ These are relevant precedents, not evidence that our proposed comparison is nove
 The root `revisionbench` package prepares a pinned public-data analysis, applies
 corrections/controls across grouped summaries and OLS, executes known baselines in Docker, and grades five
 output artifacts plus input integrity with an independent numerical oracle.
-Eighteen unit/integration tests pass, including stale figures, wrong claims, damage
+Thirty-one unit/integration tests pass, including stale figures, wrong claims, damage
 to unaffected counts, forbidden output file types, network/host isolation, timeouts
 and output limits. Evidence and commands are linked in the root README.
 
-Next: resolve the closest-work comparison, add different workflow structures,
-connect the model controller to the bounded execution layer, and define matched
-inference/tool budgets before a small model pilot. Simply rerunning the supplied analysis
-already solves the data-only case; this baseline must remain in the study.
+The [model runner](runner.md) now supplies frozen budgets, isolated execution,
+OAuth and loopback adapters, complete transcripts and resumable accounting.
+Next: review the pilot ceiling, resolve the closest-work comparison, and define
+different workflow structures before further experiments. Simply rerunning the
+supplied analysis already solves the data-only case; retain this baseline.
 
 Storage and inode limits are now implemented and validated. Eighteen matched
 strategy workspaces can be prepared reproducibly, with identical prior information
-and explicit contracts. These are calibration fixtures on one dataset. Model
-inference remains pending; the most recent GPU inspection found other workloads,
-which were left alone.
+and explicit contracts. These are calibration fixtures on one dataset. The first
+pilot used hosted inference through the existing ChatGPT OAuth subscription and
+local Docker execution. Other GPU workloads were left alone; no open-weight model
+pilot has been run.

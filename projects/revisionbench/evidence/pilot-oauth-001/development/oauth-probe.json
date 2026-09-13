@@ -1,0 +1,11 @@
+{
+  "category": "infrastructure_failure",
+  "message": "Codex invocation failed; see trusted receipt",
+  "receipt": {
+    "stdout": "",
+    "stderr": "Error loading config.toml: model_providers contains reserved built-in provider IDs: `openai`. Built-in providers cannot be overridden. Rename your custom provider (for example, `openai-custom`).\nin `model_providers`\n\n",
+    "exit_code": 1,
+    "termination": null,
+    "wall_seconds": 0.25927925179712474
+  }
+}

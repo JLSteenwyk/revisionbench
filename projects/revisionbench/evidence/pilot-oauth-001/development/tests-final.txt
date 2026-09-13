@@ -1,0 +1,36 @@
+test_repair_rebuild_information_and_state (test_regression.MatchedBranchTests) ... ok
+test_hand_calculated_linear_fit (test_regression.RegressionOracleTests) ... ok
+test_unit_change_transforms_slope_preserves_predictions_and_counts (test_regression.RegressionOracleTests) ... ok
+test_candidate_cannot_write_input_or_supervisor_pipe (test_revisionbench.DockerIntegrationTests) ... ok
+test_closed_stdout_does_not_end_execution_and_background_is_stopped (test_revisionbench.DockerIntegrationTests) ... ok
+test_sandbox_has_no_host_mount_or_network (test_revisionbench.DockerIntegrationTests) ... ok
+test_special_output_rejects_snapshot_without_changing_host (test_revisionbench.DockerIntegrationTests) ... ok
+test_stale_figure_is_not_hidden_by_correct_summary (test_revisionbench.DockerIntegrationTests) ... ok
+test_timeout_and_output_limit (test_revisionbench.DockerIntegrationTests) ... ok
+test_total_storage_and_inode_limits (test_revisionbench.DockerIntegrationTests) ... ok
+test_wrong_claim_and_unaffected_count_damage_are_detected (test_revisionbench.DockerIntegrationTests) ... ok
+test_corrected_data_and_requirement_are_distinct (test_revisionbench.OracleTests) ... ok
+test_mean_median_missingness_and_counts (test_revisionbench.OracleTests) ... ok
+test_missing_outputs_are_failures (test_revisionbench.OracleTests) ... ok
+test_symlinks_and_special_files_rejected (test_revisionbench.OracleTests) ... ok
+test_hosted_urls_and_redirects_rejected (test_runner.AdapterTests) ... ok
+test_local_request_roundtrip_no_credentials (test_runner.AdapterTests) ... ok
+test_no_key_proxy_or_parent_session_inheritance (test_runner.AdapterTests) ... ok
+test_oauth_rejects_api_login_and_unexpected_tools (test_runner.AdapterTests) ... ok
+test_process_timeout_output_and_eof_limits (test_runner.AdapterTests) ... ok
+test_execution_budget_protected_inputs_and_access_failures (test_runner.RunnerTests) ... ok
+test_execution_cannot_start_without_cleanup_time (test_runner.RunnerTests) ... ok
+test_feedback_excludes_hidden_grading (test_runner.RunnerTests) ... ok
+test_invalid_snapshot_never_graded_and_attempt_preserved (test_runner.RunnerTests) ... ok
+test_persisted_credentials_are_redacted (test_runner.RunnerTests) ... ok
+test_reads_reject_escape_symlinks_and_budgets (test_runner.RunnerTests) ... ok
+test_resume_preserves_interrupted_trial_and_rejects_configuration_drift (test_runner.RunnerTests) ... ok
+test_turn_budget_counts_bad_actions_and_never_retries (test_runner.RunnerTests) ... ok
+test_budget_and_receipt_disagreement_rejected (test_snapshot.SnapshotValidationTests) ... ok
+test_invalid_members_do_not_modify_workspace (test_snapshot.SnapshotValidationTests) ... ok
+test_valid_snapshot_preserves_deletions_and_new_files (test_snapshot.SnapshotValidationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 16.625s
+
+OK

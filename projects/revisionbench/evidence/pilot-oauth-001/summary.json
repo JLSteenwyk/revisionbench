@@ -1,0 +1,496 @@
+{
+  "model": {
+    "adapter": "codex_oauth",
+    "model": "gpt-5.6-luna",
+    "effort": "low",
+    "client_version": "codex-cli 0.154.0",
+    "authentication": "existing ChatGPT login",
+    "disabled_features": [
+      "apply_patch_preserve_line_endings",
+      "apply_patch_streaming_events",
+      "apps",
+      "artifact",
+      "auth_elicitation",
+      "background_paginated_rollout_migration",
+      "bedrock_setup_wizard",
+      "browser_use",
+      "browser_use_external",
+      "browser_use_full_cdp_access",
+      "chronicle",
+      "code_mode",
+      "code_mode_host",
+      "code_mode_interrupt",
+      "code_mode_only",
+      "code_mode_prewarm",
+      "compaction_image_budget",
+      "computer_use",
+      "concurrent_reasoning_summaries",
+      "content_item_kinds",
+      "context_management",
+      "current_time_reminder",
+      "cwd_relative_turn_diffs",
+      "default_mode_request_user_input",
+      "deferred_executor",
+      "deferred_tool_world_state",
+      "enable_mcp_apps",
+      "enable_request_compression",
+      "exec_permission_approvals",
+      "executed_tool_call_metadata",
+      "executor_capability_discovery",
+      "external_agent_memory_import",
+      "fast_mode",
+      "goals",
+      "guardian_approval",
+      "guardian_enhanced_node_repl_transcripts",
+      "guardian_ext",
+      "guardian_node_repl_transcript_images",
+      "guardian_reuse_parent_compaction",
+      "guardianv2",
+      "guardianv2.thread_context",
+      "hooks",
+      "image_generation",
+      "image_resize_notice",
+      "in_app_browser",
+      "in_app_chat",
+      "in_app_dictation",
+      "in_app_local_automation",
+      "in_app_updates",
+      "local_thread_store_compression",
+      "mcp_2026_07_28",
+      "mcp_oauth_refresh_coordination",
+      "memories",
+      "mentions_v2",
+      "multi_agent",
+      "multi_agent_v2",
+      "network_proxy",
+      "non_prefixed_mcp_tool_names",
+      "omit_app_server_notification_media",
+      "personality",
+      "plugin_sharing",
+      "plugins",
+      "powershell_shell_version",
+      "prevent_idle_sleep",
+      "psp",
+      "reasoning_effort_override",
+      "recommended_plugins",
+      "remote_compaction_v2",
+      "remote_plugin",
+      "request_permissions_tool",
+      "respect_system_proxy",
+      "retain_client_developer_messages",
+      "rollout_budget",
+      "runtime_metrics",
+      "secret_auth_storage",
+      "shell_snapshot",
+      "shell_snapshot_v2",
+      "shell_tool",
+      "shell_zsh_fork",
+      "skill_mcp_dependency_install",
+      "skill_search",
+      "skip_host_skill_discovery",
+      "sleep_tool",
+      "standalone_web_search",
+      "step_model_switching",
+      "terminal_visualization_instructions",
+      "token_budget",
+      "tool_call_mcp_elicitation",
+      "tool_suggest",
+      "transcript_v2",
+      "unbounded_connection_retries",
+      "unified_exec",
+      "unified_exec_tty",
+      "unified_image_budget",
+      "use_agent_identity",
+      "view_image",
+      "windows_sandbox_service",
+      "workspace_dependencies",
+      "worktrees",
+      "write_stdin_approval"
+    ],
+    "native_tools": "disabled; deny-all filesystem and network backstop",
+    "temperature": null,
+    "seed": null,
+    "max_output_tokens": null
+  },
+  "recorded_trials": 18,
+  "planned_trials": 18,
+  "strategies": {
+    "repair": {
+      "trials": 6,
+      "successful": 6,
+      "statuses": {
+        "success": 6
+      },
+      "artifact_checks": {
+        "conclusions": {
+          "passed": 6,
+          "graded": 6
+        },
+        "figure_data_and_title": {
+          "passed": 6,
+          "graded": 6
+        },
+        "fit": {
+          "passed": 3,
+          "graded": 3
+        },
+        "input_preserved": {
+          "passed": 6,
+          "graded": 6
+        },
+        "predictions": {
+          "passed": 3,
+          "graded": 3
+        },
+        "sample_counts": {
+          "passed": 6,
+          "graded": 6
+        },
+        "summary": {
+          "passed": 3,
+          "graded": 3
+        },
+        "table": {
+          "passed": 3,
+          "graded": 3
+        }
+      },
+      "model_calls": 24,
+      "requested_actions": {
+        "read": 8,
+        "finish": 6,
+        "write": 5,
+        "run": 5
+      },
+      "sandbox_executions": 11,
+      "median_elapsed_seconds": 31.51869899209123,
+      "usage_totals": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 32256,
+        "input_tokens": 234384,
+        "output_tokens": 4791,
+        "reasoning_output_tokens": 1133
+      },
+      "usage_available_calls": 24,
+      "unaffected_byte_comparisons": [
+        {
+          "case": "unchanged",
+          "workflow": "summary",
+          "outputs": {
+            "sample_counts.json": {
+              "byte_identical": true
+            },
+            "figure.svg": {
+              "byte_identical": true
+            },
+            "summary.json": {
+              "byte_identical": true
+            },
+            "conclusions.json": {
+              "byte_identical": true
+            },
+            "table.csv": {
+              "byte_identical": true
+            }
+          }
+        },
+        {
+          "case": "median_requirement",
+          "workflow": "summary",
+          "outputs": {
+            "sample_counts.json": {
+              "byte_identical": true
+            }
+          }
+        },
+        {
+          "case": "unchanged",
+          "workflow": "regression",
+          "outputs": {
+            "fit.json": {
+              "byte_identical": true
+            },
+            "sample_counts.json": {
+              "byte_identical": true
+            },
+            "predictions.csv": {
+              "byte_identical": false
+            },
+            "figure.svg": {
+              "byte_identical": false
+            },
+            "conclusions.json": {
+              "byte_identical": true
+            }
+          }
+        },
+        {
+          "case": "flipper_cm",
+          "workflow": "regression",
+          "outputs": {
+            "sample_counts.json": {
+              "byte_identical": true
+            }
+          }
+        }
+      ]
+    },
+    "rebuild": {
+      "trials": 6,
+      "successful": 6,
+      "statuses": {
+        "success": 6
+      },
+      "artifact_checks": {
+        "conclusions": {
+          "passed": 6,
+          "graded": 6
+        },
+        "figure_data_and_title": {
+          "passed": 6,
+          "graded": 6
+        },
+        "fit": {
+          "passed": 3,
+          "graded": 3
+        },
+        "input_preserved": {
+          "passed": 6,
+          "graded": 6
+        },
+        "predictions": {
+          "passed": 3,
+          "graded": 3
+        },
+        "sample_counts": {
+          "passed": 6,
+          "graded": 6
+        },
+        "summary": {
+          "passed": 3,
+          "graded": 3
+        },
+        "table": {
+          "passed": 3,
+          "graded": 3
+        }
+      },
+      "model_calls": 29,
+      "requested_actions": {
+        "read": 11,
+        "write": 6,
+        "run": 6,
+        "finish": 6
+      },
+      "sandbox_executions": 12,
+      "median_elapsed_seconds": 32.74317981651984,
+      "usage_totals": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 48384,
+        "input_tokens": 273726,
+        "output_tokens": 5162,
+        "reasoning_output_tokens": 1023
+      },
+      "usage_available_calls": 29,
+      "unaffected_byte_comparisons": [
+        {
+          "case": "unchanged",
+          "workflow": "summary",
+          "outputs": {
+            "sample_counts.json": {
+              "byte_identical": true
+            },
+            "figure.svg": {
+              "byte_identical": false
+            },
+            "summary.json": {
+              "byte_identical": true
+            },
+            "conclusions.json": {
+              "byte_identical": true
+            },
+            "table.csv": {
+              "byte_identical": false
+            }
+          }
+        },
+        {
+          "case": "median_requirement",
+          "workflow": "summary",
+          "outputs": {
+            "sample_counts.json": {
+              "byte_identical": true
+            }
+          }
+        },
+        {
+          "case": "unchanged",
+          "workflow": "regression",
+          "outputs": {
+            "fit.json": {
+              "byte_identical": true
+            },
+            "sample_counts.json": {
+              "byte_identical": true
+            },
+            "predictions.csv": {
+              "byte_identical": true
+            },
+            "figure.svg": {
+              "byte_identical": false
+            },
+            "conclusions.json": {
+              "byte_identical": true
+            }
+          }
+        },
+        {
+          "case": "flipper_cm",
+          "workflow": "regression",
+          "outputs": {
+            "sample_counts.json": {
+              "byte_identical": true
+            }
+          }
+        }
+      ]
+    },
+    "dependency_repair": {
+      "trials": 6,
+      "successful": 6,
+      "statuses": {
+        "success": 6
+      },
+      "artifact_checks": {
+        "conclusions": {
+          "passed": 6,
+          "graded": 6
+        },
+        "figure_data_and_title": {
+          "passed": 6,
+          "graded": 6
+        },
+        "fit": {
+          "passed": 3,
+          "graded": 3
+        },
+        "input_preserved": {
+          "passed": 6,
+          "graded": 6
+        },
+        "predictions": {
+          "passed": 3,
+          "graded": 3
+        },
+        "sample_counts": {
+          "passed": 6,
+          "graded": 6
+        },
+        "summary": {
+          "passed": 3,
+          "graded": 3
+        },
+        "table": {
+          "passed": 3,
+          "graded": 3
+        }
+      },
+      "model_calls": 24,
+      "requested_actions": {
+        "read": 7,
+        "write": 5,
+        "run": 6,
+        "finish": 6
+      },
+      "sandbox_executions": 12,
+      "median_elapsed_seconds": 27.992261865525506,
+      "usage_totals": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 34048,
+        "input_tokens": 253407,
+        "output_tokens": 4343,
+        "reasoning_output_tokens": 944
+      },
+      "usage_available_calls": 24,
+      "unaffected_byte_comparisons": [
+        {
+          "case": "unchanged",
+          "workflow": "summary",
+          "outputs": {
+            "sample_counts.json": {
+              "byte_identical": true
+            },
+            "figure.svg": {
+              "byte_identical": false
+            },
+            "summary.json": {
+              "byte_identical": true
+            },
+            "conclusions.json": {
+              "byte_identical": true
+            },
+            "table.csv": {
+              "byte_identical": true
+            }
+          }
+        },
+        {
+          "case": "median_requirement",
+          "workflow": "summary",
+          "outputs": {
+            "sample_counts.json": {
+              "byte_identical": true
+            }
+          }
+        },
+        {
+          "case": "unchanged",
+          "workflow": "regression",
+          "outputs": {
+            "fit.json": {
+              "byte_identical": true
+            },
+            "sample_counts.json": {
+              "byte_identical": true
+            },
+            "predictions.csv": {
+              "byte_identical": false
+            },
+            "figure.svg": {
+              "byte_identical": false
+            },
+            "conclusions.json": {
+              "byte_identical": true
+            }
+          }
+        },
+        {
+          "case": "flipper_cm",
+          "workflow": "regression",
+          "outputs": {
+            "sample_counts.json": {
+              "byte_identical": true
+            }
+          }
+        }
+      ]
+    }
+  },
+  "statuses": {
+    "success": 18
+  },
+  "separately_billed_inference_used": false,
+  "dollar_cost": null,
+  "gpu_usage": null,
+  "peak_client_memory": null,
+  "limitations": [
+    "Six calibration cases across two workflows on one dataset; one model and one trial per cell.",
+    "No significance tests, broad superiority, novelty or publication-readiness claims.",
+    "Oracle dependency map is simple and author-supplied; rebuild can reuse prior code.",
+    "Fresh stateless CLI invocation per model turn; earlier visible conversation is replayed.",
+    "Provider-side sampling and snapshot version are not pinned; hosted replay is not guaranteed identical.",
+    "Byte identity is a stricter diagnostic than semantic correctness; sample_counts grading checks semantics.",
+    "Elapsed time includes client startup, authentication, provider queueing, inference and sandbox execution.",
+    "Token counts reflect reported usage, including repeated context; cached/reasoning tokens are subsets, not extra totals."
+  ]
+}
