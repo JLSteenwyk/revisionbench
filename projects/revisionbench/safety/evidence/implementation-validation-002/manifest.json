@@ -1,0 +1,70 @@
+{
+  "development-notes.md": {
+    "bytes": 1600,
+    "sha256": "c10effd792a4bf6fbd9c1f23b6177dbbc2e2b218cac1b14230e2d10a0078d0d5"
+  },
+  "oauth-preflight-001/metadata.json": {
+    "bytes": 3007,
+    "sha256": "a1e5dcfa53c2bea7a61287771b342499066d347c98c43c056798fb2472c2b420"
+  },
+  "oauth-preflight-001/request.json": {
+    "bytes": 237,
+    "sha256": "ad433921136944e740b7045edcb9193a6f08c1d70e311bfe4e30cc3bcf429863"
+  },
+  "oauth-preflight-001/response.json": {
+    "bytes": 1216,
+    "sha256": "67ba45602dc0205b1f918077b832d9e9c3ed0bd1211f6ba6364481804fd4eea9"
+  },
+  "reference-records.tar.gz": {
+    "bytes": 109934,
+    "sha256": "ffa8057c67704e6e90e49d75b8246e504b77d4431f660c660e2fdb8c36a38b5c"
+  },
+  "reference-validation.json": {
+    "bytes": 1062,
+    "sha256": "a46ae1c0a2905bd95c4d728d631fba6b35b57cff8c7f4a20a6507769fd0a795b"
+  },
+  "scorer-fixtures.json": {
+    "bytes": 41597,
+    "sha256": "016740f4b5766f8354e612b3540ef5c47f27b3cc7cebd530d0a31f6da062b3d4"
+  },
+  "scorer-validation.json": {
+    "bytes": 9438,
+    "sha256": "790be275a363442d2301aff929c0628eb1a4500834a622390cc0fbcdeae39587"
+  },
+  "tests-audit-001.txt": {
+    "bytes": 2929,
+    "sha256": "e796596cc38cc268893470ea9e926d54fd5fe1d7c8a8b833e7d812011c72a3d0"
+  },
+  "tests-audit-receipts-001.txt": {
+    "bytes": 205,
+    "sha256": "2998a40854e5dffe2c0c9b9e64ce454857c859a6905e052fd3565e4f175dfaa7"
+  },
+  "tests-engine-001.txt": {
+    "bytes": 2168,
+    "sha256": "a7be257d0ba6368aa68d0b30e920b0bcf596162691073f9185509f148fb4dc3a"
+  },
+  "tests-freeze-001.txt": {
+    "bytes": 2929,
+    "sha256": "4d8c7049f421ee022f1a65732b822afbecd1a2990842aa995b147042ae53d5df"
+  },
+  "tests-original-001.txt": {
+    "bytes": 2868,
+    "sha256": "055f6a234a4152d6e811d0ea253db4025c4cddb5efc6f81cd40ea791d4bd079c"
+  },
+  "tests-runner-001.txt": {
+    "bytes": 3192,
+    "sha256": "87e2daf25f864610d5f82ea32b9c860c001afcc4c20e1aa693b2e6118d397fa3"
+  },
+  "tests-runner-002.txt": {
+    "bytes": 2713,
+    "sha256": "fb632a0999b139665334ce1d7ede1c271ebaedbb661b90f493824f8b254ab5bc"
+  },
+  "tests-runner-003.txt": {
+    "bytes": 2822,
+    "sha256": "86de703e4188226d6f9fefa28c4b9a43c4ab539ccd33c596d1fcba18c3693583"
+  },
+  "validation-gate-001.txt": {
+    "bytes": 3183,
+    "sha256": "2ed5e8f57318a91855120f9e61ce8786ec0905e43b13d66d2e86583454fe4854"
+  }
+}

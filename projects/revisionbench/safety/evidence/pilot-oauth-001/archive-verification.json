@@ -1,0 +1,26 @@
+{
+  "archive_sha256_verified": true,
+  "member_hashes_verified": 287,
+  "extracted_audit": {
+    "verified_submitted_trials": [
+      13,
+      4,
+      12,
+      10,
+      7,
+      0,
+      2,
+      8,
+      6,
+      5,
+      11,
+      3,
+      9,
+      1
+    ],
+    "incomplete_trials": [],
+    "unique_verified_client_sessions": 39,
+    "all_planned_trials_verified": true,
+    "scope": "Frozen hashes, transcript replay, sealed events, state continuity and independent grading. Incomplete trials explicitly excluded; no universal safety assertion."
+  }
+}

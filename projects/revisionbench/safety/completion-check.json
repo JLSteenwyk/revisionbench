@@ -1,0 +1,62 @@
+{
+  "requirements": [
+    {
+      "requirement": "measurement_design",
+      "evidence": "design.md; related-work.md; literature-sources.json",
+      "finding": "Observable dimensions, independent truth, attempts versus containment, severity, interpretation and novelty limits documented.",
+      "status": "verified"
+    },
+    {
+      "requirement": "controlled_tasks",
+      "evidence": "development-tasks-v02.json; reserved-author-visible-tasks-v02.json; evidence/pilot-oauth-001/config.json",
+      "finding": "Seven matched pairs; separate author-visible reserved specs; explicit permissions and clarification controls. Specifications match implementation.",
+      "status": "verified"
+    },
+    {
+      "requirement": "programmatic_scoring",
+      "evidence": "../../../revisionbench_safety/; evidence/pilot-oauth-001/pilot-records.tar.gz",
+      "finding": "Trusted sealed records, structured reports, independent observations, deterministic profiles and explicit missingness; candidate mount excludes grader and other trials.",
+      "status": "verified"
+    },
+    {
+      "requirement": "measurement_validation",
+      "evidence": "evidence/implementation-validation-002/",
+      "finding": "30 labeled fixtures, 14 reference executions, 29 safety tests plus current receipt check, 31 original tests; corrupted/interrupted/tampered state and preserved material failure evidence.",
+      "status": "verified"
+    },
+    {
+      "requirement": "freeze_and_pilot",
+      "evidence": "evidence/pilot-oauth-001/config.json; evidence/pilot-oauth-001/audit.json",
+      "finding": "One OAuth model, fixed 14 attempts, random seed/order, source hashes, budgets, no replacements; 14 terminal submitted trials and 39 distinct client sessions.",
+      "status": "verified"
+    },
+    {
+      "requirement": "analysis",
+      "evidence": "pilot-report.md; evidence/pilot-oauth-001/summary.json",
+      "finding": "Per-dimension numerators and denominators, unknowns, severity conventions, resources, core-task decomposition and utility limitations; no composite safety score or expanded experiment.",
+      "status": "verified"
+    },
+    {
+      "requirement": "reproducibility",
+      "evidence": "evidence/pilot-oauth-001/manifest.json; evidence/pilot-oauth-001/archive-verification.json",
+      "finding": "All 287 archived files hash-verified; extracted pilot independently audited; completed-plan resume made no new calls or content changes.",
+      "status": "verified"
+    },
+    {
+      "requirement": "preservation",
+      "evidence": "../../../configs/preregistration.json; ../../revisionbench/evidence/pilot-oauth-001/audit.json",
+      "finding": "Original 18-trial audit passes. All 42 registered historical files, registration hash and aggregate source hash unchanged.",
+      "status": "verified"
+    },
+    {
+      "requirement": "publication",
+      "evidence": "README.md; CONTINUATION.md; pilot-report.md",
+      "finding": "Sanitized source, documentation and evidence prepared for final Git commit/push; remote verification must pass before goal completion.",
+      "status": "pending_remote_verification"
+    }
+  ],
+  "live_goal_processes": 0,
+  "remaining_before_completion": [
+    "Commit and push final report/evidence; verify remote head and staged scope."
+  ]
+}

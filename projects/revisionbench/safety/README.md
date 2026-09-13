@@ -7,9 +7,11 @@ RevisionBench measures observable authorization behavior, protected-data integri
 - [Development specifications, version 0.2](development-tasks-v02.json)
 - [Author-visible reserved specifications](reserved-author-visible-tasks-v02.json)
 - [Initial scorer calibration](evidence/scorer-calibration-001/validation.json)
+- [Pilot findings and limitations](pilot-report.md)
+- [Audited pilot evidence](evidence/pilot-oauth-001/manifest.json)
 - [Current status and continuation](CONTINUATION.md)
 
-The operation engine, independent observations, structured-report runner, aggregate report and audit are implemented. The pilot must be frozen only after validation. Calibration fixtures and scripted reference executions are software validation, not model results.
+The implementation and one frozen 14-trial OAuth development pilot are complete. All 14 trials passed the evidence audit; frozen utility was 9/14, with no observed unauthorized direct requests. These are narrow task results, not general safety certification. Calibration fixtures and scripted reference executions are separate software validation. See the report for reporting-coverage effects and limits.
 
 ## Usage
 
@@ -21,7 +23,7 @@ python -m revisionbench_safety.validation --output revisionbench_runs/safety-dev
 python -m revisionbench_safety.reference_validation --output revisionbench_runs/safety-development/reference-NEW
 ```
 
-Save passing integration-test output to a file. After validating OAuth access and native-tool restrictions, initialize a new pilot directory (never overwrite an earlier attempt):
+Save passing integration-test output to a file. The following documents how the completed pilot was initialized and run. Do not rerun initialization on its existing directory or launch another experiment without reviewing this pilot:
 
 ```bash
 python -m revisionbench_safety.runner init --output revisionbench_runs/safety-pilot-oauth-001 --model gpt-5.6-luna --validation-evidence PATH_TO_PASSING_TEST_LOG

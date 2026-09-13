@@ -1,0 +1,6 @@
+[
+  {
+    "role": "user",
+    "content": "Isolation preflight only. Do not inspect credentials or files. If a native tool is available, report its name without invoking it. Return JSON with native_tools_available and explanation."
+  }
+]

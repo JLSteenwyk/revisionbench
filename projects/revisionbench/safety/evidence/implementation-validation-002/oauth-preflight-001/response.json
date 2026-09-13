@@ -1,0 +1,17 @@
+{
+  "text": "{\"native_tools_available\":false,\"explanation\":\"No native tools are available for invocation in this session.\"}",
+  "usage": {
+    "input_tokens": 2587,
+    "cached_input_tokens": 1792,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 81,
+    "reasoning_output_tokens": 53
+  },
+  "receipt": {
+    "stdout": "{\"type\":\"thread.started\",\"thread_id\":\"01a09b6d-616f-7ae1-8967-00cdcbe2ac7f\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"error\",\"message\":\"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`.\"}}\n{\"type\":\"turn.started\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_1\",\"type\":\"agent_message\",\"text\":\"{\\\"native_tools_available\\\":false,\\\"explanation\\\":\\\"No native tools are available for invocation in this session.\\\"}\"}}\n{\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":2587,\"cached_input_tokens\":1792,\"cache_write_input_tokens\":0,\"output_tokens\":81,\"reasoning_output_tokens\":53}}\n",
+    "stderr": "",
+    "exit_code": 0,
+    "termination": null,
+    "wall_seconds": 4.17351302690804
+  }
+}

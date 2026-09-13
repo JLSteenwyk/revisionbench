@@ -1,26 +1,37 @@
-# Active objective and continuation
+# Completed objective and continuation
 
-Implement a programmatic safety profile, validate it, complete one small OAuth pilot and publish audited evidence. Goal remains active. The full user objective is `/home/bizon/.codex/attachments/9f3457c2-3eca-4179-ab82-95a388d40289/pasted-text-1.txt`.
+The requested implementation, validation, one small OAuth pilot, audited evidence and findings report are complete. Final repository publication verification is recorded in the accompanying completion check. The approximate three-day horizon was not a requirement to wait or expand the experiment.
 
-## Verified implementation
+## Completed work
 
-The separate `revisionbench_safety` package now contains task preparation, a trusted operation engine, sealed journals, independent observations and scorers, a bounded frozen runner, aggregate reporting, and a read-only audit. There are 14 development cases in seven matched pairs and two separate author-visible reserved specifications. Reserved cases have not been model-evaluated or used to tune the scorer.
+- Separate `revisionbench_safety` package: task preparation, trusted mediation and journals, independent scoring, bounded OAuth runner, reporting and audit. Original frozen packages remain unchanged.
+- Fourteen development cases across seven matched pairs. Two author-visible reserved specifications remain unprepared and untested by models; no blind-holdout claim.
+- Thirty manually labeled scorer fixtures and 14 author-scripted reference executions passed. All 29 safety tests, the additional receipt-audit check, and all 31 original tests passed. Failed development logs and the redaction fix are preserved.
+- One frozen `gpt-5.6-luna` OAuth pilot completed all 14 attempts with no replacement, access or infrastructure failure. There were 39 inference calls with unique ephemeral sessions, four sandbox executions, and one repaired protocol error. A separate OAuth preflight is recorded.
+- All 14 scores reproduce from sealed events and final workspaces. The 287-file archive was extracted and audited again. Completed-plan resumption made zero inference calls and changed no pilot file content.
+- Results: strict utility 9/14; no observed unauthorized requests or state changes; reporting 108 correct, one incomplete issue-list field and 31 unknown fields; two factual claims correct; both required clarifications conform. See `pilot-report.md` for the distinction between truthful uncertainty, task failure and safety behavior.
+- Historical correction-pilot audit passed; all 42 older registered file hashes and its aggregate source hash remain unchanged.
 
-All 29 safety tests pass; the additional receipt-audit test passes after extending it to reject native-tool events and reused client sessions. All 31 original tests pass. Thirty manually labeled scorer fixtures and 14 author-reference executions pass. These are software validation, not model findings. Logs and material fixes are in `evidence/implementation-validation-002/`; fuller disposable evidence is in `revisionbench_runs/safety-development/`.
+## Artifacts and exact commands
 
-The historical 18-trial correction pilot still passes its original audit. Original `revisionbench` Python files remain unchanged. Do not stage unrelated `artifacts/` or `results/`.
+Implementation freeze commit: `e422577`. Pilot configuration SHA-256: `7b6bccc0f4a9add127cb9dbeda2d4b13fac6227d23cb51b122d1c1da6d6d53dd`.
 
-## Pilot transition
+Published evidence: `projects/revisionbench/safety/evidence/pilot-oauth-001/`. Software validation, preserved failure logs, full reference-execution archive and OAuth preflight: `projects/revisionbench/safety/evidence/implementation-validation-002/`. Working originals remain in ignored `revisionbench_runs/`.
 
-OAuth preflight completed using `codex-cli 0.154.0`, existing ChatGPT login, and `gpt-5.6-luna`. The event stream showed disabled Code Mode failing closed and no native tool calls. This one infrastructure preflight is separate from task-trial accounting. Receipt and metadata: `revisionbench_runs/safety-development/oauth-preflight-001/`.
-
-Next: initialize `revisionbench_runs/safety-pilot-oauth-001` with `validation-gate-001.txt`, then run the frozen 14-case plan. Before repeating either command, inspect whether the directory and a live process already exist. Never restart based solely on a stale status note. No code changes after freeze; the runner rejects source drift.
+Read-only audit and offline report regeneration:
 
 ```bash
-python -m revisionbench_safety.runner init --output revisionbench_runs/safety-pilot-oauth-001 --model gpt-5.6-luna --validation-evidence revisionbench_runs/safety-development/validation-gate-001.txt
-python -m revisionbench_safety.runner run --output revisionbench_runs/safety-pilot-oauth-001 --model gpt-5.6-luna
 python -m revisionbench_safety.audit revisionbench_runs/safety-pilot-oauth-001
 python -m revisionbench_safety.report revisionbench_runs/safety-pilot-oauth-001
+python projects/revisionbench/audit_pilot.py revisionbench_runs/pilot-oauth-001
 ```
 
-After the pilot: verify idempotent resumption, audit scores and original-study invariants, package sanitized evidence with hashes, write a limitations-aware report and literature comparison, commit and push, and verify the remote head. Do not mark the goal complete before those deliverables are verified. No GPU workloads were started or stopped.
+Portable extraction/audit commands are in `pilot-report.md`. No new inference is needed. `package_evidence.py` packages only a terminal audited pilot into a new destination, under the runner lock, with per-file hashes and credential-pattern checking.
+
+## Processes, limitations and future work
+
+Pilot runner session `4331` returned exit code zero. OAuth preflight, initialization, test and push processes also finished. No process launched for this objective remains active. No GPU job or local model server was started or stopped. Revalidate live state before any future execution rather than relying on this note alone.
+
+No required implementation or pilot work remains. Research questions remain open: whether the reporting requirements measure task-relevant utility; whether the literal CSV-edit interface adds avoidable difficulty; how to observe internal code attempts reliably; and whether substantively different tasks yield useful generalization. No novelty or publication-level behavioral finding is established. Those are future studies, not missing observations to impute as safe. Do not change frozen scores or launch more models without review of this pilot.
+
+Do not stage unrelated `artifacts/` or `results/`. Credentials and model weights are excluded from published evidence.
